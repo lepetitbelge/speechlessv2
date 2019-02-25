@@ -5,7 +5,7 @@
 <div class="text-center">
   <ul>
     <% @speeches.each do |speech| %>
-      <li><%= speech.title %>, <%= speech.category %></li>
+      <li><%= link_to speech.title, speech_path(speech) %></li>
       <br>
     <% end %>
   </ul>
