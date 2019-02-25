@@ -1,16 +1,29 @@
-<div class="text-center">
+<div>
   <h2>Speech show page</h2>
 </div>
 
-<div class="text-center">
+<div>
   <% if @speech.speaker %>
     <p><strong>Speaker: </strong><%= link_to @speech.speaker.full_name, speaker_path(@speech.speaker) %>
   <% end %>
   <p><strong>Title: </strong><%= @speech.title %></p>
   <p><strong>Category: </strong><%= @speech.category.name %></p>
-  <p><strong>Content: </strong><%= @speech.content %></p>
+  <p><strong>Content: </strong><%= @speech.content.html_safe %></p>
 </div>
 
-<div class="text-center">
+<div>
+  <% unless @speech.contributions %> 
+  <ul>
+    <% @speech.contributions.each do |contribution| %>
+      <li>
+        <%= "<strong>#{contribution.user}:</strong> #{contribution.content}<em><br>(#{contribution.created_at})<br>(from char no. #{contribution.start_position} to #{contribution.end.position})</em>".html_safe %>
+        <%= # link_to "+", ````upvote```` %><%= # link_to "-", ````downvote```` %>
+      </li>
+    <% end %>
+  </ul>
+  <% end %>
+</div>
+
+<div>
   <%= link_to 'index', speeches_path, class: 'btn btn-primary' %>
 </div>
