@@ -9,14 +9,7 @@
 
 #destroy everything
 puts '~~~destroying database~~~'
-User.destroy_all
-Speech.destroy_all
-Speaker.destroy_all
-Contribution.destroy_all
-Comment.destroy_all
-Vote.destroy_all
-Category.destroy_all
-
+[Vote, Comment, Contribution, Speech, User, Speaker, Category].each(&:destroy_all)
 
 #our users
 puts '~~~creating users~~~'
@@ -46,7 +39,7 @@ User.create({
 end
 
 #categories
-%q[politics sports history antiquity fiction economics celebrities].each { |category| Category.create(name: category) }
+%w[politics sports history antiquity fiction economics celebrities].each { |category| Category.create(name: category) }
 
 #speakers
 10.times do
@@ -63,7 +56,7 @@ Speech.create({
   date: Faker::Date.backward,
   country: Faker::Address.country,
   city: Faker::Address.city,
-  category: 'history',
+  category: Category.find_by_name('history'),
   content: "How you, O Athenians, have been affected by my accusers, I cannot tell. But I know that they almost made me forget who I was, so persuasively did they speak. And yet they have hardly uttered a word of truth.
 But of the many falsehoods told by them, there was one which quite amazed me;--I mean when they said that you should be upon your guard and not allow yourselves to be deceived by the force of my eloquence. To say this, when they were certain to be detected as soon as I opened my lips and proved myself to be anything but a great speaker, did indeed appear to me most shameless--unless by the force of eloquence they mean the force of truth; for is such is their meaning, I admit that I am eloquent. But in how different a way from theirs! Well, as I was saying, they have scarcely spoken the truth at all; but from me you shall hear the whole truth: not, however, delivered after their manner in a set oration duly ornamented with words and phrases. No, by heaven! but I shall use the words and arguments which occur to me at the moment; for I am confident in the justice of my cause (Or, I am certain that I am right in taking this course.): at my time of life I ought not to be appearing before you, O men of Athens, in the character of a juvenile orator--let no one expect it of me. And I must beg of you to grant me a favour:--If I defend myself in my accustomed manner, and you hear me using the words which I have been in the habit of using in the agora, at the tables of the money-changers, or anywhere else, I would ask you not to be surprised, and not to interrupt me on this account. For I am more than seventy years of age, and appearing now for the first time in a court of law, I am quite a stranger to the language of the place; and therefore I would have you regard me as if I were really a stranger, whom you would excuse if he spoke in his native tongue, and after the fashion of his country:--Am I making an unfair request of you? Never mind the manner, which may or may not be good; but think only of the truth of my words, and give heed to that: let the speaker speak truly and the judge decide justly.
 And first, I have to reply to the older charges and to my first accusers, and then I will go on to the later ones. For of old I have had many accusers, who have accused me falsely to you during many years; and I am more afraid of them than of Anytus and his associates, who are dangerous, too, in their own way. But far more dangerous are the others, who began when you were children, and took possession of your minds with their falsehoods, telling of one Socrates, a wise man, who speculated about the heaven above, and searched into the earth beneath, and made the worse appear the better cause. The disseminators of this tale are the accusers whom I dread; for their hearers are apt to fancy that such enquirers do not believe in the existence of the gods. And they are many, and their charges against me are of ancient date, and they were made by them in the days when you were more impressible than you are now--in childhood, or it may have been in youth--and the cause when heard went by default, for there was none to answer. And hardest of all, I do not know and cannot tell the names of my accusers; unless in the chance case of a Comic poet. All who from envy and malice have persuaded you--some of them having first convinced themselves--all this class of men are most difficult to deal with; for I cannot have them up here, and cross-examine them, and therefore I must simply fight with shadows in my own defence, and argue when there is no one who answers. I will ask you then to assume with me, as I was saying, that my opponents are of two kinds; one recent, the other ancient: and I hope that you will see the propriety of my answering the latter first, for these accusations you heard long before the others, and much oftener.
@@ -128,7 +121,7 @@ Speech.create({
   date: Faker::Date.backward,
   country: Faker::Address.country,
   city: Faker::Address.city,
-  category: 'politics',
+  category: Category.find_by_name('politics'),
   content: "I am happy to join with you today in what will go down in history as the greatest demonstration for freedom in the history of our nation.
 Five score years ago, a great American, in whose symbolic shadow we stand today, signed the Emancipation Proclamation. This momentous decree came as a great beacon light of hope to millions of Negro slaves who had been seared in the flames of withering injustice. It came as a joyous daybreak to end the long night of their captivity.
 But one hundred years later, the Negro still is not free. One hundred years later, the life of the Negro is still sadly crippled by the manacles of segregation and the chains of discrimination. One hundred years later, the Negro lives on a lonely island of poverty in the midst of a vast ocean of material prosperity. One hundred years later, the Negro is still languished in the corners of American society and finds himself an exile in his own land. And so we've come here today to dramatize a shameful condition.
@@ -150,7 +143,7 @@ Speech.create({
   date: Faker::Date.backward,
   country: Faker::Address.country,
   city: Faker::Address.city,
-  category: 'history',
+  category: Category.find_by_name('history'),
   content: "My  fellow  Americans,  This  is  a great day for me  personally. You’re  very  smart to
 have  voted for me  because I’m going to  do  positive  things  for this  country,  starting
 with  this  mall  I’m looking out over.
@@ -216,7 +209,7 @@ Speech.create({
   date: Faker::Date.backward,
   country: Faker::Address.country,
   city: Faker::Address.city,
-  category: 'history',
+  category: Category.find_by_name('history'),
   content: "Before you discuss the resolution, let me place before you one or two things, I want you to understand two things very clearly and to consider them from the same point of view from which I am placing them before you. I ask you to consider it from my point of view, because if you approve of it, you will be enjoined to carry out all I say. It will be a great responsibility. There are people who ask me whether I am the same man that I was in 1920, or whether there has been any change in me. You are right in asking that question.
 Let me, however, hasten to assure that I am the same Gandhi as I was in 1920. I have not changed in any fundamental respect. I attach the same importance to non-violence that I did then. If at all, my emphasis on it has grown stronger. There is no real contradiction between the present resolution and my previous writings and utterances.
 Occasions like the present do not occur in everybody’s and but rarely in anybody’s life. I want you to know and feel that there is nothing but purest Ahimsa in all that I am saying and doing today. The draft resolution of the Working Committee is based on Ahimsa, the contemplated struggle similarly has its roots in Ahimsa. If, therefore, there is any among you who has lost faith in Ahimsa or is wearied of it, let him not vote for this resolution. Let me explain my position clearly. God has vouchsafed to me a priceless gift in the weapon of Ahimsa. I and my Ahimsa are on our trail today. If in the present crisis, when the earth is being scorched by the flames of Himsa and crying for deliverance, I failed to make use of the God given talent, God will not forgive me and I shall be judged unworthy of the great gift. I must act now. I may not hesitate and merely look on, when Russia and China are threatened.
@@ -231,7 +224,7 @@ Speech.create({
   date: Faker::Date.backward,
   country: Faker::Address.country,
   city: Faker::Address.city,
-  category: 'history',
+  category: Category.find_by_name('history'),
   content: "“Distinguished delegates, ladies and gentlemen, When I spoke here three years ago Israel stood alone among the nations. Of the nearly 200 countries that sit in this hall, only Israel openly opposed the nuclear deal with Iran. We oppose it because it threatens our future, even our very survival. We opposed it because the deal paved Iran’s path to a nuclear arsenal. And by lifting the sanctions, it fueled Iran’s campaign of carnage and conquest throughout the Middle East. We oppose it because the deal was based on a fundamental lie that Iran is not seeking to develop nuclear weapons. Now, Israel exposed that lie earlier this year. Last February, Israel conducted a daring raid on Iran’s secret atomic archive. We obtained over 100,000 documents and videos that had been stashed in vaults in an innocent-looking building in the heart of Tehran. In May, I presented a short summary of what we obtained to the international media. I provided hard evidence of Iran’s plans to build nuclear weapons and its plans to deceive the international community. Israel shared this information and more damning evidence that we found with members of the P5+1 and with the international atomic energy agency. Months have passed, the IAA has still not taken any actions. It has not posed a single question to Iran. It has not demanded to inspect a single new site discovered in that secret archive. So given this inaction, I decided to reveal today something else that we have shared with the IAA and with a few intelligence agencies. What I’m about to say has not been shared publicly before. Today I’m disclosing for the first time that Iran has another secret facility in Tehran. A secret atomic warehousec for storing massive amounts of equipment and material for Iran’s secret nuclear weapons program. In May we exposed the site of Iran’s secret atomic archive. It’s right here in the Shuabad Distrcit of Tehran. Today I’m revealing the site of a second facility: Iran’s secret atomic warehouse. It’s right here, in the Turkuzahbad Distrcit of Tehran. Just three miles away. Let me show you exactly what the secret atomic warehouse looks like. Here it is. You see, like the atomic archive it’s another innocent-looking compound. Now for those of you at home using Google Earth, this no longer secret atomic warehouse. You have the coordinates, you can try to get there. And for those of you who try to get there: It’s 100 meters from the rug-cleaning operation. By the way, i hear they do a fantastic job of cleaning rugs there. But by now they may be radioactive rags. This is the second secret site. Now countries with satellite capabilities may notice some increased activity on the alley in the days and weeks ahead.
 The people they see scurrying back and forth are Iranian officials desperately trying to finish the job of cleaning up that site. Because you see-- since we raided the atomic archive they’ve been busy cleaning up the atomic warehouse. Just last month they removed 15 kilograms of radioactive material. You know what they did with it? Those 15 kilograms of radioactive material, they had to get it out of this site so they took it out and they spread it around Tehran in an effort to hide the evidence. The endangered residents of Tehran may want to know that they can a geiger counter on Amazon for only 29.99$. As of today, that’s just four million Iranian reals.
 But we’ll get to that later, I’ll talk about the Iranian economy in a minute. They took this radioactive material and spread it around Tehran. Now the Iranian officials cleaning out that site still have a lot of work to do because they’ve had at least 15 ship containers, they’re gigantic, 15 ship containers full of nuclear-related equipment and material stored there. Now since each of those containers can hold 20 tons of material this means that this site contained as much as 300 tons of nuclear-related equipment and material. Right here. So, distinguished delegates, you have to ask yourself a question. Why did Iran keep a secret atomic archive and a secret atomic warehouse? Because after all, when South Africa and Libya, when they gave up their nuclear programs the first thing they did was to destroy both the archives and the material and equipment. And the answer to the question is simple: The reason Iran didn’t destroy its atomic archive and its atomic warehouse is because it hasn’t abandoned its goal to develop nuclear weapons. In fact, it planned to use both of these sites in a few years when the time would be right to break out to the atom bomb. But ladies and gentlemen, rest assured, that won’t happen. It won’t happen because what Iran hides Israel will find.
@@ -277,9 +270,10 @@ Ever since Abraham and Sarah made their journey to the promised land nearly 4,00
 #contributions with comments and votes
 Speech.all.each do |speech|
   5.times do
+    start_position = rand(1..speech.content.length/2)
     contribution = Contribution.create(
-      start_position: speech.content[rand(1..speech.length/2)],
-      end_position: speech.content[rand(start_position..speech.length)],
+      start_position: start_position,
+      end_position: rand(start_position..speech.content.length),
       speech_id: speech.id,
       user_id: User.all.sample.id,
       content: Faker::Lorem.paragraph
