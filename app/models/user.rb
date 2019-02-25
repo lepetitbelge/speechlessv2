@@ -7,4 +7,7 @@ class User < ApplicationRecord
   has_many :contributions
   has_many :comments
   has_many :votes
+
+  validates :username, presence: true
+  validates :admin, presence: true, default: false
 end

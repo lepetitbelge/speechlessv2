@@ -16,17 +16,20 @@ puts '~~~creating users~~~'
 User.create({
   username: 'Alfons',
   email: 'alfons@speechless.com',
-  password: '123456'
+  password: '123456',
+  admin: true
 })
 User.create({
   username: 'Chris',
   email: 'chris@speechless.com',
-  password: '123456'
+  password: '123456',
+  admin: true
 })
 User.create({
   username: 'David',
   email: 'david@speechless.com',
-  password: '123456'
+  password: '123456',
+  admin: true
 })
 
 #random users
