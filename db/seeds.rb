@@ -305,7 +305,7 @@ Speech.all.each do |speech|
       content: Faker::Lorem.paragraph
       )
     if contribution.persisted?
-      1.times do
+      rand(1..5).times do
         vote = Vote.create(
           value: 1,
           votable_type: 'contribution',
@@ -319,7 +319,7 @@ Speech.all.each do |speech|
           content: Faker::Lorem.sentence
           )
         if comment.persisted
-          1.times do
+          rand(1..5).times do
             vote = Vote.create(
               value: 1,
               votable_type: 'comment',
