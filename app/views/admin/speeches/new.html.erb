@@ -10,7 +10,7 @@
         <%= f.input :date %>
         <%= f.input :country %>
         <%= f.input :city %>
-        <%= f.input :category %>
+        <%= f.association :category %>
         <%= f.input :content %>
         <%= f.input :duration %>
         <%= f.submit 'Create', class: 'btn btn-primary', method: :post %>
@@ -20,5 +20,5 @@
 </div>
 
 <div class="text-center">
-  <%= link_to 'index', admin_speeches_path %>
+  <%= link_to 'index', admin_speeches_path, class: 'btn btn-primary' %>
 </div>

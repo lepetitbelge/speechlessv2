@@ -5,20 +5,20 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
-      <%= simple_form_for @speech do |f| %>
+      <%= simple_form_for @speech, url: admin_speech_path(@speech), method: :patch do |f| %>
         <%= f.input :title %>
         <%= f.input :date %>
-        <%= f.input :country %>
+        <%= f.country_select :country %>
         <%= f.input :city %>
-        <%= f.input :category %>
+        <%= f.association :category %>
         <%= f.input :content %>
         <%= f.input :duration %>
-        <%= f.submit 'Edit', class: 'btn btn-primary', method: :patch %>
+        <%= f.submit 'Edit', class: 'btn btn-primary' %>
       <% end %>
     </div>
   </div>
 </div>
 
 <div class="text-center">
-  <%= link_to 'index', admin_speeches_path %>
+  <%= link_to 'index', admin_speeches_path, class: 'btn btn-primary' %>
 </div>
