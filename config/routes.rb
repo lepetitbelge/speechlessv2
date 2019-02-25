@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'votes/upvote'
+  get 'votes/downvote'
   devise_for :users
   root to: 'pages#home'
 
