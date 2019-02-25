@@ -285,6 +285,7 @@ Speech.all.each do |speech|
       rand(1..5).times do
         vote = Vote.create(value: 1)
         vote.votable = contribution
+        vote.user = User.all.sample
       end
       3.times do
         comment = Comment.create(
