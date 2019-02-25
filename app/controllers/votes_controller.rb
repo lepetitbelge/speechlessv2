@@ -24,13 +24,6 @@ class VotesController < ApplicationController
       else
         puts "Save went awfully wrong"
       end
-    else
-      vote.first.value += new_value
-      if vote.update
-        "Update went well, we might render with AJAX"
-      else
-        "Update did not go awfully wrong, but value can't be greater than 1 or smaller than -1"
-      end
     end
   end
 
@@ -39,7 +32,7 @@ class VotesController < ApplicationController
 
   def update_vote
     @vote.value += new_value
-    if vote.update
+    if @vote.update
         "Update went well, we might render with AJAX"
       else
         "Update did not go awfully wrong, but value can't be greater than 1 or smaller than -1"
