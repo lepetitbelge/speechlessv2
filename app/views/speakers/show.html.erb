@@ -1,0 +1,13 @@
+<h1>Speaker show page</h1>
+<p>Name: <%= "#{@speaker.first_name} #{@speaker.last_name}" %></p>
+<p>Date of birth: <%= @speaker.date_of_birth %></p>
+<p>Date of death: <%= @speaker.date_of_death %></p>
+
+<h2>Speeches of this speaker:</h2>
+<ul>
+  <% @speeches.each do |speech| %>
+    <li>
+      <%= link_to speech.title, speech_path(speech) %>
+    </li>
+  <% end %>
+</ul>
