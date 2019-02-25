@@ -1,4 +1,6 @@
 class Speaker < ApplicationRecord
+  has_many :speeches
+
   validate :first_or_last_name
 
   private
