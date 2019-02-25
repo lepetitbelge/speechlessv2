@@ -2,7 +2,7 @@
 <ul>
   <% @speeches.each do |speech| %>
     <li>
-      <%= link_to speech, speech_path(speech) %>
+      <%= link_to speech.title, speech_path(speech) %>
     </li>
   <% end %>
 </ul>
