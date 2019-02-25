@@ -15,10 +15,10 @@ class Admin::SpeechesController < ApplicationController
   def create_speech
     @speech = Speech.new(speech_params)
     if @speech.save
-      redirect_to admin_speech(@admin)
+      redirect_to admin_speech(@speech)
       flash[:notice] = 'Nice! speech successfully created!'
     else
-      flash[:notice] = 'oops! something went wrong, speech could not be created!'
+      flash[:alert] = 'oops! something went wrong, speech could not be created!'
       render :new
     end
   end
@@ -31,7 +31,7 @@ class Admin::SpeechesController < ApplicationController
       redirect_to admin_speech(@speech)
       flash[:notice] = 'Nice! speech successfully updated!'
     else
-      flash[:notice] = 'oops! something went wrong, speech could not be updated!'
+      flash[:alert] = 'oops! something went wrong, speech could not be updated!'
       render :edit
     end
   end
@@ -41,7 +41,7 @@ class Admin::SpeechesController < ApplicationController
       redirect_to admin_speeches
       flash[:notice] = 'Nice! speech successfully deleted!'
     else
-      flash[:notice] = 'oops! something went wrong, speech could not be deleted!'
+      flash[:alert] = 'oops! something went wrong, speech could not be deleted!'
       render :show
     end
   end
@@ -53,6 +53,6 @@ class Admin::SpeechesController < ApplicationController
   end
 
   def speech_params
-    params.require(:speech).permit(:title, :date, :country, :city, :content, :duration)
+    params.require(:speech).permit(:title, :date, :country, :city, :content, :duration, :speaker, :category)
   end
 end
