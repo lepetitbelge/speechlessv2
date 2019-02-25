@@ -1,5 +1,6 @@
 class ContributionsController < ApplicationController
-  before_action
+  before_action :find_contribution, only: %i[update]
+
   def create
     # maybe need to make a speech here, can't test this fully until we have a speech view
     @contribution = Contribution.new(contribution_params)
@@ -33,6 +34,10 @@ class ContributionsController < ApplicationController
 
   def contribution_update_params
     params.require(:contribution).permit(:content)
+  end
+
+  def find_contribution
+    @contribution = Contribution.find(params[:contribution_id])
   end
 
   def find_speech
