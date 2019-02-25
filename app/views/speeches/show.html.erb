@@ -12,12 +12,12 @@
 </div>
 
 <div>
-  <% unless @speech.contributions %> 
+  <h2>Contributions: </h2>
+  <% if @speech.contributions %> 
   <ul>
     <% @speech.contributions.each do |contribution| %>
       <li>
-        <%= "<strong>#{contribution.user}:</strong> #{contribution.content}<em><br>(#{contribution.created_at})<br>(from char no. #{contribution.start_position} to #{contribution.end.position})</em>".html_safe %>
-        <%= # link_to "+", ````upvote```` %><%= # link_to "-", ````downvote```` %>
+        <%= "<strong>#{contribution.user.username}:</strong> #{contribution.content}<em><br>(#{contribution.created_at})<br>(from char no. #{contribution.start_position} to #{contribution.end_position})</em>".html_safe %>
       </li>
     <% end %>
   </ul>
