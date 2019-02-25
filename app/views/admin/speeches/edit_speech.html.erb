@@ -1,5 +1,5 @@
 <div class="text-center">
-  <h2>Add a new speech!</h2>
+  <h2>Admin, the speech!</h2>
 </div>
 
 <div class="container">
@@ -13,12 +13,12 @@
         <%= f.input :category %>
         <%= f.input :content %>
         <%= f.input :duration %>
-        <%= f.submit 'Create', class: 'btn btn-primary', method: :post %>
+        <%= f.submit 'Edit', class: 'btn btn-primary', method: :patch %>
       <% end %>
     </div>
   </div>
 </div>
 
 <div class="text-center">
-  <%= link_to 'index', speeches_path %>
+  <%= link_to 'index', admin_speeches_path %>
 </div>
