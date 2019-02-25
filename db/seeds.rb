@@ -8,6 +8,7 @@
 
 
 #destroy everything
+puts '~~~destroying database~~~'
 User.destroy_all
 Speech.destroy_all
 Speaker.destroy_all
@@ -16,9 +17,9 @@ Comment.destroy_all
 Vote.destroy_all
 Category.destroy_all
 
-puts '~~~destroying database~~~'
 
 #our users
+puts '~~~creating users~~~'
 User.create({
   username: 'Alfons',
   email: 'alfons@speechless.com',
@@ -45,28 +46,7 @@ User.create({
 end
 
 #categories
-cat = %q[politics sports history antiquity fiction economics celebrities]
-Category.create({
-  name: cat[0]
-})
-Category.create({
-  name: cat[1]
-})
-Category.create({
-  name: cat[2]
-})
-Category.create({
-  name: cat[3]
-})
-Category.create({
-  name: cat[4]
-})
-Category.create({
-  name: cat[5]
-})
-Category.create({
-  name: cat[6]
-})
+%q[politics sports history antiquity fiction economics celebrities].each { |category| Category.create(name: category) }
 
 #speakers
 10.times do
@@ -306,11 +286,8 @@ Speech.all.each do |speech|
       )
     if contribution.persisted?
       1.times do
-        vote = Vote.create(
-          value: 1,
-          votable_type: 'contribution',
-          votable_id: contribution.id
-          )
+        vote = Vote.create(value :1)
+        vote.votable = contribution
       end
       3.times do
         comment = Comment.create(
@@ -320,11 +297,8 @@ Speech.all.each do |speech|
           )
         if comment.persisted
           1.times do
-            vote = Vote.create(
-              value: 1,
-              votable_type: 'comment',
-              votable_id: comment.id
-              )
+            vote = Vote.create(value: 1)
+            vote.votable = comment
           end
         end
       end
@@ -336,7 +310,7 @@ puts "~~~~~~~~~~~~~~~"
 puts "#{User.count} users"
 puts "#{Speaker.count} speakers"
 puts "#{Category.count} users"
-puts "#{Speech.count} speech"
+puts "#{Speech.count} speeches"
 puts "#{Contribution.count} contributions"
 puts "#{Comment.count} comments"
 puts "#{Vote.count} votes"
