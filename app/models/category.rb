@@ -1,3 +1,3 @@
 class Category < ApplicationRecord
-  belongs_to :speech
+  has_many :speeches
 end
