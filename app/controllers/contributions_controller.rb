@@ -40,6 +40,6 @@ class ContributionsController < ApplicationController
   end
 
   def find_speech
-    speech = Speech.find(params[:speech_id])
+    Speech.find(params[:speech_id])
   end
 end
