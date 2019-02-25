@@ -14,7 +14,7 @@ class ContributionsController < ApplicationController
   end
 
   def update
-    if contribution.update(contribution_update_params)
+    if @contribution.update(contribution_update_params)
       puts "Update went well, we might render with AJAX"
     else
       puts "Update went awfully wrong"
@@ -36,6 +36,6 @@ class ContributionsController < ApplicationController
   end
 
   def find_contribution
-    contribution = Contribution.find(params[:contribution_id])
+    @contribution = Contribution.find(params[:contribution_id])
   end
 end
