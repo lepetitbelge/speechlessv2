@@ -1,11 +1,11 @@
 class ContributionsController < ApplicationController
   def create
-    @speech = params[:speech_id]
+    # maybe need to make a speech here, can't test this fully until we have a speech view
     @contribution = Contribution.new(contribution_params)
     if @contribution.save
-      redirect_to speech_path(@speech)
+      puts "We might do this with AJAX"
     else
-      c
+      puts "This went awfully wrong"
   end
 
   def update
