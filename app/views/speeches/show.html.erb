@@ -1,0 +1,13 @@
+<div class="text-center">
+  <h2>Speech show page</h2>
+</div>
+
+<div class="text-center">
+  <p><strong>Title: </strong><%= @speech.title %></p>
+  <p><strong>Category: </strong><%= @speech.category.name %></p>
+  <p><strong>Content: </strong><%= @speech.content %></p>
+</div>
+
+<div class="text-center">
+  <%= link_to 'index', speeches_path, class: 'btn btn-primary' %>
+</div>
