@@ -1,1 +1,14 @@
-show.html.erb
+<div class="text-center">
+  <h2>Speech show page</h2>
+</div>
+
+<div class="text-center">
+  <%= @speech.title %>
+  <%= speech.content %>
+</div>
+
+<div class="text-center">
+  <%= link_to 'index', speeches_path, class: 'btn btn-primary' %>
+  <%= link_to 'edit', edit_admin_speech_path(@speech), class: 'btn btn-primary' %>
+  <%= link_to 'delete', admin_speech_path(@speech), method: :delete, class: 'btn btn-primary' %>
+</div>
