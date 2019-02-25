@@ -1,5 +1,5 @@
 class SpeechesController < ApplicationController
-  before_action :find_speech, only: %i[show edit destroy]
+  before_action :find_speech, only: %i[show edit update destroy]
   skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
@@ -18,8 +18,9 @@ class SpeechesController < ApplicationController
     @speech.user = current_user
     if @speech.save
       redirect_to speech_path(@speech)
+      flash[:notice] = 'Nice! speech successfully created!'
     else
-      flash[:notice] = 'oops! something went wrong, could not create speech.'
+      flash[:notice] = 'oops! something went wrong, could not create the speech.'
       render :new
     end
   end
@@ -31,7 +32,7 @@ class SpeechesController < ApplicationController
     if @speech.update(speech_params)
       redirect_to speech_path(@speech)
     else
-      flash[:notice] = 'oops! something went wrong, could not update speech.'
+      flash[:notice] = 'oops! something went wrong, could not update the speech.'
       render :edit
     end
   end
@@ -49,4 +50,13 @@ class SpeechesController < ApplicationController
   def find_speech
     @speech = Speech.find(params[:id])
   end
+
+  def speech_params
+    params.require(:speech).permit(:title, :date, :country, :city, :category, :content, :duration)
+  end
 end
+
+
+
+
+
