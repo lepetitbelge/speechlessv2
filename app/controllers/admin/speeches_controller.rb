@@ -1,18 +1,18 @@
 class Admin::SpeechesController < ApplicationController
-  before_action :find_speech, only: %i[show_speech edit_speech update_speech destroy_speech]
+  before_action :find_speech, only: %i[show edit update destroy]
 
-  def index_speeches
+  def index
     @speeches = Speech.all
   end
 
-  def show_speech
+  def show
   end
 
-  def new_speech
+  def new
     @speech = Speech.new
   end
 
-  def create_speech
+  def create
     @speech = Speech.new(speech_params)
     if @speech.save
       redirect_to admin_speech(@speech)
@@ -23,10 +23,10 @@ class Admin::SpeechesController < ApplicationController
     end
   end
 
-  def edit_speech
+  def edit
   end
 
-  def update_speech
+  def update
     if @speech.update(speech_params)
       redirect_to admin_speech(@speech)
       flash[:notice] = 'Nice! speech successfully updated!'
@@ -36,7 +36,7 @@ class Admin::SpeechesController < ApplicationController
     end
   end
 
-  def destroy_speech
+  def destroy
     if @speech.destroy
       redirect_to admin_speeches
       flash[:notice] = 'Nice! speech successfully deleted!'
