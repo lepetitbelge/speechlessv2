@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_25_141212) do
+ActiveRecord::Schema.define(version: 2019_02_25_141424) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -62,6 +62,8 @@ ActiveRecord::Schema.define(version: 2019_02_25_141212) do
     t.bigint "speaker_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "category_id"
+    t.index ["category_id"], name: "index_speeches_on_category_id"
     t.index ["speaker_id"], name: "index_speeches_on_speaker_id"
   end
 
@@ -91,5 +93,6 @@ ActiveRecord::Schema.define(version: 2019_02_25_141212) do
   add_foreign_key "comments", "users"
   add_foreign_key "contributions", "speeches"
   add_foreign_key "contributions", "users"
+  add_foreign_key "speeches", "categories"
   add_foreign_key "speeches", "speakers"
 end
