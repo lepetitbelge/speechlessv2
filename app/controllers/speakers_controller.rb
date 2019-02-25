@@ -1,4 +1,4 @@
-class SpeakerController < ApplicationController
+class SpeakersController < ApplicationController
   def show
   end
 
