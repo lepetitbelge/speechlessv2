@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: :home
   def home
-
+    speech_suggestions
   end
 
   private
@@ -9,7 +9,7 @@ class PagesController < ApplicationController
   def speech_suggestions
   	# TODO: Algorithm to make suggestions
   	# For now:
-  	@speeches = Speech.sample(5)
+  	@speeches = Speech.all.sample(5)
   	# CHANGE LATER
   end
 
