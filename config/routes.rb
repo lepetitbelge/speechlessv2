@@ -21,8 +21,10 @@ Rails.application.routes.draw do
 
   get :profile, to: 'users#profile'
 
-  namespace :admin do
-    resources :speeches, only: %i[new create edit update destroy]
-    resources :speakers, only: %i[new create edit update destroy]
+  authenticate :user, lambda { |u| u.admin } do
+    namespace :admin do
+      resources :speeches, only: %i[index show new create edit update destroy]
+      resources :speakers, only: %i[index show new create edit update destroy]
+    end
   end
 end
