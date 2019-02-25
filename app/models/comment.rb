@@ -4,5 +4,5 @@ class Comment < ApplicationRecord
 
   has_many :votes, as: :votable, dependent: :destroy
 
-  validates_presence_of :user, :contribution
+  validates_presence_of :content, :contribution
 end
