@@ -286,7 +286,7 @@ Speech.all.each do |speech|
       )
     if contribution.persisted?
       rand(1..5).times do
-        vote = Vote.create(value :1)
+        vote = Vote.create(value: 1)
         vote.votable = contribution
       end
       3.times do
