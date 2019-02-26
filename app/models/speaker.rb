@@ -35,9 +35,9 @@ class Speaker < ApplicationRecord
     speaker_votes = 0
     self.speeches.each do |speech|
       speech.contributions.each do |contribution|
-        speaker_total_votes += contribution.votes.count
+        speaker_votes += contribution.votes.count
         contribution.comments.each do |comment|
-          speaker_total_votes += comment.votes.count
+          speaker_votes += comment.votes.count
         end
       end
     end
