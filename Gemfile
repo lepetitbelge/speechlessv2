@@ -18,6 +18,7 @@ gem 'webpacker'
 gem 'devise'
 gem 'faker'
 gem 'country_select', '~> 4.0'
+gem 'ui_faces'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
