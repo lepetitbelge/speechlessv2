@@ -1,0 +1,19 @@
+<h2 class="text-center">
+  <h2><%= @user.username profile page %></h2>
+</h2>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
+      <ul style="text-decoration: none;">
+        <%= @user.contributions.each do |contribution| %>
+        <li><%= contribution %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="text-center">
+  <%= link_to 'index', speeches_path, class: 'btn btn-primary' %>
+</div>
