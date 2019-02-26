@@ -32,7 +32,7 @@ class Speaker < ApplicationRecord
   end
 
   def speaker_total_votes
-    speaker_total_votes = 0
+    speaker_votes = 0
     self.speeches.each do |speech|
       speech.contributions.each do |contribution|
         speaker_total_votes += contribution.votes.count
@@ -41,7 +41,7 @@ class Speaker < ApplicationRecord
         end
       end
     end
-    return speaker_total_votes
+    return speaker_votes
   end
 
   private
