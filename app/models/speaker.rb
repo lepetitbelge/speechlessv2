@@ -13,35 +13,20 @@ class Speaker < ApplicationRecord
     end
   end
 
-  def speaker_total_contributions
-    speaker_contributions = 0
+  def total_stats
+    stats = {speeches: 0, contributions: 0, comments: 0, comments_votes: 0, contributions_votes: 0}
+    stats[:speeches] = self.speeches.count
     self.speeches.each do |speech|
-       speaker_contributions += speech.contributions.count
-    end
-    return speaker_contributions
-  end
-
-  def speaker_total_comments
-    speaker_comments = 0
-    self.speeches.each do |speech|
+      stats[:contributions] += speech.contributions.count
       speech.contributions.each do |contribution|
-        speaker_comments += contribution.comments.count
-      end
-    end
-    return speaker_comments
-  end
-
-  def speaker_total_votes
-    speaker_votes = 0
-    self.speeches.each do |speech|
-      speech.contributions.each do |contribution|
-        speaker_votes += contribution.votes.count
+        stats[:contributions_votes] += contribution.vote_sum
+        stats[:comments] += contribution.comments.count
         contribution.comments.each do |comment|
-          speaker_votes += comment.votes.count
+          stats[:comments_votes] += comment.vote_sum
         end
       end
     end
-    return speaker_votes
+    return stats
   end
 
   private
