@@ -17,6 +17,9 @@ class VotesController < ApplicationController
   # end
 
   def save_vote
+    votable = params[:contribution_id].exist? ? Contribution.find(params[:contribution_id]) : Comment.find(params[:comment_id])
+    vote = Vote.where(user_id: current_user.id, votable_id: votable.id, votable_type: votable.class.to_s).first_or_initialize
+    vote.value += new_value
     if vote.save
       puts "Save went well, we might render with AJAX"
     else
