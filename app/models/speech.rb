@@ -10,6 +10,8 @@ class Speech < ApplicationRecord
   private
 
   def date_cannot_be_in_future
-    errors.add(:date, "can't be in the future") if Date.today < date
+    if date
+      errors.add(:date, "can't be in the future") if Date.today < date
+    end
   end
 end
