@@ -1,5 +1,4 @@
 class VotesController < ApplicationController
-  before_action :set_vote, only: :save_or_update_vote
   
   def upvote
     @new_value = 1
