@@ -2,6 +2,7 @@
   background-color: rgba(0 ,0, 0, 0.2);
   display: flex;
   height: 150px;
+  width: 300px;
   &:hover {
     transform: scale(1.02);
     opacity: 0.9;
@@ -12,8 +13,28 @@
 
 .speaker-avt {
   width: 50px;
+  background-color: green;
 }
 
 .speaker-card-body {
   flex: 1 0 auto;
+  background-color: black;
+  max-width: 250px;
+}
+
+.speaker-info {
+  h2 {
+    font-size: 16px;
+    margin: 7px;
+  }
+  p{
+    font-size: 12px;
+  }
+}
+
+.speaker-stats {
+  background-color: grey;
+  font-size: 10px;
+  display: flex;
+  justify-content: space-between;
 }
