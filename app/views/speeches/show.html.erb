@@ -18,13 +18,21 @@
     <% @speech.contributions.each do |contribution| %>
       <li>
         <%= "<strong>#{contribution.user.username}:</strong> #{contribution.content}<em><br>(#{contribution.created_at})<br>(from char no. #{contribution.start_position} to #{contribution.end_position})</em>".html_safe %>
-        <%= link_to '+', contribution_upvote_path(contribution) %> <%= link_to '-', contribution_downvote_path(contribution) %>
+        <p style="background-color: <%= %w[red grey green][contribution.user_vote(current_user) + 1] %>;">
+          <%= link_to '+', contribution_upvote_path(contribution) %>
+          <%= contribution.vote_sum %>
+          <%= link_to '-', contribution_downvote_path(contribution) %>
+        </p>
         <h5><strong>Comments: </strong></h5>
         <ul>
           <% contribution.comments.each do |comment|%>
             <li>
               <%= "<strong>#{comment.user.username}</strong> <em>commented</em> #{comment.content}<br>(#{comment.created_at})".html_safe %>
-              <%= link_to '+', comment_upvote_path(comment) %> <%= link_to '-', comment_downvote_path(comment) %>
+              <p style="background-color: <%= %w[red grey green][comment.user_vote(current_user) + 1] %>;">
+                <%= link_to '+', comment_upvote_path(comment) %>
+                <%= comment.vote_sum %>
+                <%= link_to '-', comment_downvote_path(comment) %>
+              </p>
             </li>
           <% end %>
           <br>

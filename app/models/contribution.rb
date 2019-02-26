@@ -22,4 +22,21 @@ class Contribution < ApplicationRecord
     #   end
     # end
   end
+
+  def vote_sum
+    value_sum = 0
+    Vote.where(votable_type: "Contribution", votable_id: self.id).each do |vote|
+      value_sum += vote.value
+    end
+    return value_sum
+  end
+
+  def user_vote(user)
+    current_vote = Vote.where(votable_type: "Contribution", votable_id: self.id, user_id: user.id).first
+    if current_vote
+      return current_vote.value
+    else
+      return 0
+    end
+  end
 end
