@@ -14,4 +14,13 @@ class Comment < ApplicationRecord
     end
     return value_sum
   end
+
+  def user_vote(user)
+    current_vote = Vote.where(votable_type: "Comment", votable_id: self.id, user_id: user.id).first
+    if current_vote
+      return current_vote.value
+    else
+      return 0
+    end
+  end
 end
