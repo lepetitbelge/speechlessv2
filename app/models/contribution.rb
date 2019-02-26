@@ -10,19 +10,6 @@ class Contribution < ApplicationRecord
   validates :content, length: { maximum: 1000, too_long: "can't have more than %{count} characters" }
   # validate :start_and_end_position
 
-  private
-
-  def start_and_end_position
-    # byebug
-    # if start_position && end_position
-    #   if (0..content.length).include? start_position && (0..content.length).include? end_position
-    #     errors.add(:start_position, "must be before end position") unless start_position < end_position
-    #   else
-    #     errors.add(:start_position, "and end position must be inside content")
-    #   end
-    # end
-  end
-
   def vote_sum
     value_sum = 0
     Vote.where(votable_type: "Contribution", votable_id: self.id).each do |vote|
@@ -38,5 +25,18 @@ class Contribution < ApplicationRecord
     else
       return 0
     end
+  end
+
+  private
+
+  def start_and_end_position
+    # byebug
+    # if start_position && end_position
+    #   if (0..content.length).include? start_position && (0..content.length).include? end_position
+    #     errors.add(:start_position, "must be before end position") unless start_position < end_position
+    #   else
+    #     errors.add(:start_position, "and end position must be inside content")
+    #   end
+    # end
   end
 end

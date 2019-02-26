@@ -2,6 +2,7 @@ class CommentsController < ApplicationController
   before_action :find_comment, only: %i[update destroy]
 
   def create
+    byebug
     comment = Comment.new(comment_params)
     comment.user = current_user
     comment.contribution = Contribution.find(params[:contribution_id])
@@ -35,6 +36,7 @@ class CommentsController < ApplicationController
   end
 
   def find_comment
+    byebug
     @comment = Comment.find(params[:comment_id])
   end
 end
