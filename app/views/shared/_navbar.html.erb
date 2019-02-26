@@ -1,1 +1,19 @@
-_navbar.html.erb
+<div class="navbar-lewagon">
+    <%= link_to image_tag("speechless-logo-2.png", :class => "logo", :alt => "logo ghostwords"), root_path %>
+  <h1 class="text-center">
+  </h1>
+  <div class="navbar-lewagon-actions d-none d-sm-flex">
+    <%= link_to "Browse speeches", '#', class: "navbar-lewagon-link" %>
+    <!-- <%= link_to "Dashboard", '#', class: "navbar-lewagon-link" %> -->
+    <div class="badge-container">
+    </div>
+    <div class="dropdown">
+      <img src='https://res.cloudinary.com/lepetitbelge/image/upload/v1550691453/photo-lily-467004-unsplash.jpg' class="job-card-avatar dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"/>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="#"><i class="fas fa-user"></i> Account</a>
+          <a class="dropdown-item" href="#"><i class="fas fa-cogs"></i> Settings</a>
+          <a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt"></i> Log out</a>
+        </div>
+     </div>
+  </div>
+</div>
