@@ -2,6 +2,7 @@ class CommentsController < ApplicationController
   before_action :find_comment, only: %i[update destroy]
 
   def create
+    byebug
     comment = Comment.new(comment_params)
     comment.user = current_user
     comment.contribution = Contribution.find(params[:contribution_id])
@@ -10,6 +11,7 @@ class CommentsController < ApplicationController
     else
       puts "Save went awfully wrong"
     end
+    redirect_to speech_path(comment.contribution.speech)
   end
 
   def update
@@ -35,6 +37,7 @@ class CommentsController < ApplicationController
   end
 
   def find_comment
+    byebug
     @comment = Comment.find(params[:comment_id])
   end
 end
