@@ -3,10 +3,17 @@
 </div>
 
 <div class="text-center">
+  <h4>Speeches:</h4>
   <ul>
     <% @speeches.each do |speech| %>
       <li><%= link_to speech.title, speech_path(speech) %></li>
       <br>
+    <% end %>
+  </ul>
+  <h4>Speakers:</h4>
+  <ul>
+    <% @speakers.each do |speaker| %>
+      <li><%= link_to speaker.full_name, speaker_path(speaker) %></li>
     <% end %>
   </ul>
 </div>

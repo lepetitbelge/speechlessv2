@@ -3,6 +3,7 @@ class SpeechesController < ApplicationController
 
   def index
     @speeches = Speech.all
+    @speakers = Speaker.all
   end
 
   def show
