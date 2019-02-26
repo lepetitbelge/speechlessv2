@@ -38,7 +38,7 @@
           <li>
             <% comment = Comment.new %>
             <%= form_for comment, url: contribution_comments_path(contribution) do |f| %>
-              <%= f.label :content, 'Comment'%>
+              <%= f.label :content, current_user.username%>
               <%= f.text_field :content %>
               <%= f.submit 'Send', method: :post %>
             <% end %>

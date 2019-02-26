@@ -11,6 +11,7 @@ class CommentsController < ApplicationController
     else
       puts "Save went awfully wrong"
     end
+    redirect_to speech_path(comment.contribution.speech)
   end
 
   def update
