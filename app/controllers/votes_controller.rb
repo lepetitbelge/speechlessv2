@@ -4,7 +4,7 @@ class VotesController < ApplicationController
   def upvote
     @new_value = 1
     save_vote
-    if @vote.votable_type = "Contribution"
+    if @vote.votable_type == "Contribution"
       redirect_to speech_path(@vote.votable.speech)
     else
       redirect_to speech_path(@vote.votable.contribution.speech)
@@ -14,7 +14,7 @@ class VotesController < ApplicationController
   def downvote
     @new_value = -1
     save_vote
-    if @vote.votable_type = "Contribution"
+    if @vote.votable_type == "Contribution"
       redirect_to speech_path(@vote.votable.speech)
     else
       redirect_to speech_path(@vote.votable.contribution.speech)

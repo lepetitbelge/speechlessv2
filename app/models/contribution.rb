@@ -16,4 +16,13 @@ class Contribution < ApplicationRecord
     end
     return value_sum
   end
+
+  def current_user_vote
+    current_vote = Vote.where(votable_type: "Contribution", votable_id: self.id, user_id: current_user.id).first
+    if current_vote
+      return current_vote.value
+    else
+      return 0
+    end
+  end
 end
