@@ -28,6 +28,10 @@ class Speaker < ApplicationRecord
     end
     return stats
   end
+  
+  def total_votes
+    self.total_stats[:comments_votes] + self.total_stats[:contributions_votes]
+  end
 
   private
 
