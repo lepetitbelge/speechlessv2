@@ -1,0 +1,19 @@
+.speaker-card {
+  background-color: rgba(0 ,0, 0, 0.2);
+  display: flex;
+  height: 150px;
+  &:hover {
+    transform: scale(1.02);
+    opacity: 0.9;
+  }
+  border-radius: 5px;
+  box-shadow: 1px 1px 1px 1px rgba(0 ,0, 0, 0.1)
+}
+
+.speaker-avt {
+  width: 50px;
+}
+
+.speaker-card-body {
+  flex: 1 0 auto;
+}
