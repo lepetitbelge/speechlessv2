@@ -48,6 +48,16 @@ end
 %w[politics sports history antiquity fiction economics celebrities].each { |category| Category.create(name: category) }
 
 #speakers
+Speaker.create(
+  first_name: Socrates,
+  date_of_birth: Time.new(-470),
+  date_of_death: Time.new(-399)
+  )
+Speaker.create(
+  first_name: Martin Luther
+  last_name: King Jr.
+  date_of_birth: Time.strptime
+  )
 10.times do
   Speaker.create(
     first_name: Faker::Name.first_name,
