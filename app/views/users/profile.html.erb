@@ -1,0 +1,24 @@
+<div class="text-center">
+  <h2><%= @user.username %>'s own profile page</h2>
+</div>
+
+<div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
+      <ul style="text-decoration: none;">
+        <li>Contributions: <%= @user.contributions.count %></li>
+        <li>Comments: <%= @user.comments.count %></li>
+        <li>Votes: <%= @user.votes.count %></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="text-center">
+  <%= link_to 'index', speeches_path, class: 'btn btn-primary' %>
+</div>
+
+<div class="align-left" style="margin-left: 50px;">
+   <%= link_to 'edit profile', edit_user_registration_path(@user), class: 'btn btn-primary' %>
+</div>
+
