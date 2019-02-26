@@ -12,33 +12,35 @@ puts '~~~destroying database~~~'
 [Vote, Comment, Contribution, Speech, User, Speaker, Category].each(&:destroy_all)
 
 #our users
-puts '~~~creating users~~~'
+puts '~~~creating admin users~~~'
 User.create({
-  username: 'Alfons',
+  username: 'Alfonso',
   email: 'alfons@speechless.com',
   password: '123456',
   admin: true
 })
 User.create({
-  username: 'Chris',
+  username: 'Lepetitbelge',
   email: 'chris@speechless.com',
   password: '123456',
   admin: true
 })
 User.create({
-  username: 'David',
+  username: 'Davidof',
   email: 'david@speechless.com',
   password: '123456',
   admin: true
 })
 
+puts '~~~creating random users~~~'
 #random users
 10.times do
   user = User.create(
     username: Faker::FunnyName.name,
     email: Faker::Internet.email,
     password: '123456',
-    admin: false
+    admin: false,
+    photo_url: UiFaces.face
     )
 end
 
