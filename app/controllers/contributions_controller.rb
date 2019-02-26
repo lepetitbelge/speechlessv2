@@ -22,7 +22,11 @@ class ContributionsController < ApplicationController
   end
 
   def destroy
-    puts "redirect to same speech page" if @contribution.destroy
+    if @contribution.destroy
+      puts "redirect to same speech page"
+    else
+      puts "Delete went awfully wrong"
+    end
   end
 
   private
