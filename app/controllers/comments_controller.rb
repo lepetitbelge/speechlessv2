@@ -4,7 +4,7 @@ class CommentsController < ApplicationController
   def create
     comment = Comment.new(comment_params)
     comment.user = current_user
-    comment.contribution = find_contribution
+    comment.contribution = Contribution.find(params[:contribution_id])
     if comment.save
       puts "Save went well, we might render with AJAX"
     else
@@ -21,7 +21,11 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    puts "redirect to same speech page" if @contribution.destroy
+    if @comment.destroy
+      puts "redirect to same speech page"
+    else
+      puts "Delete went awfully wrong"
+    end
   end
 
   private
@@ -31,10 +35,6 @@ class CommentsController < ApplicationController
   end
 
   def find_comment
-    Comment.find(params[:comment_id])
-  end
-
-  def find_contribution
-    Contribution.find(params[:contribution_id])
+    @comment = Comment.find(params[:comment_id])
   end
 end
