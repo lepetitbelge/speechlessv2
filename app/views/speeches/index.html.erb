@@ -2,18 +2,24 @@
   <h2>Speeches Index</h2>
 </div>
 
-<div class="text-center">
   <h4>Speeches:</h4>
-  <ul>
-    <% @speeches.each do |speech| %>
-      <li><%= link_to speech.title, speech_path(speech) %></li>
-      <br>
-    <% end %>
-  </ul>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-8 col-xs-offset-2">
+        <% @speeches.each do |speech| %>
+          <%= link_to speech_path(speech) do %>
+            <%= render "speech_card", speech: speech %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
   <h4>Speakers:</h4>
   <ul>
     <% @speakers.each do |speaker| %>
       <li><%= link_to speaker.full_name, speaker_path(speaker) %></li>
     <% end %>
   </ul>
-</div>
+
+
+
