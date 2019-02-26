@@ -1,5 +1,8 @@
+<%= render 'shared/navbar' %>
+
+
 <div>
-  <h2>Speech show page</h2>
+  <h2>Need banner somewhere here</h2>
 </div>
 
 <div>
@@ -8,46 +11,25 @@
   <% end %>
   <p><strong>Title: </strong><%= @speech.title %></p>
   <p><strong>Category: </strong><%= @speech.category.name %></p>
-  <p><strong>Content: </strong><%= @speech.content.html_safe %></p>
 </div>
 
-<div>
-  <h2>Contributions: </h2>
-  <% if @speech.contributions %>
-  <ul>
-    <% @speech.contributions.each do |contribution| %>
-      <div class="thread">
-        <%= "<strong>#{contribution.user.username}:</strong> #{contribution.content}<em><br>(#{contribution.created_at})<br>(from char no. #{contribution.start_position} to #{contribution.end_position})</em>".html_safe %>
-        <p style="background-color: <%= %w[red grey green][contribution.user_vote(current_user) + 1] %>;">
-          <%= link_to '+', contribution_upvote_path(contribution) %>
-          <%= contribution.vote_sum %>
-          <%= link_to '-', contribution_downvote_path(contribution) %>
-        </p>
-        <h5><strong>Comments: </strong></h5>
-        <ul>
-          <% contribution.comments.each do |comment|%>
-            <li>
-              <%= "<strong>#{comment.user.username}</strong> <em>commented</em> #{comment.content}<br>(#{comment.created_at})".html_safe %>
-              <p style="background-color: <%= %w[red grey green][comment.user_vote(current_user) + 1] %>;">
-                <%= link_to '+', comment_upvote_path(comment) %>
-                <%= comment.vote_sum %>
-                <%= link_to '-', comment_downvote_path(comment) %>
-              </p>
-            </li>
-          <% end %>
-          <li>
-            <% comment = Comment.new %>
-            <%= form_for comment, url: contribution_comments_path(contribution) do |f| %>
-              <%= f.label :content, current_user.username%>
-              <%= f.text_field :content %>
-              <%= f.submit 'Send', method: :post %>
-            <% end %>
-          </li>
-        </ul>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-10 col-xs-offset-1">
+      <div class="speech-background speech-text">
+        <p><strong>Content: </strong><%= @speech.content.html_safe %></p>
       </div>
-    <% end %>
-  </ul>
-  <% end %>
+      <div class="thread">
+        <h2>Contributions: </h2>
+        <% if @speech.contributions %>
+          <% @speech.contributions.each do |contribution| %>
+            <%= render "thread", contribution: contribution %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>
 
 <div>

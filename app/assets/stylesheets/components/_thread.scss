@@ -1,0 +1,21 @@
+.contribution-contributor {
+  display: flex;
+  background-color: rgb(230,230,230)
+}
+.contributor-details {
+  flex-grow: 1;
+  margin-left: 20px;
+}
+.contribution-username {
+  font-weight: bold;
+  font-size: 14px;
+  margin-bottom: 0px;
+}
+.contribution-date {
+  font-style: italic;
+  font-size: 11px;
+}
+.contribution-content p {
+  font-size: 14px;
+  color: rgb(50,50,50)
+}
