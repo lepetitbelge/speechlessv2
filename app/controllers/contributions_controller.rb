@@ -5,7 +5,7 @@ class ContributionsController < ApplicationController
     # maybe need to make a speech here, can't test this fully until we have a speech view
     contribution = Contribution.new(contribution_params)
     contribution.user = current_user
-    contribution.speech = find_speech
+    contribution.speech = Speech.find(params[:speech_id])
     if contribution.save
       puts "Save went well, we might render with AJAX"
     else
@@ -14,7 +14,7 @@ class ContributionsController < ApplicationController
   end
 
   def update
-    if contribution.update(contribution_update_params)
+    if @contribution.update(contribution_update_params)
       puts "Update went well, we might render with AJAX"
     else
       puts "Update went awfully wrong"
@@ -22,7 +22,11 @@ class ContributionsController < ApplicationController
   end
 
   def destroy
-    puts "redirect to same speech page" if @contribution.destroy
+    if @contribution.destroy
+      puts "redirect to same speech page"
+    else
+      puts "Delete went awfully wrong"
+    end
   end
 
   private
@@ -36,10 +40,6 @@ class ContributionsController < ApplicationController
   end
 
   def find_contribution
-    contribution = Contribution.find(params[:contribution_id])
-  end
-
-  def find_speech
-    speech = Speech.find(params[:speech_id])
+    @contribution = Contribution.find(params[:contribution_id])
   end
 end
