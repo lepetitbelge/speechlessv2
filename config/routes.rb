@@ -7,12 +7,14 @@ Rails.application.routes.draw do
   end
 
   resources :contributions, only: %i[update destroy] do
-    resources :votes, only: %i[upvote downvote]
+    get :upvote, to: 'votes#upvote'
+    get :downvote, to: 'votes#downvote'
     resources :comments, only: :create
   end
 
   resources :comments, only: %i[update destroy] do
-    resources :votes, only: %i[upvote downvote]
+    get :upvote, to: 'votes#upvote'
+    get :downvote, to: 'votes#downvote'
   end
 
   resources :speakers, only: :show
