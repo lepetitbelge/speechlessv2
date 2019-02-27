@@ -8,4 +8,10 @@
   <% end %>
 </ul>
 <!-- Later that will be the search: -->
-<%= link_to 'Search', speeches_path %>
+<%= form_tag speeches_path, method: :get do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Find a speech"
+  %>
+<% end %>

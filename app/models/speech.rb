@@ -7,6 +7,9 @@ class Speech < ApplicationRecord
   validates_presence_of :title, :date, :content, :category, :country
   validate :date_cannot_be_in_future
 
+  include PgSearch
+  multisearchable :against => [:title, :content, :category]
+
   private
 
   def date_cannot_be_in_future

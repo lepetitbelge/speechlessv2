@@ -2,6 +2,7 @@
   <h2>Speeches Index</h2>
 </div>
 
+<% if @results.nil? %>
   <h4>Speeches:</h4>
   <div class="container">
     <div class="row">
@@ -20,6 +21,13 @@
       <li><%= link_to speaker.full_name, speaker_path(speaker) %></li>
     <% end %>
   </ul>
+<% else %>
+
+  <% @results.each do |result| %>
+    <%= result.searchable %>
+  <% end %>
+<% end %>
+
 
 
 

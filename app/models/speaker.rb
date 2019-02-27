@@ -3,6 +3,9 @@ class Speaker < ApplicationRecord
 
   validate :first_or_last_name
 
+  include PgSearch
+  multisearchable :against => [:first_name, :last_name]
+
   def full_name
     if self.first_name.nil?
       "#{self.last_name}"
@@ -28,7 +31,7 @@ class Speaker < ApplicationRecord
     end
     return stats
   end
-  
+
   def total_votes
     self.total_stats[:comments_votes] + self.total_stats[:contributions_votes]
   end
