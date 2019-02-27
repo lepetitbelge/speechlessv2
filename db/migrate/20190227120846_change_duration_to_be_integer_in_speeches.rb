@@ -1,5 +1,6 @@
 class ChangeDurationToBeIntegerInSpeeches < ActiveRecord::Migration[5.2]
   def change
-  	change_column :speeches, :duration, :integer
+  	remove_column :speeches, :duration
+  	add_column :speeches, :duration, :integer
   end
 end

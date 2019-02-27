@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_26_131827) do
+ActiveRecord::Schema.define(version: 2019_02_27_120846) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(version: 2019_02_26_131827) do
     t.date "date_of_death"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "bio"
   end
 
   create_table "speeches", force: :cascade do |t|
@@ -58,11 +59,11 @@ ActiveRecord::Schema.define(version: 2019_02_26_131827) do
     t.string "country"
     t.string "city"
     t.string "content"
-    t.time "duration"
     t.bigint "speaker_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "category_id"
+    t.integer "duration"
     t.index ["category_id"], name: "index_speeches_on_category_id"
     t.index ["speaker_id"], name: "index_speeches_on_speaker_id"
   end
