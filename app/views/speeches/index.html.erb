@@ -8,7 +8,7 @@
       <div class="col-xs-8 col-xs-offset-2">
         <% @speeches.each do |speech| %>
           <%= link_to speech_path(speech) do %>
-            <%= render "speech_card", speech: speech %>
+            <%= render "components/speech_card", speech: speech %>
           <% end %>
         <% end %>
       </div>

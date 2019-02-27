@@ -1,10 +1,12 @@
+.thread-contribution{
+  width: 400px;
+}
 .contribution-contributor {
   display: flex;
-  background-color: rgb(230,230,230)
 }
 .contributor-details {
   flex-grow: 1;
-  margin-left: 20px;
+  margin-left: 10px;
 }
 .contribution-username {
   font-weight: bold;
@@ -14,8 +16,31 @@
 .contribution-date {
   font-style: italic;
   font-size: 11px;
+  margin-bottom: 2px;
 }
 .contribution-content p {
   font-size: 14px;
-  color: rgb(50,50,50)
+  color: rgb(50,50,50);
+}
+.contribution-details {
+  display: flex;
+  background-color: rgba(240,240,240,0.9);
+}
+.contribution-content {
+flex-grow: 1;
+}
+.contribution-voting {
+width: 40px;
+  p {
+    margin-bottom: 0;
+  }
+}
+.contribution-contributor-comment {
+  display:flex;
+}
+.voting-item {
+  color: rgb(120,120,120);
+}
+.thread-comments {
+  width: 400px;
 }

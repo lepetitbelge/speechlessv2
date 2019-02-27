@@ -1,6 +1,5 @@
 <%= render 'shared/navbar' %>
 
-
 <div>
   <h2>Need banner somewhere here</h2>
 </div>
@@ -24,7 +23,7 @@
         <h2>Contributions: </h2>
         <% if @speech.contributions %>
           <% @speech.contributions.each do |contribution| %>
-            <%= render "thread", contribution: contribution %>
+            <%= render "components/thread", contribution: contribution %>
           <% end %>
         <% end %>
       </div>
