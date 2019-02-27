@@ -14,18 +14,16 @@
   </div>
 </div>
 
+<div class="container landing-page-content">
+  <div class="landing-page-speeches">
+    <% @speeches.first(5).each do |speech| %>
+      <%= render 'components/speech_card', speech: speech %>
+    <% end %>
+  </div>
+  <div class="landing-page-speakers">
+    <% @speakers.first(5).each do |speaker| %>
+      <%= render 'components/speaker_card', speaker: speaker %>
+    <% end %>
+  </div>
+</div>
 
-<!-- Later that will be the search: -->
-
-
-
-
-
-
-<!-- <ul>
-  <% @speeches.each do |speech| %>
-    <li>
-      <%= link_to speech.title, speech_path(speech) %>
-    </li>
-  <% end %>
-</ul> -->
