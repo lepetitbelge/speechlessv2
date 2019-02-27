@@ -13,7 +13,7 @@
         <%= f.input :city %>
         <%= f.association :category %>
         <%= f.input :content, as: :text %>
-        <%= f.input :duration, selected: 0 %>
+        <%= f.input :duration %>
         <%= f.submit 'Create', class: 'btn btn-primary', method: :post %>
       <% end %>
     </div>
