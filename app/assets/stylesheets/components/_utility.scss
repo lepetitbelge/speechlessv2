@@ -1,0 +1,59 @@
+.speech-text {
+  font-size: 18px;
+  font-family: 'Montserrat', sans-serif;
+}
+.card-title {
+  font-size: 18px;
+  font-family: 'PT Sans', sans-serif;
+}
+.kill-margin {
+  margin: 0px;
+}
+.padding-5 {
+  padding: 5px;
+}
+.padding-10 {
+  padding: 10px;
+}
+.padding-t-5 {
+  padding-top: 5px;
+}
+.padding-t-10 {
+  padding-top: 10px;
+}
+.padding-tb-10{
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.padding-lr-5{
+  padding-left: 5px;
+  padding-right: 5px;
+}
+.border-r3 {
+  border-radius: 3px;
+}
+.classic-card-style {
+  background-image: linear-gradient(to bottom right, rgb(199, 168, 109), rgb(225, 205, 141));
+  border-radius: 3px;
+  box-shadow: 1px 1px 1px rgb(200,200,200);
+  margin-bottom: 2px;
+  transition-duration: 0.5s;
+  &:hover {
+    transform: scale(1.02);
+  }
+}
+.classic-card-style-no-hover {
+  background-image: linear-gradient(to bottom right, rgb(199, 168, 109), rgb(225, 205, 141));
+  border-radius: 3px 3px 0 0;
+  box-shadow: 1px 0px 1px rgb(200,200,200);
+  margin-bottom: 3px;
+}
+.classic-card-style-comment {
+  background-color: rgb(180,180,180);
+  box-shadow: 1px 0px 1px rgb(200,200,200);
+}
+.no-txt-overflow {
+  overflow: auto;
+  text-overflow: ellipsis;
+}
+

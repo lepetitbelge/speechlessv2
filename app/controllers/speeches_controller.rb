@@ -2,8 +2,14 @@ class SpeechesController < ApplicationController
   skip_before_action :authenticate_user!
 
   def index
-    @speeches = Speech.all
-    @speakers = Speaker.all
+    if params[:query].present?
+      PgSearch::Multisearch.rebuild(Speech)
+      PgSearch::Multisearch.rebuild(Speaker)
+      @results = PgSearch.multisearch(params[:query])
+    else
+      @speeches = Speech.all
+      @speakers = Speaker.all
+    end
   end
 
   def show
