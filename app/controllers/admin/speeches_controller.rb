@@ -13,7 +13,10 @@ class Admin::SpeechesController < ApplicationController
   end
 
   def create
+    byebug
     @speech = Speech.new(speech_params)
+    byebug
+    @speech.duration = 0
     if @speech.save
       redirect_to admin_speech_path(@speech)
       flash[:notice] = 'Nice! speech successfully created!'

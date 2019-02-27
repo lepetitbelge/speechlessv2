@@ -5,14 +5,14 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
-      <%= simple_form_for @speech do |f| %>
+      <%= simple_form_for @speech, url: admin_speeches_path do |f| %>
         <%= f.input :title %>
         <%= f.input :date %>
         <%= f.input :country %>
         <%= f.input :city %>
         <%= f.association :category %>
         <%= f.input :content %>
-        <%= f.input :duration %>
+        <%= f.input :duration, selected: 0 %>
         <%= f.submit 'Create', class: 'btn btn-primary', method: :post %>
       <% end %>
     </div>
