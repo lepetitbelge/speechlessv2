@@ -14,7 +14,6 @@ class Admin::SpeechesController < ApplicationController
 
   def create
     @speech = Speech.new(speech_params)
-    @speech.duration = nil if @speech.duration == 0
     if @speech.save
       redirect_to admin_speech_path(@speech)
       flash[:notice] = 'Nice! speech successfully created!'
