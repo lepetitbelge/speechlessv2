@@ -9,7 +9,7 @@
         <h2><%= @speaker.full_name %></h2>
         <p>(<%= @speaker.date_of_birth.to_date %>)</p>
         <p>bio <%= @speaker.bio %></p>
-        <p><%= @speaker.speeches.all.last.title %></p>
+        <p><%= @speaker.speeches.last.title unless @speaker.speeches.empty? %></p>
       </div>
       <div class="speaker-stats">
         <div class="speaker-contributions-tot">
