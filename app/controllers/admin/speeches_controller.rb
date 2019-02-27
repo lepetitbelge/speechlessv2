@@ -53,6 +53,6 @@ class Admin::SpeechesController < ApplicationController
   end
 
   def speech_params
-    params.require(:speech).permit(:title, :date, :country, :city, :content, :duration, :speaker, :category)
+    params.require(:speech).permit(:title, :date, :country, :city, :content, :duration, :speaker_id, :category_id)
   end
 end
