@@ -13,10 +13,9 @@ class Admin::SpeechesController < ApplicationController
   end
 
   def create
-    byebug
     @speech = Speech.new(speech_params)
     byebug
-    @speech.duration = 0
+    @speech.duration = nil if @speech.duration == 0
     if @speech.save
       redirect_to admin_speech_path(@speech)
       flash[:notice] = 'Nice! speech successfully created!'
@@ -56,6 +55,6 @@ class Admin::SpeechesController < ApplicationController
   end
 
   def speech_params
-    params.require(:speech).permit(:title, :date, :country, :city, :content, :duration, :speaker, :category)
+    params.require(:speech).permit(:title, :date, :country, :city, :content, :duration, :speaker_id, :category_id)
   end
 end
