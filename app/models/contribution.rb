@@ -19,6 +19,7 @@ class Contribution < ApplicationRecord
   end
 
   def user_vote(user)
+    byebug
     current_vote = Vote.where(votable_type: "Contribution", votable_id: self.id, user_id: user.id).first
     if current_vote
       return current_vote.value
