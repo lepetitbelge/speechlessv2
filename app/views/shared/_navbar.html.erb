@@ -1,9 +1,15 @@
 <div class="navbar-lewagon">
     <%= link_to image_tag("speechless-logo-2.png", :class => "logo", :alt => "logo ghostwords"), root_path %>
-  <h1 class="text-center">
-  </h1>
+    <%= form_tag speeches_path, method: :get do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Find a speech"
+      %>
+      <% end %>
+
   <div class="navbar-lewagon-actions d-none d-sm-flex">
-    <%= link_to "Browse speeches", '#', class: "navbar-lewagon-link" %>
+    <%= link_to "Browse speeches", speeches_path, class: "navbar-lewagon-link" %>
     <!-- <%= link_to "Dashboard", '#', class: "navbar-lewagon-link" %> -->
     <div class="badge-container">
     </div>
