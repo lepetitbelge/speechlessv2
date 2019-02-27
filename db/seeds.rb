@@ -1,13 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-
-
-#destroy everything
 puts '~~~destroying database~~~'
 [Vote, Comment, Contribution, Speech, User, Speaker, Category].each(&:destroy_all)
 
@@ -49,23 +39,88 @@ end
 
 #speakers
 Speaker.create(
-  first_name: Socrates,
+  first_name: 'Socrates',
   date_of_birth: Time.new(-470),
   date_of_death: Time.new(-399)
   )
 Speaker.create(
-  first_name: Martin Luther
-  last_name: King Jr.
-  date_of_birth: Time.strptime
+  first_name: 'Mahatma',
+  last_name: 'Gandhi',
+  date_of_birth: Date.parse('2-10-1869'),
+  date_of_death: Date.parse('30-1-1948')
+  )
+Speaker.create(
+  first_name: 'David',
+  last_name: 'Ben-Gurion',
+  date_of_birth: Date.parse('16-10-1886'),
+  date_of_death: Date.parse('1-12-1973')
+  )
+Speaker.create(
+  first_name: 'Martin Luther',
+  last_name: 'King Jr.',
+  date_of_birth: Date.parse('15-1-1929'),
+  date_of_death: Date.parse('4-4-1968')
+  )
+Speaker.create(
+  first_name: 'Alex',
+  last_name: 'Ferguson',
+  date_of_birth: Date.parse('31-12-1941')
+  )
+Speaker.create(
+  first_name: 'Donald',
+  last_name: 'Trump',
+  date_of_birth: Date.parse('14-6-1946')
+  )
+Speaker.create(
+  first_name: 'Benjamin',
+  last_name: 'Netanyahu',
+  date_of_birth: Date.parse('21.10.1949')
+  )
+Speaker.create(
+  first_name: 'Angela',
+  last_name: 'Merkel',
+  date_of_birth: Date.parse('17-7-1954')
+  )
+Speaker.create(
+  first_name: 'Steve',
+  last_name: 'Jobs',
+  date_of_birth: Date.parse('24-5-1955'),
+  date_of_death: Date.parse('5-10-2011')
+  )
+Speaker.create(
+  first_name: 'Barack',
+  last_name: 'Obama',
+  date_of_birth: Date.parse('4-8-1961')
+  )
+Speaker.create(
+  first_name: 'Sundar',
+  last_name: 'Pichai',
+  date_of_birth: Date.parse('1-1-1972')
+  )
+Speaker.create(
+  first_name: 'Leonardo',
+  last_name: 'DiCaprio',
+  date_of_birth: Date.parse('11-11-1974')
+  )
+Speaker.create(
+  first_name: 'Greta',
+  last_name: 'Thunberg',
+  date_of_birth: Date.parse('3-1-2003')
   )
 10.times do
   Speaker.create(
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
     date_of_birth: Faker::Date.birthday
-    )
+  )
 end
 
+
+speeches_dir = Rails.root.join('db', 'speeches', '*.txt')
+# File.
+# Dir[speeche_dir].each do |file|
+#   content = File.open(file).read
+# end
 #speeches
 Speech.create({
   title: 'Socrates Apology (by Plato)',
