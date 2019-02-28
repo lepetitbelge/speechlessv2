@@ -1,23 +1,14 @@
 <%= render 'shared/navbar' %>
-
-<div>
-  <h2>Need banner somewhere here</h2>
-</div>
-
-<div>
-  <% if @speech.speaker %>
-    <p><strong>Speaker: </strong><%= link_to @speech.speaker.full_name, speaker_path(@speech.speaker) %>
-  <% end %>
-  <p><strong>Title: </strong><%= @speech.title %></p>
-  <p><strong>Category: </strong><%= @speech.category.name %></p>
-</div>
-
+<%= render 'components/show_page_banner' %>
 
 <div class="container">
   <div class="row">
-    <div class="col-xs-10 col-xs-offset-1">
-      <div class="speech-background speech-text">
-        <p><strong>Content: </strong><%= @speech.content.html_safe %></p>
+    <div class="col-xs-8 col-xs-offset-2">
+      <h2 class="show-page-title">
+        <%= @speech.title %>
+      </h2>
+      <div class="speech-background speech-text text-justify">
+        <p><%= @speech.content.html_safe %></p>
       </div>
       <div class="thread">
         <h2>Contributions: </h2>
