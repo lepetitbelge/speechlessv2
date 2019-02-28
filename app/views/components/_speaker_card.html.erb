@@ -25,3 +25,23 @@
     </div>
   </div>
 </div>
+
+<!-- Cards-->
+<div class="card card--big">
+  <div class="card__image" style="background-image: url(https://res.cloudinary.com/dx93hzyas/image/upload/v1551347917/o3ljdkh7oa8tvlaznzeq.jpg);"></div>
+  <h2 class="card__title">Donald Trump</h2><span class="card__subtitle">By Mattia Astorino</span>
+  <p class="card__text">Born last century</p>
+  <div class="card__action-bar">
+    <div class="speaker-stats">
+        <div class="speaker-contributions-tot">
+          <p><i class="far fa-comment-alt"></i> <%= speaker.total_stats[:contributions] %></p>
+        </div>
+        <div class="speaker-comments-tot">
+          <p><i class="far fa-comment"></i> <%= speaker.total_stats[:comments] %></p>
+        </div>
+        <div class="speaker-votes-tot">
+          <p><i class="far fa-thumbs-up"></i> <%= speaker.total_votes %></p>
+        </div>
+      </div>
+  </div>
+</div>
