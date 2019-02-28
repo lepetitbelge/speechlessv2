@@ -1,12 +1,18 @@
 <h2>Admin speakers Index</h2>
 
+<p><strong><%= @speaker.full_name %></p>
+<p><strong>Speeches: </strong>
+
 <ul>
-  <% @speakers.each do |speaker| %>
-    <li><%= link_to speaker.full_name, admin_speaker_path(speaker) %></li>
-    <br>
+  <% @speaker.speeches.each do |speech| %>
+  <li>
+    <%= link_to speech.title, admin_speech_path(speech) %>
+  </li>
   <% end %>
 </ul>
 
 <div class="text-center">
-  <%= link_to 'new speaker', new_admin_speaker_path, class: 'btn btn-primary' %>
+  <%= link_to 'index', admin_speakers_path, class: 'btn btn-primary' %>
+  <%= link_to 'edit', edit_admin_speaker_path(@speaker), class: 'btn btn-primary' %>
+  <%= link_to 'delete', admin_speaker_path(@speaker), method: :delete, class: 'btn btn-primary' %>
 </div>
