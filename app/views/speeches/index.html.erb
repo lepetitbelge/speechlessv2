@@ -1,9 +1,7 @@
-<div class="text-center">
-  <h2>Speeches Index</h2>
-</div>
+<%= render 'shared/navbar' %>
+<%= render 'components/search_page_banner' %>
 
 <% if @results.nil? %>
-  <h4>Speeches:</h4>
   <div class="container">
     <div class="row">
       <div class="col-xs-8 col-xs-offset-2">

@@ -1,12 +1,17 @@
-<div class="card">
-  <img class="speaker-avatar-small" src="https://res.cloudinary.com/lepetitbelge/image/upload/v1551197129/obama.jpg" alt="speaker-avatar">
-  <div class="card-body">
-    <p><%= speech.speaker.full_name %></p>
-    <p class="card-title">
-      <%= speech.title %>
-    </p>
-    <p class="card-due-date">
-      <%= speech.date.strftime("%d.%m.%Y") %>
-    </p>
+
+
+<div class="blog-card alt margin-t-20">
+    <div class="meta">
+      <div class="photo" style="background-image: url(https://res.cloudinary.com/lepetitbelge/image/upload/v1551197129/obama.jpg"></div>
+      <ul class="details">
+        <li class="author tags"><a href="/speakers/<%= speech.speaker.id %>"><%= speech.speaker.full_name %></a></li>
+      </ul>
+    </div>
+    <div class="description">
+      <h1><%= speech.title %></h1>
+      <h2 class="margin-kill"><%= speech.date.strftime("%d.%m.%Y") %></h2>
+      <p class="read-more">
+        <a href="/speeches/<%= speech.id %>">Read speech</a>
+      </p>
+    </div>
   </div>
-</div>
