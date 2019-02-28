@@ -61,28 +61,18 @@
 <!-- TEST------------ -->
 <ul class="comments">
   <li class="comment">
-    <a href="#" title="View this user profile" class="photo"><img src="https://placehold.it/32x32" alt="Kasper"></a>
-    <div class="meta">Kasper | 2012.07.24 14:58 <a class="reply">Reply</a></div>
-    <div class="body">Cupcake ipsum dolor sit amet. Icing donut cheesecake muffin marzipan chocolate biscuit. Sweet roll chocolate marzipan.</div>
+    <a href="#" title="View this user profile" class="photo"><%= image_tag "#{contribution.user.photo_url}", class: "user-avatar-extra-small" %></a>
+    <div class="meta"><%= contribution.user.username %> | <%= contribution.created_at.strftime("%d.%m.%Y") %><a class="reply">Reply</a></div>
+    <div class="body"><%= contribution.content %></div>
   </li>
-  <li class="comment level-2">
-    <a href="#" title="View this user profile" class="photo"><img src="https://placehold.it/32x32" alt="Photo"></a>
-    <div class="meta">John | 2012.07.24 15:21 <a class="reply">Reply</a></div>
-    <div class="body">Candy soufflé bear claw apple pie bear claw marshmallow. Jelly brownie wafer chocolate jelly.marzipan pastry sesame snaps apple pie.</div>
-  </li>
-  <li class="comment level-3">
-    <a href="#" title="View this user profile" class="photo"><img src="https://placehold.it/32x32" alt="Photo"></a>
-    <div class="meta">Jane | 2012.07.24 15:32 <a class="reply">Reply</a></div>
-    <div class="body">Tart apple pie bonbon applicake sesame snaps sugar plum.</div>
-  </li>
-  <li class="comment level-4">
-    <a href="#" title="View this user profile" class="photo"><img src="https://placehold.it/32x32" alt="Photo"></a>
-    <div class="meta">Jane | 2012.07.24 15:32 <a class="reply">Reply</a></div>
-    <div class="body">Tart apple pie bonbon applicake sesame snaps sugar plum.</div>
-  </li>
-  <li class="comment">
-    <a href="#" title="View this user profile" class="photo"><img src="https://placehold.it/32x32" alt="Kasper"></a>
-    <div class="meta">Kasper | 2012.07.24 14:58 <a class="reply">Reply</a></div>
-    <div class="body">Cupcake ipsum dolor sit amet. Icing donut cheesecake muffin marzipan chocolate biscuit.</div>
-  </li>
+
+  <% contribution.comments.each do |comment|%>
+    <li class="comment level-2">
+      <a href="#" title="View this user profile" class="photo"><%= image_tag "#{comment.user.photo_url}", class: "user-avatar-extra-small" %></a>
+      <div class="meta"><%= comment.user.username %> | <%= comment.created_at.strftime("%d.%m.%Y") %> <a class="reply">Reply</a></div>
+      <div class="body"><%= comment.content %></div>
+    </li>
+  <% end %>
 </ul>
+
+<br>
