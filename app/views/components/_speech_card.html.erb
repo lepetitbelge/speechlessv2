@@ -1,10 +1,8 @@
-
-
 <div class="blog-card alt margin-t-20">
     <div class="meta">
-      <div class="photo" style="background-image: url(https://res.cloudinary.com/lepetitbelge/image/upload/v1551197129/obama.jpg"></div>
+      <div class="photo" style="background-image: url(<%= cl_image_path speech.speaker.photo %>)"></div>
       <ul class="details">
-        <li class="author tags"><a href="/speakers/<%= speech.speaker.id %>"><%= speech.speaker.full_name %></a></li>
+        <li class="author tags"><%= link_to speech.speaker.full_name, speaker_path(speech.speaker)%></a></li>
       </ul>
     </div>
     <div class="description">
