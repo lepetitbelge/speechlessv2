@@ -6,7 +6,7 @@
 
 <ul>
   <% @speakers.each do |speaker| %>
-    <li><%= link_to "#{speaker.full_name})", admin_speaker_path(speech) %> (<%= link_to "Edit", edit_admin_speaker_path(speaker) %> | <%= link_to "Delete", admin_speaker_path(speaker), method: :delete %>)</li>
+    <li><%= link_to "#{speaker.full_name}", admin_speaker_path(speaker) %> (<%= link_to "Edit", edit_admin_speaker_path(speaker) %> | <%= link_to "Delete", admin_speaker_path(speaker), method: :delete %>)</li>
     <br>
   <% end %>
 </ul>
