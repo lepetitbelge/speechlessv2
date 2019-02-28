@@ -30,7 +30,7 @@
 flex-grow: 1;
 }
 .contribution-voting {
-width: 40px;
+width: 20px;
   p {
     margin-bottom: 0;
   }
@@ -70,6 +70,7 @@ width: 40px;
   padding: 5px 0 0 46px;
   position: relative;
   margin: 0 0 0 12px;
+  width: 400px;
 }
 .comments:before,
 .comments .comment,
@@ -84,6 +85,12 @@ width: 40px;
   display: block;
   content: '';
   position: absolute;
+}
+.body-and-voting {
+  display: flex;
+}
+.body {
+  flex-grow: 1;
 }
 .comments:before {
   border-radius: 0 0 5px 5px;

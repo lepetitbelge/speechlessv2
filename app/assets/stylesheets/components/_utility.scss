@@ -34,6 +34,18 @@
   padding-top: 10px;
   padding-bottom: 10px;
 }
+.padding-r5 {
+  padding-right: 5px;
+}
+.padding-r10 {
+  padding-right: 10px;
+}
+.padding-l5 {
+  padding-left: 5px;
+}
+.padding-l10 {
+  padding-left: 10px;
+}
 .padding-lr-5{
   padding-left: 5px;
   padding-right: 5px;
@@ -64,5 +76,8 @@
 .no-txt-overflow {
   overflow: auto;
   text-overflow: ellipsis;
+}
+.text-justify {
+  text-align: justify;
 }
 
