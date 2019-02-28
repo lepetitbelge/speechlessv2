@@ -4,9 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :contributions
-  has_many :comments
-  has_many :votes
+  has_many :contributions, dependent: :nullify
+  has_many :comments, dependent: :nullify
+  has_many :votes, dependent: :nullify
 
   validates :username, presence: true
 
@@ -22,7 +22,7 @@ class User < ApplicationRecord
     end
     return stats
   end
-  
+
   def total_votes
     self.total_stats[:comments_votes] + self.total_stats[:contributions_votes]
   end
