@@ -99,9 +99,10 @@ width: 20px;
 }
 .submit-form {
   position:absolute;
-  bottom: 5px;
+  bottom: 6px;
   right: 2px;
   color: #ccc;
+  font-weight: bolder;
   &:hover {
     color: rgb(199, 168, 109);
   }
