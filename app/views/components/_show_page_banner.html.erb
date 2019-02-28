@@ -1,0 +1,11 @@
+<div class="show-page-banner">
+  <div class="show-page-banner-quote padding-10">
+    <div>
+      <% if @speech.speaker %>
+        <p><strong>Speaker: </strong><%= link_to @speech.speaker.full_name, speaker_path(@speech.speaker) %>
+      <% end %>
+      <p><strong>Category: </strong><%= @speech.category.name %></p>
+    </div>
+  </div>
+</div>
+
