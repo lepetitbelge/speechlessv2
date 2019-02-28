@@ -1,5 +1,5 @@
 class Speaker < ApplicationRecord
-  has_many :speeches
+  has_many :speeches, dependent: :nullify
 
   validate :first_or_last_name
 
