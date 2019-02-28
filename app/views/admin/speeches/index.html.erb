@@ -1,16 +1,12 @@
-<div class="text-center">
-  <h2>Admin speeches Index</h2>
-</div>
-
-<div class="text-center">
-  <ul>
-    <% @speeches.each do |speech| %>
-      <li><%= link_to speech.title, admin_speech_path(speech) %></li>
-      <br>
-    <% end %>
-  </ul>
-</div>
+<h2>Admin: Speeches Index</h2>
 
 <div class="text-center">
   <%= link_to 'new speech', new_admin_speech_path, class: 'btn btn-primary' %>
 </div>
+
+<ul>
+  <% @speeches.each do |speech| %>
+    <li><%= link_to "#{speech.speaker.full_name}: #{speech.title}", admin_speech_path(speech) %> (<%= link_to "Edit", edit_admin_speech_path(speech) %> | <%= link_to "Delete", admin_speech_path(speech), method: :delete %>)</li>
+    <br>
+  <% end %>
+</ul>

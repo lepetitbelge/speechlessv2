@@ -7,17 +7,20 @@
     <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
       <%= simple_form_for @speech, url: admin_speech_path(@speech), method: :patch do |f| %>
         <%= f.input :title %>
+        <%= f.association :speaker, label_method: :full_name %>
         <%= f.input :date %>
-        <%= f.country_select :country %>
+        <%= f.input :country %>
         <%= f.input :city %>
         <%= f.association :category %>
-        <%= f.input :content %>
+        <%= f.input :content, as: :text %>
         <%= f.input :duration %>
-        <%= f.submit 'Edit', class: 'btn btn-primary' %>
+        <%= f.submit 'Update', class: 'btn btn-primary' %>
       <% end %>
     </div>
   </div>
 </div>
+
+<%= link_to "Delete", admin_speech_path(@speech), method: :delete %>
 
 <div class="text-center">
   <%= link_to 'index', admin_speeches_path, class: 'btn btn-primary' %>

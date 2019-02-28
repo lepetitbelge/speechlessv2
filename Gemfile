@@ -21,6 +21,7 @@ gem 'faker'
 gem 'country_select', '~> 4.0'
 gem 'ui_faces'
 gem 'cloudinary', '~> 1.9.1'
+gem 'carrierwave', '~> 1.2'
 
 group :development do
   gem 'web-console', '>= 3.3.0'

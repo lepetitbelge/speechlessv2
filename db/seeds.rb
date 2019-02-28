@@ -22,6 +22,7 @@ User.create({
   admin: true
 })
 
+# if Rails.env = "development"
 puts '~~~creating random users~~~'
 #random users
 20.times do
@@ -34,6 +35,7 @@ puts '~~~creating random users~~~'
     )
 end
 
+# Activism, Technology
 #categories
 %w[Politics Sports History Antiquity Fiction Economics Celebrities].each { |category| Category.create(name: category) }
 

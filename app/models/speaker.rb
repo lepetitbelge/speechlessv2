@@ -3,6 +3,8 @@ class Speaker < ApplicationRecord
 
   validate :first_or_last_name
 
+  mount_uploader :photo, PhotoUploader
+
   include PgSearch
   multisearchable :against => [:first_name, :last_name]
 
