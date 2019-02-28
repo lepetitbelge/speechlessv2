@@ -16,9 +16,9 @@ class Admin::SpeechesController < ApplicationController
     @speech = Speech.new(speech_params)
     if @speech.save
       redirect_to admin_speech_path(@speech)
-      flash[:notice] = 'Nice! speech successfully created!'
+      flash[:notice] = 'Nice! Speech successfully created!'
     else
-      flash[:alert] = 'oops! something went wrong, speech could not be created!'
+      flash[:alert] = 'Oops! Something went wrong, speech could not be created!'
       render :new
     end
   end
@@ -29,9 +29,9 @@ class Admin::SpeechesController < ApplicationController
   def update
     if @speech.update(speech_params)
       redirect_to admin_speech_path(@speech)
-      flash[:notice] = 'Nice! speech successfully updated!'
+      flash[:notice] = 'Nice! Speech successfully updated!'
     else
-      flash[:alert] = 'oops! something went wrong, speech could not be updated!'
+      flash[:alert] = 'Oops! Something went wrong, speech could not be updated!'
       render :edit
     end
   end
@@ -39,9 +39,9 @@ class Admin::SpeechesController < ApplicationController
   def destroy
     if @speech.destroy
       redirect_to admin_speeches_path
-      flash[:notice] = 'Nice! speech successfully deleted!'
+      flash[:notice] = 'Nice! Speech successfully deleted!'
     else
-      flash[:alert] = 'oops! something went wrong, speech could not be deleted!'
+      flash[:alert] = 'Oops! Something went wrong, speech could not be deleted!'
       render :show
     end
   end
