@@ -1,0 +1,12 @@
+<h2>Admin speakers Index</h2>
+
+<ul>
+  <% @speeches.each do |speech| %>
+    <li><%= link_to "#{speech.title} (#{speech.speaker})", admin_speech_path(speech) %></li>
+    <br>
+  <% end %>
+</ul>
+
+<div class="text-center">
+  <%= link_to 'new speech', new_admin_speech_path, class: 'btn btn-primary' %>
+</div>
