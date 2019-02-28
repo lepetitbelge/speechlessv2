@@ -1,12 +1,10 @@
-<div class="text-center">
-  <h2>Admin speech show page</h2>
-</div>
+<h2>Admin speech show page</h2>
 
-<div class="text-center">
-  <p><strong>Title: </strong><%= @speech.title %></p>
-  <p><strong>Category: </strong><%= @speech.category.name %></p>
-  <p><strong>Content: </strong><%= @speech.content %></p>
-</div>
+<p><strong>Title: </strong><%= @speech.title %></p>
+<p><strong>Speaker: </strong><%= link_to @speech.speaker.full_name, admin_speaker_path(@speech.speaker) %></p>
+<p><strong>Category: </strong><%= @speech.category.name %></p>
+
+<p><strong>Content: </strong><%= @speech.content %></p>
 
 <div class="text-center">
   <%= link_to 'index', admin_speeches_path, class: 'btn btn-primary' %>
