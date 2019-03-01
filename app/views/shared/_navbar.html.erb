@@ -19,9 +19,12 @@
     <div class="dropdown">
       <img src='https://res.cloudinary.com/lepetitbelge/image/upload/v1550691453/photo-lily-467004-unsplash.jpg' class="job-card-avatar dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"/>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item" href="#"><i class="fas fa-user"></i> Account</a>
-          <a class="dropdown-item" href="#"><i class="fas fa-cogs"></i> Settings</a>
-          <a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt"></i> Log out</a>
+          <% if current_user %>
+            <a class="dropdown-item" href="/profile"><i class="fas fa-user"></i> Account</a>
+            <a class="dropdown-item" data-method="delete" href="/users/sign_out"><i class="fas fa-sign-out-alt"></i> Log out</a>
+          <% else %>
+            <a class="dropdown-item" href="/profile"><i class="fas fa-user"></i> Log in</a>
+          <% end %>
         </div>
      </div>
   </div>
