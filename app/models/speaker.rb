@@ -19,7 +19,7 @@ class Speaker < ApplicationRecord
   end
 
   def total_stats
-    stats = {speeches: 0, contributions: 0, comments: 0, comments_votes: 0, contributions_votes: 0}
+    stats = { speeches: 0, contributions: 0, comments: 0, comments_votes: 0, contributions_votes: 0 }
     stats[:speeches] = self.speeches.count
     self.speeches.each do |speech|
       stats[:contributions] += speech.contributions.count
