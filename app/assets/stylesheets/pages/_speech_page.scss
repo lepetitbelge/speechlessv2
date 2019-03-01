@@ -1,4 +1,15 @@
+.speech-and-contributions {
+  display: flex;
+}
 .speech-background {
   padding: 10px;
   line-height: 1.8;
+}
+.speech-text {
+  font-size: 18px;
+  font-family: 'Montserrat', sans-serif;
+  flex-grow: 1;
+}
+.thread {
+  width: 40%;
 }

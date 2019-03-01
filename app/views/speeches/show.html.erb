@@ -3,20 +3,21 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-xs-8 col-xs-offset-2">
+    <div class="col-xs-12">
       <h2 class="show-page-title">
         <%= @speech.title %>
       </h2>
-      <div class="speech-background speech-text text-justify">
-        <p><%= @speech.content.html_safe %></p>
-      </div>
-      <div class="thread">
-        <h2>Contributions: </h2>
-        <% if @speech.contributions %>
-          <% @speech.contributions.each do |contribution| %>
-            <%= render "components/thread", contribution: contribution %>
+      <div class="speech-and-contributions">
+        <div class="speech-background speech-text text-justify">
+          <p><%= @speech.content.html_safe %></p>
+        </div>
+        <div class="thread">
+          <% if @speech.contributions %>
+            <% @speech.contributions.each do |contribution| %>
+              <%= render "components/thread", contribution: contribution %>
+            <% end %>
           <% end %>
-        <% end %>
+        </div>
       </div>
     </div>
   </div>
