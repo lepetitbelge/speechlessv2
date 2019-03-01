@@ -1,6 +1,6 @@
-<div class="blog-card alt margin-t-20">
+<div class="card speech-card alt margin-t-20">
   <div class="meta">
-    <div class="photo" style="background-image: url(<%= cl_image_path speech.speaker.photo %>)"></div>
+    <div class="card-image" style="background-image: url(<%= cl_image_path speech.speaker.photo %>)"></div>
     <ul class="details">
       <li class="author tags"><%= link_to speech.speaker.full_name, speaker_path(speech.speaker)%></a></li>
     </ul>
