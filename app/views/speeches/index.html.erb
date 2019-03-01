@@ -4,19 +4,22 @@
 <% if @results.nil? %>
   <div class="container">
     <div class="row">
-      <div class="col-xs-8 col-xs-offset-2">
-        <% @speeches.each do |speech| %>
-          <%= render "components/speech_card", speech: speech %>
-        <% end %>
+      <div class="col-xs-6 col-xs-offset-1">
+        <div>
+          <% @speeches.each do |speech| %>
+            <%= render "components/speech_card", speech: speech %>
+          <% end %>   
+        </div>
+      </div>
+      <div>
+        <div class="speaker-cards-container">
+          <% @speakers.each do |speaker| %>
+            <%= render "components/speaker_card", speaker: speaker %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
-  <h4>Speakers:</h4>
-  <ul>
-    <% @speakers.each do |speaker| %>
-      <%= render "components/speaker_card", speaker: speaker %>
-    <% end %>
-  </ul>
 <% else %>
 
   <% @results.each do |result| %>
