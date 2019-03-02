@@ -175,3 +175,12 @@ width: 20px;
 }
 .comments .level-2 { margin-left: 30px; }
 
+.btn-ghost {
+  font-size: 10px;
+  padding-top: 5px;
+  &:hover {
+    background-color: rgba(100, 100, 100, 0.3);
+    color: white;
+  }
+}
+
