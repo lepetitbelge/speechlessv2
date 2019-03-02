@@ -6,7 +6,7 @@ class Speaker < ApplicationRecord
   mount_uploader :photo, PhotoUploader
 
   include PgSearch
-  multisearchable :against => [:first_name, :last_name]
+  pg_search_scope :search, against: [:first_name, :last_name]
 
   def full_name
     if self.first_name.nil?

@@ -11,7 +11,7 @@ class Speech < ApplicationRecord
   validate :date_cannot_be_in_future
 
   include PgSearch
-  multisearchable :against => [:title, :content, :category]
+  pg_search_scope :search, against: [:title, :content]
 
   def total_stats
     stats = { contributions: 0, comments: 0, comments_votes: 0, contributions_votes: 0 }
