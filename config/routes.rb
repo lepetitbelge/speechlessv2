@@ -27,6 +27,7 @@ Rails.application.routes.draw do
     namespace :admin do
       resources :speeches
       resources :speakers
+      resources :categories
     end
   end
 end
