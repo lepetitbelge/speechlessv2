@@ -1,7 +1,7 @@
 <%= render 'shared/navbar' %>
 <%= render 'components/search_page_banner' %>
 
-<% if @results.nil? %>
+<% if params[:query] == '' %>
   <div class="container">
     <div class="row">
       <div class="col-xs-8 col-xs-offset-2">
@@ -19,9 +19,8 @@
   </ul>
 <% else %>
 
-  <% @results.each do |result| %>
-    <%= result.searchable %>
-  <% end %>
+<%= @speeches.count %>
+<%= @speakers.count %>
 <% end %>
 
 
