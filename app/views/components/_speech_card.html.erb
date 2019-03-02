@@ -7,7 +7,7 @@
   </div>
   <div class="description">
     <h1><%= speech.title %></h1>
-    <h2><%= speech.date.strftime("%d.%m.%Y") %></h2>
+    <h2><%= "#{speech.category.name} - #{speech.date.strftime("%d.%m.%Y")}" %></h2>
     <div class="read-more">
       <a href="/speeches/<%= speech.id %>">Read speech</a>
     </div>
