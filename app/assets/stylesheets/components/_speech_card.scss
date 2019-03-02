@@ -2,11 +2,6 @@
   display: flex;
   flex-direction: column;
   z-index: 0;
-  .meta {
-    position: relative;
-    z-index: 0;
-    height: 100px;
-  }
   .card-image {
     position: absolute;
     bottom: 0;
@@ -46,15 +41,10 @@
     }
   }
 
-
   @media (min-width: 640px) {
     flex-direction: row;
     max-width: 500px;
     height: 100px !important;
-    .meta {
-      flex-basis: 40%;
-      height: auto;
-    }
     .description {
       flex-basis: 60%;
       &:before {
