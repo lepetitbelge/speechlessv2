@@ -18,12 +18,10 @@
   .description {
     height: 100px;
   }
-  .info-part {
-    .stats {
-      @media (max-width: 660px) {
-        width: 0;
-        opacity: 0;
-      }
+  .stats {
+    @media (max-width: 660px) {
+      width: 0;
+      opacity: 0;
     }
   }
   h2 {

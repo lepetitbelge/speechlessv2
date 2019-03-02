@@ -8,15 +8,13 @@
   <div class="description">
     <h1><%= speech.title %></h1>
     <h2><%= speech.date.strftime("%d.%m.%Y") %></h2>
-    <div class="info-part">
-      <div class="read-more">
-        <a href="/speeches/<%= speech.id %>">Read speech</a>
-      </div>
-      <div class="stats">
-        <p><i class="far fa-comment-alt"></i> <%= speech.total_stats[:contributions] %></p>
-        <p><i class="far fa-comment"></i> <%= speech.total_stats[:comments] %></p>
-        <p><i class="fas fa-sort voting-item"></i> <%= speech.total_votes %></p>
-      </div>
+    <div class="read-more">
+      <a href="/speeches/<%= speech.id %>">Read speech</a>
+    </div>
+    <div class="stats">
+      <p><i class="far fa-comment-alt"></i> <%= speech.total_stats[:contributions] %></p>
+      <p><i class="far fa-comment"></i> <%= speech.total_stats[:comments] %></p>
+      <p><i class="fas fa-sort voting-item"></i> <%= speech.total_votes %></p>
     </div>
   </div>
 </div>

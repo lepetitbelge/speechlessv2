@@ -10,6 +10,7 @@ a {
   }
 }
 .card {
+  position: relative;
   background-color: $color_white;
   box-shadow: 0 3px 7px -1px rgba(#000, .1);
   overflow: hidden;
@@ -51,6 +52,9 @@ a {
   }
 }
 .read-more {
+  position: absolute;
+  left: 7px;
+  bottom: 7px;
   a {
     color: $color_prime;
     display: inline-block;
@@ -71,13 +75,13 @@ a {
     }
   }
 }
-.info-part {
-  font-size: 10px;
-  display: flex;
-  justify-content: space-between;
-}
 .stats {
+  font-size: 10px;
   display: flex;
   width: 95px;
   justify-content: space-between;
+  vertical-align: bottom;
+  position: absolute;
+  right: 7px;
+  bottom: 0px;
 }
