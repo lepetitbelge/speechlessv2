@@ -16,11 +16,11 @@ Contributions:
 <ul>
   <% @speech.contributions.each do |contribution| %>
   <li>
-    <%= "#{contribution.user}: #{contribution.content}" %>(<%= link_to "Delete", admin_contribution_path(contribution), method: :delete %>)
+    <%= "#{contribution.user.username}: #{contribution.content}" %>(<%= link_to "Delete", admin_contribution_path(contribution), method: :delete %>)
     <ul>  
       <% contribution.comments.each do |comment| %>
         <li>
-          <%= "#{comment.user}: #{comment.content}" %>(<%= link_to "Delete", admin_comment_path(comment), method: :delete %>)
+          <%= "#{comment.user.username}: #{comment.content}" %>(<%= link_to "Delete", admin_comment_path(comment), method: :delete %>)
         </li>
       <% end %>
     </ul>
