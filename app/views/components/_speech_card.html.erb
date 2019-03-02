@@ -1,13 +1,13 @@
 <div class="card speech-card alt margin-t-20">
   <div class="meta">
     <div class="card-image" style="background-image: url(<%= cl_image_path speech.speaker.photo %>)"></div>
-    <ul class="details">
-      <li class="author tags"><%= link_to speech.speaker.full_name, speaker_path(speech.speaker)%></a></li>
-    </ul>
+    <div class="details">
+      <li class="author-tag"><%= link_to speech.speaker.full_name, speaker_path(speech.speaker)%></a>
+    </div>
   </div>
   <div class="description">
     <h1><%= speech.title %></h1>
-    <h2 class="margin-kill"><%= speech.date.strftime("%d.%m.%Y") %></h2>
+    <h2><%= speech.date.strftime("%d.%m.%Y") %></h2>
     <div class="stats">
       <div class="read-more">
         <a href="/speeches/<%= speech.id %>">Read speech</a>

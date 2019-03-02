@@ -2,9 +2,6 @@
   display: flex;
   flex-direction: column;
   z-index: 0;
-  a {
-    color: inherit;
-  }
   .meta {
     position: relative;
     z-index: 0;
@@ -26,100 +23,21 @@
 
   .details {
     position: absolute;
-    // top: 0;
     bottom: 0;
     left: -100%;
-    margin: auto;
     transition: left .2s;
     background: rgba(#000, .6);
     color: $color_white;
-    padding: 10px;
     width: 100%;
     font-size: 1.9rem;
     opacity: 0.8;
-    a {
-      text-decoration: none;
-    }
     ul li {
       display: inline-block;
     }
-    .author:before {
-      font-family: FontAwesome;
-      margin-right: 10px;
-    }
-
-    .date:before {
-      font-family: FontAwesome;
-      margin-right: 10px;
-    }
-
-    .tags {
-      ul:before {
-        font-family: Arial;
-        margin-right: 10px;
-      }
-      li {
-        margin-right: 2px;
-        &:first-child {
-          margin-left: -4px;
-        }
-      }
-    }
   }
   .description {
-    padding: 1rem;
-    background: $color_white;
     position: relative;
     z-index: 1;
-    h1,
-    h1 {
-      line-height: 1;
-      margin: 0;
-      font-size: 1.7rem;
-    }
-    h2 {
-      font-size: 1.2rem;
-      font-weight: 300;
-      color: $color_grey_dark;
-      margin-top: 5px;
-      margin-bottom: 5px;
-    }
-    .read-more {
-      a {
-        color: $color_prime;
-        display: inline-block;
-        position: relative;
-        // color: #b28a52;
-        display: inline-block;
-        position: relative;
-        border: 1px solid;
-        border-radius: 3px;
-        padding: 3px;
-        font-size: 12px;
-        &:after {
-          font-family: FontAwesome;
-          transition: margin .3s, opacity .3s;
-        }
-        &:hover {
-          transform: scale(1.05);
-          opacity: 1;
-        }
-      }
-    }
-  }
-  p {
-    position: relative;
-    margin: 1rem 0 0;
-    &:first-of-type {
-      &:before {
-        content: "";
-        position: absolute;
-        background: rgb(225, 205, 141);
-        width: 50%;
-        top: -0.75rem;
-        border-radius: 3px;
-      }
-    }
   }
   &:hover {
     .details {
