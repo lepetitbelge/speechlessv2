@@ -29,6 +29,40 @@ const hideShowComments = () => {
   });
 };
 
-
 export { hideShowContributions };
 export { hideShowComments };
+
+// const contributions = document.querySelectorAll('.hideDivContributions');
+// const comments = document.querySelectorAll('.hideDivComments');
+// const btnShowC = document.querySelectorAll('.btn-show-c');
+// const btnShow = document.querySelectorAll('.btn-show');
+
+// const hideShowContributions = () => {
+//   btnShowC.forEach((b) => {
+//     b.addEventListener('click', () => {
+//       if (b.innerText === 'Hide contribution') {
+//         b.innerText = 'Show contribution';
+//         contributions.style.display = 'none';
+//         comments.style.display = 'none';
+//         btnShow.children.innerText = 'Show comments';
+//       } else {
+//         contributions.style.display = 'block';
+//         b.innerText = 'Hide contribution';
+//       }
+//     });
+//   });
+// };
+
+// const hideShowComments = () => {
+//   btnShow.forEach((b) => {
+//     b.addEventListener('click', () => {
+//       if (b.innerText === 'Hide comments') {
+//         b.innerText = 'Show comments';
+//         comments.style.display = 'none';
+//       } else {
+//         comments.style.display = 'block';
+//         b.innerText = 'Hide comments';
+//       }
+//     });
+//   });
+// };
