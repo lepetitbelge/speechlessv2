@@ -1,6 +1,7 @@
 .speech-card {
   display: flex;
-  flex-direction: column;
+  max-width: 750px;
+  height: 100px !important;
   z-index: 0;
   .card-image {
     position: absolute;
@@ -15,11 +16,11 @@
     padding: 0;
     list-style: none;
   }
-
   .details {
     position: absolute;
     bottom: 0;
     left: -100%;
+    padding-left: 25px;
     transition: left .2s;
     background: rgba(#000, .6);
     color: $color_white;
@@ -33,6 +34,18 @@
   .description {
     position: relative;
     z-index: 1;
+    flex-basis: 60%;
+    &:before {
+      transform: skewX(10deg);
+      content: "";
+      background: $color_white;
+      width: 30px;
+      position: absolute;
+      left: -10px;
+      top: 0;
+      bottom: 0;
+      z-index: -1;
+    }
   }
   &:hover {
     .details {
@@ -40,36 +53,13 @@
       vertical-align: middle;
     }
   }
-
-  @media (min-width: 640px) {
-    flex-direction: row;
-    max-width: 500px;
-    height: 100px !important;
+  &.alt {
+    flex-direction: row-reverse;
     .description {
-      flex-basis: 60%;
       &:before {
-        transform: skewX(10deg);
-        content: "";
-        background: #fff;
-        width: 30px;
-        position: absolute;
-        left: -10px;
-        top: 0;
-        bottom: 0;
-        z-index: -1;
-      }
-    }
-    &.alt {
-      flex-direction: row-reverse;
-      .description {
-        &:before {
-          left: inherit;
-          right: -10px;
-          transform: skew(10deg)
-        }
-      }
-      .details {
-        padding-left: 25px;
+        left: inherit;
+        right: -10px;
+        transform: skew(10deg)
       }
     }
   }

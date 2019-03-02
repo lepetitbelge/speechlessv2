@@ -19,6 +19,7 @@ a {
     flex-basis: 40%;
     z-index: 0;
     height: 100px;
+    overflow: hidden;
   }
   .card-image {
     top: 0;
@@ -69,6 +70,9 @@ a {
       opacity: 1;
     }
   }
+}
+.info-part {
+  
 }
 .stats {
   font-size: 10px;
