@@ -3,12 +3,18 @@
   max-width: 750px;
   height: 100px !important;
   z-index: 0;
-  .card-image {
-    position: absolute;
-    bottom: 0;
-    background-size: cover;
-    background-position: center;
-    transition: transform .2s;
+  .meta {
+    .card-image {
+      position: absolute;
+      bottom: 0;
+      background-size: cover;
+      background-position: center;
+      transition: transform .2s;
+    }
+    @media (max-width: 570px) {
+      width: 0;
+      opacity: 0;
+    }
   }
   .details,
   .details ul {

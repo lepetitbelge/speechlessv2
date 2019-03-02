@@ -72,12 +72,12 @@ a {
   }
 }
 .info-part {
-  
-}
-.stats {
   font-size: 10px;
   display: flex;
   justify-content: space-between;
-  margin: 5px 5px;
-  padding: 3px 10px;
+}
+.stats {
+  display: flex;
+  width: 95px;
+  justify-content: space-between;
 }
