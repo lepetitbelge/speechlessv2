@@ -1,20 +1,7 @@
-const comments = document.querySelector('.hideDivComments');
 const contributions = document.querySelector('.hideDivContributions');
-const btnShow = document.querySelector('.btn-show');
+const comments = document.querySelector('.hideDivComments');
 const btnShowC = document.querySelector('.btn-show-c');
-
-
-const hideShowComments = () => {
-  btnShow.addEventListener('click', () => {
-    if (btnShow.innerText === 'Hide comments') {
-      btnShow.innerText = 'Show comments';
-      comments.style.display = 'none';
-    } else {
-      comments.style.display = 'block';
-      btnShow.innerText = 'Hide comments';
-    }
-  });
-};
+const btnShow = document.querySelector('.btn-show');
 
 const hideShowContributions = () => {
   btnShowC.addEventListener('click', () => {
@@ -30,5 +17,18 @@ const hideShowContributions = () => {
   });
 };
 
-export { hideShowComments };
+const hideShowComments = () => {
+  btnShow.addEventListener('click', () => {
+    if (btnShow.innerText === 'Hide comments') {
+      btnShow.innerText = 'Show comments';
+      comments.style.display = 'none';
+    } else {
+      comments.style.display = 'block';
+      btnShow.innerText = 'Hide comments';
+    }
+  });
+};
+
+
 export { hideShowContributions };
+export { hideShowComments };
