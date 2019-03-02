@@ -1,38 +1,34 @@
 const comments = document.querySelector('.hideDivComments');
 const contributions = document.querySelector('.hideDivContributions');
 const btnShow = document.querySelector('.btn-show');
-const btnHide = document.querySelector('.btn-hide');
 const btnShowC = document.querySelector('.btn-show-c');
-const btnHideC = document.querySelector('.btn-hide-c');
 
 
-
-const showComments = () => {
+const hideShowComments = () => {
   btnShow.addEventListener('click', () => {
-    comments.style.display = 'block';
+    if (btnShow.innerText === 'Hide comments') {
+      btnShow.innerText = 'Show comments';
+      comments.style.display = 'none';
+    } else {
+      comments.style.display = 'block';
+      btnShow.innerText = 'Hide comments';
+    }
   });
 };
 
-const hideComments = () => {
-  btnHide.addEventListener('click', () => {
-    comments.style.display = 'none';
-  });
-};
-
-const hideContributions = () => {
-  btnHideC.addEventListener('click', () => {
-    contributions.style.display = 'none';
-    comments.style.display = 'none';
-  });
-};
-
-const showContributions = () => {
+const hideShowContributions = () => {
   btnShowC.addEventListener('click', () => {
-    contributions.style.display = 'block';
+    if (btnShowC.innerText === 'Hide contribution') {
+      btnShowC.innerText = 'Show contribution';
+      contributions.style.display = 'none';
+      comments.style.display = 'none';
+      btnShow.innerText = 'Show comments';
+    } else {
+      contributions.style.display = 'block';
+      btnShowC.innerText = 'Hide contribution';
+    }
   });
 };
 
-export { showComments };
-export { hideComments };
-export { showContributions };
-export { hideContributions };
+export { hideShowComments };
+export { hideShowContributions };
