@@ -17,5 +17,3 @@ class SpeakersController < ApplicationController
     @info_summary = JSON.parse(open(url_base + @speaker.full_name).read)['query']['pages'].values.first['extract']
   end
 end
-
-# https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro&explaintext&redirects=1&titles=Donald%20Trump
