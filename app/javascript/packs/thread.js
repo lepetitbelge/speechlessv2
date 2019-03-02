@@ -1,17 +1,17 @@
 const comments = document.querySelector('.hidediv');
-const btnShow = document.getElementById('btn-show');
-const btnHide = document.getElementById('btn-hide');
+const btnShow = document.querySelector('.btn-show');
+const btnHide = document.querySelector('.btn-hide');
 
 
 const showComments = () => {
   btnShow.addEventListener('click', () => {
-    hidediv.style.display = 'block';
+    comments.style.display = 'block';
   });
 };
 
 const hideComments = () => {
   btnHide.addEventListener('click', () => {
-    hidediv.style.display = 'none';
+    comments.style.display = 'none';
   });
 };
 
