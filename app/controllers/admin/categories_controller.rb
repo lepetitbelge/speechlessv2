@@ -33,7 +33,7 @@ class Admin::CategoriesController < ApplicationController
     end
   end
 
-  def delete
+  def destroy
     if @category.destroy
       redirect_to admin_categories_path
       flash[:notice] = 'Nice! Category successfully deleted!'
