@@ -4,14 +4,14 @@
 <% if @results.nil? %>
   <div class="container">
     <div class="row">
-      <div class="col-xs-6 col-xs-offset-1">
+      <div class="col-xs-8 col-md-6 col-md-offset-1">
         <div>
           <% @speeches.each do |speech| %>
             <%= render "components/speech_card", speech: speech %>
           <% end %>   
         </div>
       </div>
-      <div class="col-xs-3">
+      <div class="col-xs-4 col-md-3 col-md-offset-1">
         <div class="speaker-cards-container">
           <% @speakers.each do |speaker| %>
             <%= render "components/speaker_card", speaker: speaker %>

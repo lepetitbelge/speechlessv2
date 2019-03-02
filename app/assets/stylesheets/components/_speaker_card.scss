@@ -1,7 +1,9 @@
 .speaker-card {
   position: relative;
-  height: 250px;
   max-width: 250px;
+  .meta {
+    height: 120px;
+  }
   .card_image {
     border-radius: 3px 3px 0 0;
     opacity: 1;
@@ -13,8 +15,10 @@
       transform: scale(1.05);
     }
   }
+  .description {
+    height: 100px;
+  }
 }
-
 .card_image {
   background-size: cover;
   background-position: center;
