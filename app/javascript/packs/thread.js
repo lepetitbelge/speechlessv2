@@ -29,7 +29,6 @@ const hideContributions = () => {
 const showContributions = () => {
   btnShowC.addEventListener('click', () => {
     contributions.style.display = 'block';
-    comments.style.display = 'block';
   });
 };
 
