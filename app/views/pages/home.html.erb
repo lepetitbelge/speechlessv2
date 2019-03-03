@@ -6,7 +6,7 @@
           <div class="card_header">
             <h4>All Time Greatest Speeches</h4>
           </div>
-          <% @speeches.each do |speech| %>
+          <% @all_time_speeches.each do |speech| %>
             <%= render "components/speech_card", speech: speech %>
           <% end %>   
         </div>
@@ -16,7 +16,7 @@
           <div class="card_header">
             <h4>Trending Speeches</h4>
           </div>
-          <% @speeches.each do |speech| %>
+          <% @trending_speeches.each do |speech| %>
             <%= render "components/speech_card", speech: speech %>
           <% end %>   
         </div>
