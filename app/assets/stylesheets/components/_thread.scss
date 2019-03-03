@@ -184,3 +184,17 @@ width: 20px;
   }
 }
 
+.hideDivContributions {
+  display: none;
+}
+.hideDivContributions.is-visible {
+  display: block;
+}
+
+.hideDivComments {
+  display: none;
+}
+.hideDivComments.is-visible {
+  display: block;
+}
+

@@ -1,7 +1,5 @@
 import "bootstrap";
 
-import { hideShowContributions } from './thread.js';
-import { hideShowComments } from './thread.js';
+import { initThreads } from '../components/thread';
 
-hideShowContributions();
-hideShowComments();
+initThreads();
