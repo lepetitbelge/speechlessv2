@@ -1,5 +1,5 @@
 puts '~~~destroying database~~~'
-[Vote, Comment, Contribution, Speech, Category].each(&:destroy_all)
+[Vote, Comment, Contribution, Speech].each(&:destroy_all)
 puts '~~~destroying users (except admin users)~~~'
 User.where(admin: false).destroy_all
 
@@ -37,7 +37,8 @@ if Rails.env.development?
 end
 
 puts '~~~creating categories~~~'
-%w[Politics Sports Antiquity Fiction Economics Celebrities Activism Technology].each do |category| 
+# %w[Politics Sports History Antiquity Fiction Economics Celebrities].each { |category| Category.create(name: category) }
+%w[Activism Technology].each do |category| 
   Category.create(name: category)
 end
 
