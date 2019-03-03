@@ -1,6 +1,6 @@
 <br>
 <ul class="comments">
-  <div class="btn btn-ghost btn-show-c">Hide contribution</div>
+  <div class="btn btn-ghost btn-show-c"><%= contribution.user.username %>'s contribution <i class="far fa-arrow-alt-circle-down"></i></div>
   <div class="hideDivContributions">
     <li class="comment">
       <a href="#" title="View this user profile" class="photo"><%= image_tag "#{contribution.user.photo_url}", class: "user-avatar-extra-small" %></a>
@@ -22,7 +22,7 @@
             <% end %>
         </div>
       </div>
-      <div class="btn btn-ghost btn-show">Hide comments</div>
+      <div class="btn btn-ghost btn-show">Comments <i class="far fa-arrow-alt-circle-down"></i></div>
     </li>
   </div>
   <div class="hideDivComments">
