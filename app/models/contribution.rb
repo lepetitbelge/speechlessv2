@@ -10,11 +10,7 @@ class Contribution < ApplicationRecord
   validates :content, length: { maximum: 1000, too_long: "can't have more than %{count} characters" }
 
   def vote_sum
-    value_sum = 0
-    Vote.where(votable_type: "Contribution", votable_id: self.id).each do |vote|
-      value_sum += vote.value
-    end
-    return value_sum
+    self.votes.sum(:value)
   end
 
   def user_vote(user)

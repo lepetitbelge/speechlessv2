@@ -1,0 +1,12 @@
+<h2>Admin categories Index</h2>
+
+<div class="text-center">
+  <%= link_to 'new category', new_admin_category_path, class: 'btn btn-primary' %>
+</div>
+
+<ul>
+  <% @categories.each do |category| %>
+    <li><%= link_to "#{category.full_name}", admin_category_path(category) %> (<%= link_to "Edit", edit_admin_category_path(category) %> | <%= link_to "Delete", admin_category_path(category), method: :delete %>)</li>
+    <br>
+  <% end %>
+</ul>
