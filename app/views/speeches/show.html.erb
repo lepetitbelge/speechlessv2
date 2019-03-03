@@ -23,7 +23,7 @@
   </div>
 </div>
 <!-- TESTING CONTRIBUTIONS -->
-<%= simple_form_for [@speech, @contribution] do |f| %>
+<%= simple_form_for [@speech, @contribution], class: "new_contribution" do |f| %>
   <%= f.input :selection_uui, as: :hidden %>
   <%= f.input :paragraph, as: :hidden %>
   <%= hidden_field_tag :speech_html %>
