@@ -138,10 +138,7 @@ end
 #contributions with comments and votes
 Speech.all.each do |speech|
   5.times do
-    start_position = rand(1..speech.content.length/2)
     contribution = Contribution.create(
-      start_position: start_position,
-      end_position: rand(start_position..speech.content.length),
       speech_id: speech.id,
       user_id: User.all.sample.id,
       content: Faker::Lorem.paragraph
