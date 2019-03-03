@@ -1,18 +1,14 @@
-// Specific CSS for your home-page
-.landing-page-content {
-  height: 400px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 10px;
+.video_banner {
+  height: calc(100vh - 600px);
+  min-height: 250px;
+  width: 100%;
+  background-color: $green;
+  border-radius: 3px;
 }
 
-.landing-page-speeches {
-  width: 40%;
-  height: 80%;
-}
-
-.landing-page-speakers {
-  width: 40%;
-  height: 80%;
+.see-more {
+  text-align: right;
+  a {
+    text-decoration: none;
+  }
 }

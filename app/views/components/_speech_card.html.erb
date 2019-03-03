@@ -1,0 +1,21 @@
+<div class="card speech-card alt margin-t-20">
+  <div class="meta">
+    <div class="card-image" style="background-image: url(<%= cl_image_path speech.speaker.photo %>)"></div>
+    <div class="details">
+      <li class="author-tag"><%= link_to speech.speaker.full_name, speaker_path(speech.speaker)%></a>
+    </div>
+  </div>
+  <div class="description">
+    <h1><%= speech.title %></h1>
+    <h2><%= "#{speech.category.name} - #{speech.date.strftime("%d.%m.%Y")}" %></h2>
+    <div class="read-more">
+      <a href="/speeches/<%= speech.id %>">Read speech</a>
+    </div>
+    <div class="stats">
+      <p><i class="far fa-comment-alt"></i> <%= speech.total_stats[:contributions] %></p>
+      <p><i class="far fa-comment"></i> <%= speech.total_stats[:comments] %></p>
+      <p><i class="fas fa-sort voting-item"></i> <%= speech.total_votes %></p>
+    </div>
+  </div>
+</div>
+
