@@ -1,0 +1,21 @@
+.speaker-banner {
+  height: 350px;
+  width: 100%;
+  border-bottom: 2px solid $color_grey;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+}
+
+.speaker-photo {
+  height: 50%;
+  flex: 0 0 200px;
+  padding: 20px;
+  margin-right: 20px;
+  border-radius: 3px 0 0 3px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  transition: all 200ms cubic-bezier(0.075, 0.82, 0.165, 1);
+}
