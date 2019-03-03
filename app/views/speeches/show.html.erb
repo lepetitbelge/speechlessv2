@@ -23,21 +23,7 @@
   </div>
 </div>
 <!-- TESTING CONTRIBUTIONS -->
-<div id="contributions">
-  <% if @speech.contributions.empty? %>
-    <div>No contributions yet.</div>
-  <% else %>
-    <%= render @speech.contributions %>
-  <% end %>
-  <%= simple_form_for [@speech, @contribution] do |f| %>
-    <%= f.input :selection_uui, as: :hidden %>
-    <%= f.input :paragraph, as: :hidden %>
-    <%= hidden_field_tag :speech_html %>
-    <%= f.input :content, input_html: { rows: 5 } %>
 
-    <%= f.submit %>
-  <% end %>
-</div>
 <!-- END OF TEST -->
 <div>
   <%= link_to 'index', speeches_path, class: 'btn btn-primary' %>
