@@ -13,6 +13,7 @@ const popOver = () => {
   return (
     `<div class="highlightMenu-inner">
       <div class="highlight-tools">
+        <i class="fas fa-highlighter"></i>
         <i class="fas fa-comment"></i>
       </div>
     </div>
@@ -61,13 +62,16 @@ const highlightSelection = (range, start, end) => {
 };
 
 const bindTooltipEvents = (range, start, end) => {
+  const highlight = document.querySelector('.fa-highlighter');
   const comment = document.querySelector('.fa-comment');
+
 
   comment.addEventListener('click', () => {
     displayForm();
     highlightSelection(range, start, end);
     }
   );
+  highlight.addEventListener('click', () => highlightSelection(range, start, end));
 };
 
 const setHighlightPosition = (range, token) => {
