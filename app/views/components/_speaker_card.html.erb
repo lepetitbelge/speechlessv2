@@ -4,7 +4,8 @@
   </div>
   <div class="description">
     <h1><%= speaker.full_name %></h1>
-    <h2><%= speaker.speeches.count %> speeches on speechless</h2>
+    <% speeches_count = speaker.speeches.count %>
+    <h2><%= speeches_count %> speech<%= "es" unless speeches_count == 1 %> on speechless</h2>
     <div class="read-more">
       <a href="/speakers/<%= speaker.id %>">Go to profile</a>
     </div>
