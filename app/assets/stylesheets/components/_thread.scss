@@ -175,3 +175,26 @@ width: 20px;
 }
 .comments .level-2 { margin-left: 30px; }
 
+.btn-ghost {
+  font-size: 10px;
+  padding-top: 5px;
+  &:hover {
+    background-color: rgba(200, 200, 200, 0.6);
+    color: white;
+  }
+}
+
+.hideDivContributions {
+  display: none;
+}
+.hideDivContributions.is-visible {
+  display: block;
+}
+
+.hideDivComments {
+  display: none;
+}
+.hideDivComments.is-visible {
+  display: block;
+}
+

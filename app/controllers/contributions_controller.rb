@@ -8,6 +8,7 @@ class ContributionsController < ApplicationController
     contribution.speech = Speech.find(params[:speech_id])
     if contribution.save
       puts "Save went well, we might render with AJAX"
+      # speech.update(content: params[:speech_html]) -> do this when working on contribution
     else
       puts "Save went awfully wrong"
     end

@@ -3,9 +3,8 @@ class SpeechesController < ApplicationController
 
   def index
     if params[:query].present?
-      PgSearch::Multisearch.rebuild(Speech)
-      PgSearch::Multisearch.rebuild(Speaker)
-      @results = PgSearch.multisearch(params[:query])
+      @speeches = Speech.search(params[:query])
+      @speakers = Speaker.search(params[:query])
     else
       @speeches = Speech.all
       @speakers = Speaker.all
@@ -14,5 +13,6 @@ class SpeechesController < ApplicationController
 
   def show
     @speech = Speech.find(params[:id])
+    @contribution = Contribution.new
   end
 end
