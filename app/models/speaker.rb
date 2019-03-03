@@ -22,7 +22,7 @@ class Speaker < ApplicationRecord
     stats = { speeches: 0, contributions: 0, comments: 0, votes: 0}
     stats[:speeches] = self.speeches.count
     self.speeches.each do |speech|
-      stats[:votes] += speech.votes
+      stats[:votes] += speech.vote_sum
       stats[:contributions] += speech.contributions.count
       speech.contributions.each do |contribution|
         stats[:comments] += contribution.comments.count
