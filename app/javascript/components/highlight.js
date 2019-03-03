@@ -37,14 +37,8 @@ const createTooltip = (range) => {
 };
 
 const displayForm = () => {
-
   const modal = document.querySelector('#modal-button');
   const textInput = document.querySelector('.modal textarea');
-  // modal.click();
-  // form.classList.add('is-visible');
-
-  // textInput.setSelectionRange(0, 0);
-  // textInput.focus();
 };
 
 const highlightSelection = (range, start, end) => {
