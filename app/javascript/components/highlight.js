@@ -35,21 +35,19 @@ const createTooltip = (range) => {
 };
 
 const displayForm = () => {
-  const form = document.getElementById('new_contribution');
-  const textInput = form.querySelector('textarea');
-  console.log(textInput)
-  form.classList.toggle('hidden');
+
+  const modal = document.querySelector('.modal');
+  const textInput = modal.querySelector('textarea');
+  modal.modal();
   // form.classList.add('is-visible');
 
   textInput.setSelectionRange(0, 0);
-  console.log(textInput)
   textInput.focus();
 };
 
 const highlightSelection = (range, start, end) => {
   const token = generateRandomToken();
   const span = document.createElement('span');
-  console.log(span)
   span.classList.add('highlightedSelection');
   span.dataset.uui = token;
 
@@ -78,14 +76,14 @@ const bindTooltipEvents = (range, start, end) => {
 
 const setHighlightPosition = (range, token) => {
   const paragraphIndex = range.startContainer.dataset.index;
-  console.log(paragraphIndex)
+  // console.log(paragraphIndex)
   const paragraphInput = document.getElementById('contribution_paragraph');
-  console.log(paragraphInput)
+  // console.log(paragraphInput)
   paragraphInput.value = paragraphIndex;
 
   const uuiInput = document.getElementById('contribution_selection_uui');
   uuiInput.value = token;
-  console.log(uuiInput)
+  // console.log(uuiInput)
 
   const speechHtmlInput = document.getElementById('speech_html');
   speechHtmlInput.value = speech.innerHTML;
