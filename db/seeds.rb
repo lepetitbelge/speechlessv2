@@ -38,7 +38,7 @@ end
 
 puts '~~~creating categories~~~'
 # %w[Politics Sports History Antiquity Fiction Economics Celebrities].each { |category| Category.create(name: category) }
-%w[Activism Technology].each do |category| 
+%w[Activism Technology Education].each do |category| 
   Category.create(name: category)
 end
 
