@@ -6,10 +6,9 @@
 
 .highlightMenu {
   z-index: 500;
-  width: 120px;
+  width: 50px;
   height: 44px;
-  color: rgba(0,0,0,.84);
-  background-color: #2C2C2A;
+  color: rgb(141, 33, 43);
   font-size: 20px;
   line-height: 1.4;
 }
@@ -17,11 +16,12 @@
 .highlightMenu-inner {
   position: relative;
   height: 100%;
-  background-image: linear-gradient(to bottom,rgba(49,49,47,.99),#262625);
+  background-color: white;
+  border: solid 2px rgb(141, 33, 43);
   background-repeat: repeat-x;
   border-radius: 5px;
   padding: 0 10px;
-  color: white;
+  color: rgb(141, 33, 43);
 }
 
 .highlightMenu-arrowClip {
@@ -36,7 +36,7 @@
     display: block;
     width: 20px;
     height: 20px;
-    background-color: #262625;
+    background-color: rgb(141, 33, 43);
     -webkit-transform: rotate(45deg) scale(.5);
     transform: rotate(45deg) scale(.5);
 }
@@ -59,6 +59,11 @@
       opacity: 0.8;
     }
   }
+}
+.highlight-sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
 }
 
 @keyframes pop-upwards {

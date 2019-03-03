@@ -32,7 +32,7 @@ const createTooltip = (range) => {
   div.style.position = 'fixed';
   div.style.top = (rectList[0].top - 54) + 'px';
   console.log(div.style.top)
-  div.style.left = ((rectList[0].left - 50) + (rectList[0].width / 2)) + 'px';
+  div.style.left = (rectList[0].right - 30) + 'px';
   document.body.appendChild(div);
 };
 
