@@ -29,8 +29,6 @@ const hideShowComments = () => {
   });
 };
 
-export { hideShowContributions };
-export { hideShowComments };
 
 // const contributions = document.querySelectorAll('.hideDivContributions');
 // const comments = document.querySelectorAll('.hideDivComments');
@@ -66,3 +64,6 @@ export { hideShowComments };
 //     });
 //   });
 // };
+
+export { hideShowContributions };
+export { hideShowComments };
