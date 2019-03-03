@@ -1,0 +1,24 @@
+.speaker-show-cards {
+  .speech-card {
+    .meta {
+      flex-basis: 0%;
+      width: 0;
+      opacity: 0;
+      .card-image {
+        max-width: 0;
+        opacity: 0;
+      }
+    }
+    .description {
+      flex-basis: 100%;
+    }
+  }
+}
+.speeches-count {
+  font-size: 10px;
+  width: 150px;
+  vertical-align: bottom;
+  position: absolute;
+  left: 20px;
+  bottom: 23px;
+}

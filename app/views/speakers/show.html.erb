@@ -1,13 +1,58 @@
-<h1>Speaker show page</h1>
-<p>Name: <%= "#{@speaker.first_name} #{@speaker.last_name}" %></p>
-<p>Date of birth: <%= @speaker.date_of_birth %></p>
-<p>Date of death: <%= @speaker.date_of_death %></p>
-
-<h2>Speeches of this speaker:</h2>
-<ul>
-  <% @speeches.each do |speech| %>
-    <li>
-      <%= link_to speech.title, speech_path(speech) %>
-    </li>
-  <% end %>
-</ul>
+<%= render 'shared/navbar' %>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-md-10 col-md-offset-1">
+      <div class="speaker-banner margin-t-20 margin-b-20">
+        <div class="speaker-photo" style="background-image: url(<%= cl_image_path @speaker.photo %>)"></div>
+        <div class="speaker-info">
+          <h1 class="kill-margin"><%= @speaker.full_name %></h1>
+          <% if @speaker.date_of_birth && @speaker.date_of_death %>
+            <p><%= "#{@speaker.date_of_birth.strftime("%d.%m.%Y")} - #{@speaker.date_of_death.strftime("%d.%m.%Y")}" %></p>
+          <% elsif @speaker.date_of_birth %>
+            <p>born <%= @speaker.date_of_birth.strftime("%d.%m.%Y") %></p>
+          <% elsif @speaker.date_of_death %>
+            <p>died <%= @speaker.date_of_death.strftime("%d.%m.%Y") %></p>
+          <% end %>
+          <% if @info_summary %>
+            <p><%= @info_summary.html_safe %></p>
+          <% end %>
+        </div>
+        <div class="speeches-count">
+          <% speeches_count = @speaker.speeches.count %>
+          <p>
+            <%= speeches_count %> speech<%= "es" unless speeches_count == 1 %> on speechless
+          </p>
+        </div>
+        <div class="stats">
+          <p><i class="far fa-comment-alt"></i> <%= @speaker.total_stats[:contributions] %></p>
+          <p><i class="far fa-comment"></i> <%= @speaker.total_stats[:comments] %></p>
+          <p><i class="fas fa-sort voting-item"></i> <%= @speaker.total_stats[:votes] %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-6 col-md-5 col-md-offset-1">
+      <div class="speaker-show-cards">
+        <div class="card_header">
+          <h4>Most Popular Speeches</h4>
+        </div>
+        <% @all_time_speeches.each do |speech| %>
+          <%= render "components/speech_card", speech: speech %>
+        <% end %>   
+      </div>
+    </div>
+    <div class="col-xs-6 col-md-5">
+      <div class="speaker-show-cards">
+        <div class="card_header">
+          <h4>Latest Speeches</h4>
+        </div>
+        <% @latest_speeches.each do |speech| %>
+          <%= render "components/speech_card", speech: speech %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

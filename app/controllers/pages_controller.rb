@@ -7,11 +7,11 @@ class PagesController < ApplicationController
   private
 
   def speech_suggestions
-  	# TODO: Algorithm to make suggestions
-  	# For now:
+    # TODO: Algorithm to make suggestions
+    # For now:
     @all_time_speeches = Speech.all.sample(3)
-  	@trending_speeches = Speech.all.sample(3)
-  	# CHANGE LATER
+    @trending_speeches = Speech.all.sample(3)
+    # CHANGE LATER
   end
 
 end
