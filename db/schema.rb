@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_28_110217) do
+ActiveRecord::Schema.define(version: 2019_03_03_092808) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -72,6 +72,7 @@ ActiveRecord::Schema.define(version: 2019_02_28_110217) do
     t.datetime "updated_at", null: false
     t.bigint "category_id"
     t.integer "duration"
+    t.integer "vote_sum", default: 0
     t.index ["category_id"], name: "index_speeches_on_category_id"
     t.index ["speaker_id"], name: "index_speeches_on_speaker_id"
   end
