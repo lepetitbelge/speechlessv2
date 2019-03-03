@@ -72,7 +72,7 @@ ActiveRecord::Schema.define(version: 2019_03_03_092808) do
     t.datetime "updated_at", null: false
     t.bigint "category_id"
     t.integer "duration"
-    t.integer "vote_sum"
+    t.integer "vote_sum", default: 0
     t.index ["category_id"], name: "index_speeches_on_category_id"
     t.index ["speaker_id"], name: "index_speeches_on_speaker_id"
   end

@@ -6,7 +6,7 @@ class Speech < ApplicationRecord
 
   before_create :format_content
 
-  validates_presence_of :title, :date, :content, :category, :country
+  validates_presence_of :title, :date, :content, :category, :country, :vote_sum
   validates :title, length: { maximum: 44, too_long: "can't have more than %{count} characters" }
   validate :date_cannot_be_in_future
 
