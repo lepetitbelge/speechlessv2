@@ -1,79 +1,39 @@
-$color_white: #fff;
-$color_grey: #e2e2e2;
-$color_grey_dark: #a2a2a2;
-
 .speaker-card {
   position: relative;
-  height: 250px;
   max-width: 250px;
-  margin: 8px;
-  border-radius: 3px;
-  overflow: hidden;
-  background-color: $color_white;
-  box-shadow: 0 3px 7px -1px rgba(#000, .1);
-  a {
-    color: inherit;
+  .meta {
+    height: 120px;
   }
   .card_image {
-  border-radius: 1px 1px 0 0;
-  left: 0;
-  right: 0;
-  top: 0;
-  opacity: 1;
-  max-height: 137px;
+    border-radius: 3px 3px 0 0;
+    opacity: 1;
+    max-height: 137px;
+    transition: transform .2s;
+  }
+  &:hover {
+    .card_image {
+      transform: scale(1.05);
+    }
   }
   .description {
-    top: 176px;
-    padding: 1rem;
-    background: $color_white;
-    h1,
-    h1 {
-      line-height: 1;
-      margin: 0;
-      font-size: 1.7rem;
+    height: 100px;
+  }
+  .stats {
+    @media (max-width: 660px) {
+      width: 0;
+      opacity: 0;
     }
-    h2 {
-      font-size: 1.2rem;
-      font-weight: 300;
-      color: $color_grey_dark;
-      margin-top: 5px;
-      margin-bottom: 5px;
-    }
-    .read-more {
-      a {
-        color: $color_prime;
-        display: inline-block;
-        position: relative;
-        // color: #b28a52;
-        display: inline-block;
-        position: relative;
-        border: 1px solid;
-        border-radius: 3px;
-        padding: 3px;
-        font-size: 12px;
-        &:after {
-          font-family: FontAwesome;
-          transition: margin .3s, opacity .3s;
-        }
-        &:hover {
-          transform: scale(1.05);
-          opacity: 1;
-        }
-      }
+  }
+  h2 {
+    @media (max-width: 660px) {
+      width: 0;
+      opacity: 0;
     }
   }
 }
-
-.speaker-card .card__text {
-  top: 176px;
-}
-.speaker-card .card__action-bar {
-  left: 0;
-}
-
 .card_image {
   background-size: cover;
-  background-position: center bottom;
+  background-position: center;
   background-repeat: no-repat;
   width: 100%;
   height: 100%;
@@ -90,6 +50,6 @@ $color_grey_dark: #a2a2a2;
   right: 0;
   padding: 0 8px;
   border-top: 1px solid $color_grey;
-  box-sizing: border-box;
+  boz-sizing: border-box;
   height: 30px;
 }
