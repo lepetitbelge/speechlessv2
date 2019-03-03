@@ -23,7 +23,14 @@
   </div>
 </div>
 <!-- TESTING CONTRIBUTIONS -->
+<%= simple_form_for [@speech, @contribution] do |f| %>
+  <%= f.input :selection_uui, as: :hidden %>
+  <%= f.input :paragraph, as: :hidden %>
+  <%= hidden_field_tag :speech_html %>
+  <%= f.input :content, input_html: { rows: 5 } %>
 
+  <%= f.submit %>
+<% end %>
 <!-- END OF TEST -->
 <div>
   <%= link_to 'index', speeches_path, class: 'btn btn-primary' %>
