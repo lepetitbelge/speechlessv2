@@ -4,6 +4,41 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12">
+      <div class="speaker-speech-banner margin-t-20 margin-b-20">
+        <div class="speaker-photo" style="background-image: url(<%= cl_image_path @speech.speaker.photo %>)"></div>
+        <div class="speaker-info">
+          <h1 class="kill-margin"><%= @speech.speaker.full_name %></h1>
+          <h1 class="kill-margin"><%= @speech.title %></h1>
+          <% if @speech.speaker.date_of_birth && @speech.speaker.date_of_death %>
+            <p><%= "#{@speech.speaker.date_of_birth.strftime("%d.%m.%Y")} - #{@speech.speaker.date_of_death.strftime("%d.%m.%Y")}" %></p>
+          <% elsif @speech.speaker.date_of_birth %>
+            <p>born <%= @speech.speaker.date_of_birth.strftime("%d.%m.%Y") %></p>
+          <% elsif @speech.speaker.date_of_death %>
+            <p>died <%= @speech.speaker.date_of_death.strftime("%d.%m.%Y") %></p>
+          <% end %>
+          <% if @info_summary %>
+            <p><%= @info_summary.html_safe %></p>
+          <% end %>
+        </div>
+        <div class="speeches-count">
+          <% speeches_count = @speech.speaker.speeches.count %>
+          <p>
+            <%= speeches_count %> speech<%= "es" unless speeches_count == 1 %> on speechless
+          </p>
+        </div>
+        <div class="stats">
+          <p><i class="far fa-comment-alt"></i> <%= @speech.speaker.total_stats[:contributions] %></p>
+          <p><i class="far fa-comment"></i> <%= @speech.speaker.total_stats[:comments] %></p>
+          <p><i class="fas fa-sort voting-item"></i> <%= @speech.speaker.total_stats[:votes] %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
       <h2 class="show-page-title">
         <%= @speech.title %>
       </h2>
