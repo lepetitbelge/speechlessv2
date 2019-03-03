@@ -1,13 +1,14 @@
-<div class="speaker-card">
-  <div class="card_image" style="background-image: url(<%= cl_image_path speaker.photo %>)"></div>
+<div class="card speaker-card alt margin-t-20">
+  <div class="meta">
+    <div class="card_image" style="background-image: url(<%= cl_image_path speaker.photo %>)"></div>
+  </div>
   <div class="description">
     <h1><%= speaker.full_name %></h1>
-    <h2 class="margin-kill"><%= speaker.speeches.count %> speeches on speechless</h2>
-    <div class="read-more text-center">
+    <% speeches_count = speaker.speeches.count %>
+    <h2><%= speeches_count %> speech<%= "es" unless speeches_count == 1 %> on speechless</h2>
+    <div class="read-more">
       <a href="/speakers/<%= speaker.id %>">Go to profile</a>
     </div>
-  </div>
-  <div class="card_action-bar">
     <div class="stats">
       <p><i class="far fa-comment-alt"></i> <%= speaker.total_stats[:contributions] %></p>
       <p><i class="far fa-comment"></i> <%= speaker.total_stats[:comments] %></p>

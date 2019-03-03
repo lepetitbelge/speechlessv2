@@ -1,7 +1,87 @@
+$color_white: #fff;
+$color_prime: rgb(178, 138, 82);
+$color_grey: #e2e2e2;
+$color_grey_dark: #a2a2a2;
+
+a {
+  text-decoration: none;
+  &:hover {
+  text-decoration: none;
+  }
+}
+.card {
+  position: relative;
+  background-color: $color_white;
+  box-shadow: 0 3px 7px -1px rgba(#000, .1);
+  overflow: hidden;
+  border-radius: 3px;
+  .meta {
+    position: relative;
+    flex-basis: 40%;
+    z-index: 0;
+    height: 100px;
+    overflow: hidden;
+  }
+  .card-image {
+    top: 0;
+    right: 0;
+    left: 0;
+  }
+  .description {
+    background: $color_white;
+    padding: 7px;
+    h1 {
+      margin: 0;
+      font-size: 16px;
+    }
+    h2 {
+      color: $color_grey_dark;
+      font-size: 12px;
+      font-weight: 300;
+      margin-top: 5px;
+      margin-bottom: 5px;
+    }
+  }
+  a {
+    color: inherit;
+  }
+  &:hover {
+    .card-image {
+      transform: scale(1.05);
+    }
+  }
+}
+.read-more {
+  position: absolute;
+  left: 7px;
+  bottom: 7px;
+  a {
+    color: $color_prime;
+    display: inline-block;
+    position: relative;
+    display: inline-block;
+    position: relative;
+    border: 1px solid;
+    border-radius: 3px;
+    padding: 3px;
+    font-size: 12px;
+    &:after {
+      font-family: FontAwesome;
+      transition: margin .3s, opacity .3s;
+    }
+    &:hover {
+      transform: scale(1.05);
+      opacity: 1;
+    }
+  }
+}
 .stats {
   font-size: 10px;
   display: flex;
+  width: 95px;
   justify-content: space-between;
-  margin: 5px 5px;
-  padding: 3px 10px;
+  vertical-align: bottom;
+  position: absolute;
+  right: 7px;
+  bottom: 0px;
 }
