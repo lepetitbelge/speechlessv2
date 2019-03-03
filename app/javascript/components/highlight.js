@@ -12,8 +12,10 @@ const removeTooltips = () => {
 const popOver = () => {
   return (
     `<div class="highlightMenu-inner">
-      <div class="highlight-tools">
+      <div class="highlight-tools" >
+      <a href="" id="modal-button" data-toggle="modal" data-target="#modalContactForm">
         <i class="fas fa-comment-alt"></i>
+      </a>
       </div>
     </div>
     <div class="highlightMenu-arrowClip">
@@ -36,13 +38,13 @@ const createTooltip = (range) => {
 
 const displayForm = () => {
 
-  const modal = document.querySelector('.modal');
-  const textInput = modal.querySelector('textarea');
-  modal.modal();
+  const modal = document.querySelector('#modal-button');
+  const textInput = document.querySelector('.modal textarea');
+  // modal.click();
   // form.classList.add('is-visible');
 
-  textInput.setSelectionRange(0, 0);
-  textInput.focus();
+  // textInput.setSelectionRange(0, 0);
+  // textInput.focus();
 };
 
 const highlightSelection = (range, start, end) => {
