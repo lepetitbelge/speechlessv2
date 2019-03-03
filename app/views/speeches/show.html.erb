@@ -22,26 +22,24 @@
     </div>
   </div>
 </div>
-<!-- MODEL TEST -->
-<div class="modal fade" id="modalContactForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-body mx-3">
-        <div class="md-form">
-          <%= simple_form_for [@speech, @contribution], class: "new_contribution" do |f| %>
-            <%= f.input :selection_uui, as: :hidden %>
-            <%= f.input :paragraph, as: :hidden %>
-            <%= hidden_field_tag :speech_html %>
-            <%= f.input :content, input_html: { rows: 5 } %>
+  <div class="modal fade" id="modalContactForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-body mx-3">
+          <div class="md-form">
+            <%= simple_form_for [@speech, @contribution], class: "new_contribution" do |f| %>
+              <%= f.input :selection_uui, as: :hidden %>
+              <%= f.input :paragraph, as: :hidden %>
+              <%= hidden_field_tag :speech_html %>
+              <%= f.input :content, input_html: { rows: 5 } %>
 
-            <%= f.submit class: 'submit-button' %>
-          <% end %>
+              <%= f.submit class: 'submit-button' %>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
-<!-- END OF MODAL TEST -->
 <div>
   <%= link_to 'index', speeches_path, class: 'btn btn-primary' %>
 </div>

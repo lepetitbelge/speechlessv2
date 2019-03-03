@@ -10,7 +10,7 @@
       </div>
       <div class="body-and-voting">
         <div class="body padding-l5 padding-r10 text-justify">
-          The path of the righteous man is beset on all sides by the iniquities of the selfish and the tyranny of evil men. Blessed is he who, in the name of charity and good will, shepherds the weak through the valley of darkness, for he is truly his brother's keeper and the finder of lost children. And I will strike down upon thee with great vengeance and furious anger those who would attempt to poison and destroy My brothers. And you will know My name is the Lord when I lay My vengeance upon thee
+          <%= contribution.content %>
         </div>
         <div class="contribution-voting text-center">
             <%= link_to contribution_upvote_path(contribution) do %>
@@ -32,7 +32,7 @@
         <div class="meta"><%= comment.user.username %> | <%= comment.created_at.strftime("%d.%m.%Y") %></div>
         <div class="body-and-voting">
           <div class="body">
-            Do you see any Teletubbies in here? Do you see a slender plastic tag clipped to my shirt with my name printed on it?
+            <%= comment.content %>
           </div>
           <div class="contribution-voting text-center">
             <%= link_to comment_upvote_path(comment) do %>
