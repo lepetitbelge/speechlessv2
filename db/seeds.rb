@@ -1,32 +1,33 @@
 puts '~~~destroying database~~~'
-[Vote, Comment, Contribution, Speech, User, Speaker, Category].each(&:destroy_all)
+[Vote, Comment, Contribution, Speech, Speaker, Category].each(&:destroy_all)
 
-# our users
-puts '~~~creating admin users~~~'
-User.create({
-  username: 'Alfonso',
-  email: 'alfons@speechless.com',
-  password: '123456',
-  admin: true
-})
-User.create({
-  username: 'Lepetitbelge',
-  email: 'chris@speechless.com',
-  password: '123456',
-  admin: true
-})
-User.create({
-  username: 'Davidof',
-  email: 'david@speechless.com',
-  password: '123456',
-  admin: true
-})
+puts '~~~destroying users (except admin users)~~~'
+User.where(admin: false).each(&:destroy_all)
 
-# if Rails.env = "development"
-puts '~~~creating random users~~~'
-#random users
-20.times do
-  user = User.create(
+# puts '~~~creating admin users~~~'
+# User.create({
+#   username: 'Alfonso',
+#   email: 'alfons@speechless.com',
+#   password: '123456',
+#   admin: true
+# })
+# User.create({
+#   username: 'Lepetitbelge',
+#   email: 'chris@speechless.com',
+#   password: '123456',
+#   admin: true
+# })
+# User.create({
+#   username: 'Davidof',
+#   email: 'david@speechless.com',
+#   password: '123456',
+#   admin: true
+# })
+
+if Rails.env.development?
+  puts '~~~creating random users~~~'
+  20.times do
+    user = User.create(
     username: Faker::FunnyName.name,
     email: Faker::Internet.email,
     password: '123456',
@@ -35,11 +36,10 @@ puts '~~~creating random users~~~'
     )
 end
 
-# Activism, Technology
-#categories
-%w[Politics Sports History Antiquity Fiction Economics Celebrities].each { |category| Category.create(name: category) }
+%w[Politics Sports Antiquity Fiction Economics Celebrities Activism Technology].each do |category| 
+  Category.create(name: category)
+end
 
-#speakers
 Speaker.create(
   first_name: 'Socrates',
   date_of_birth: Time.new(-470),
@@ -109,30 +109,24 @@ Speaker.create(
   last_name: 'Thunberg',
   date_of_birth: Date.parse('3-1-2003')
   )
-10.times do
-  Speaker.create(
-    first_name: Faker::Name.first_name,
-    last_name: Faker::Name.last_name,
-    date_of_birth: Faker::Date.birthday
-  )
-end
 
-
-50.times do
-  content = ""
-  rand(8..45).times do
-    content += Faker::Lorem.paragraph_by_chars(rand(15..500)) + "\n"
+if Rails.env.development?
+  50.times do
+    content = ""
+    rand(8..45).times do
+      content += Faker::Lorem.paragraph_by_chars(rand(15..500)) + "\n"
+    end
+    Speech.create({
+      title: Faker::Lorem.words(rand(4..7)).join(" ").capitalize,
+      date: Faker::Date.backward,
+      country: Faker::Address.country,
+      city: Faker::Address.city,
+      content: content,
+      duration: [nil, rand(120..4000)].sample,
+      category_id: Category.all.sample.id,
+      speaker_id: Speaker.all.sample.id
+    })
   end
-  Speech.create({
-    title: Faker::Lorem.words(rand(4..7)).join(" ").capitalize,
-    date: Faker::Date.backward,
-    country: Faker::Address.country,
-    city: Faker::Address.city,
-    content: content,
-    duration: [nil, rand(120..4000)].sample,
-    category_id: Category.all.sample.id,
-    speaker_id: Speaker.all.sample.id
-  })
 end
 
 #contributions with comments and votes
@@ -141,24 +135,24 @@ Speech.all.each do |speech|
     contribution = Contribution.create(
       speech_id: speech.id,
       user_id: User.all.sample.id,
-      content: Faker::Lorem.paragraph
+      content: Faker::Lorem.paragraph_by_chars(rand(20..1000), false)
       )
     if contribution.persisted?
-      rand(1..5).times do
-        vote = Vote.new(value: 1)
+      rand(1..20).times do
+        vote = Vote.new(value: [-1, 1, 1, 1].sample)
         vote.votable = contribution
         vote.user = User.all.sample
         vote.save
       end
-      3.times do
+      [rand(0..3), rand(0..20)].sample.times do
         comment = Comment.create(
           user_id: User.all.sample.id,
           contribution_id: contribution.id,
-          content: Faker::Lorem.sentence
+          content: Faker::Lorem.paragraph_by_chars(rand(10..300), false)
           )
         if comment.persisted?
-          rand(1..5).times do
-            vote = Vote.new(value: 1)
+          rand(1..10).times do
+            vote = Vote.new(value: [-1, 1, 1, 1].sample)
             vote.votable = comment
             vote.user = User.all.sample
             vote.save
