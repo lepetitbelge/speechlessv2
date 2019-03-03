@@ -34,12 +34,15 @@ if Rails.env.development?
     admin: false,
     photo_url: UiFaces.face
     )
+  end
 end
 
+puts '~~~creating categories~~~'
 %w[Politics Sports Antiquity Fiction Economics Celebrities Activism Technology].each do |category| 
   Category.create(name: category)
 end
 
+puts '~~~creating speakers~~~'
 Speaker.create(
   first_name: 'Socrates',
   date_of_birth: Time.new(-470),
@@ -111,6 +114,7 @@ Speaker.create(
   )
 
 if Rails.env.development?
+  puts '~~~creating random speeches~~~'
   50.times do
     content = ""
     rand(8..45).times do
@@ -129,7 +133,7 @@ if Rails.env.development?
   end
 end
 
-#contributions with comments and votes
+puts '~~~creating random contributions, comments and votes~~~'
 Speech.all.each do |speech|
   5.times do
     contribution = Contribution.create(
@@ -172,7 +176,3 @@ puts "#{Contribution.count} contributions"
 puts "#{Comment.count} comments"
 puts "#{Vote.count} votes"
 puts "~~~~~~~~~~~~~~~"
-
-
-
-
