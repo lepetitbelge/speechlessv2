@@ -24,4 +24,10 @@
 }
 .speaker-info {
   margin-bottom: 30px;
+  h2 {
+    a {
+      color: $color_grey;
+      text-decoration: none;
+    }
+  }
 }

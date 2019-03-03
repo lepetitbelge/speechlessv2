@@ -1,20 +1,19 @@
 <%= render 'shared/navbar' %>
-<%= render 'components/show_page_banner' %>
 
 <div class="container">
   <div class="row">
     <div class="col-xs-12 margin-t-20">
-      <p><%= @speech.category.name.upcase %></p>
+      <p class="kill-margin"><%= @speech.category.name.upcase %></p>
     </div>
     <div class="col-xs-12">  
       <div class="speaker-speech-banner margin-b-20">
         <div class="speaker-photo" style="background-image: url(<%= cl_image_path @speech.speaker.photo %>)"></div>
         <div class="speaker-info">
-          <h1 class="kill-margin"><%= @speech.speaker.full_name %></h1>
-          <h1 class="kill-margin"><%= @speech.title %></h1>
-            <p>
+          <h2 class="kill-margin"><%= link_to @speech.speaker.full_name, speaker_path(@speech.speaker) %></h1>
+          <h1 class="kill-margin margin-b-20"><%= @speech.title %></h1>
+            <p class="margin-t-20">
               <%= "#{@speech.date.strftime("%d.%m.%Y")}" if @speech.date %>
-              <%= "#{(@speech.date ? " " : "")}#{@speech.location if @speech.location}" if @speech.location %>
+              <%= "#{(@speech.date ? ' ' : '')}#{@speech.location if @speech.location}" if @speech.location %>
             </p>
           <% if @info_summary %>
             <p><%= @info_summary.html_safe %></p>
@@ -39,9 +38,6 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12">
-      <h2 class="show-page-title">
-        <%= @speech.title %>
-      </h2>
       <div class="speech-and-contributions">
         <div class="speech-background speech-text text-justify">
           <p><%= @speech.content.html_safe %></p>
