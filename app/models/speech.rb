@@ -6,28 +6,20 @@ class Speech < ApplicationRecord
 
   before_create :format_content
 
-  validates_presence_of :title, :date, :content, :category, :country
+  validates_presence_of :title, :date, :content, :category, :country, :vote_sum
   validates :title, length: { maximum: 44, too_long: "can't have more than %{count} characters" }
   validate :date_cannot_be_in_future
 
   include PgSearch
-  multisearchable :against => [:title, :content, :category]
+  pg_search_scope :search, against: [:title, :content], using: [:tsearch, :trigram]
 
   def total_stats
-    stats = { contributions: 0, comments: 0, comments_votes: 0, contributions_votes: 0 }
+    stats = { contributions: 0, comments: 0 }
     stats[:contributions] += self.contributions.count
     self.contributions.each do |contribution|
-      stats[:contributions_votes] += contribution.vote_sum
       stats[:comments] += contribution.comments.count
-      contribution.comments.each do |comment|
-        stats[:comments_votes] += comment.vote_sum
-      end
     end
     return stats
-  end
-
-  def total_votes
-    self.total_stats[:comments_votes] + self.total_stats[:contributions_votes]
   end
 
   private
