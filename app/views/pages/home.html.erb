@@ -1,24 +1,11 @@
 <%= render 'shared/navbar' %>
-<div class="banner-landing text-center">
-  <div class="action-call">
-    <h2>Learn from the great, one speech at a time!</h2>
-  </div>
-  <div class="search-bar border-r3">
-    <%= form_tag speeches_path, method: :get do %>
-      <%= text_field_tag :query,
-        params[:query],
-        class: "form-control search-bar-text",
-        placeholder: "Search for a speech or a speaker..."
-      %>
-    <% end %>
-  </div>
+  <h2>Learn from the great, one speech at a time!</h2>
+<div class="search-bar border-r3">
+  <%= form_tag speeches_path, method: :get do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control search-bar-text",
+      placeholder: "Search for a speech or a speaker..."
+    %>
+  <% end %>
 </div>
-
-<div class="container landing-page-content">
-  <div class="landing-page-speeches">
-    <% @speeches.first(5).each do |speech| %>
-      <%= render 'components/speech_card', speech: speech %>
-    <% end %>
-  </div>
-</div>
-
