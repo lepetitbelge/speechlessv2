@@ -1,21 +1,28 @@
 .speaker-banner {
-  height: 350px;
+  height: auto;
   width: 100%;
   border-bottom: 2px solid $color_grey;
-  border-radius: 3px;
   display: flex;
   align-items: center;
+  margin-bottom: 30px;
+  .stats {
+    right: 20px;
+    bottom: 23px;
+  }
 }
-
 .speaker-photo {
-  height: 50%;
+  height: 180px;
   flex: 0 0 200px;
   padding: 20px;
   margin-right: 20px;
-  border-radius: 3px 0 0 3px;
+  margin-bottom: 40px;
+  border-radius: 3px;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   overflow: hidden;
   transition: all 200ms cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.speaker-info {
+  margin-bottom: 30px;
 }
