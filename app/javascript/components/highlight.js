@@ -38,7 +38,8 @@ const displayForm = () => {
   const form = document.getElementById('new_contribution');
   const textInput = form.querySelector('textarea');
   console.log(textInput)
-  form.classList.add('is-visible');
+  form.classList.toggle('hidden');
+  // form.classList.add('is-visible');
 
   textInput.setSelectionRange(0, 0);
   console.log(textInput)
