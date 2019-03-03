@@ -1,3 +1,25 @@
+<%= render 'shared/navbar' %>
+<%= @info_summary.html_safe %>
+
+<div class="container">
+  <div class="row">
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-md-10 col-md-offset-1">
+      <h2>Learn from the great, one speech at a time!</h2>
+      <div class="video_banner margin-t-20"></div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
 <h1>Speaker show page</h1>
 <p>Name: <%= "#{@speaker.first_name} #{@speaker.last_name}" %></p>
 <p>Date of birth: <%= @speaker.date_of_birth %></p>
