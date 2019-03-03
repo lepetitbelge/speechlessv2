@@ -1,65 +1,70 @@
 <br>
 <ul class="comments">
-  <li class="comment">
-    <a href="#" title="View this user profile" class="photo"><%= image_tag "#{contribution.user.photo_url}", class: "user-avatar-extra-small" %></a>
-    <div class="meta">
-      <%= contribution.user.username %> | <%= contribution.created_at.strftime("%d.%m.%Y") %>
-      <a class="reply">Reply</a>
-    </div>
-    <div class="body-and-voting">
-      <div class="body padding-l5 padding-r10 text-justify">
-        The path of the righteous man is beset on all sides by the iniquities of the selfish and the tyranny of evil men. Blessed is he who, in the name of charity and good will, shepherds the weak through the valley of darkness, for he is truly his brother's keeper and the finder of lost children. And I will strike down upon thee with great vengeance and furious anger those who would attempt to poison and destroy My brothers. And you will know My name is the Lord when I lay My vengeance upon thee
+  <div class="btn btn-ghost btn-show-c"><%= contribution.user.username %>'s contribution <i class="far fa-arrow-alt-circle-down"></i></div>
+  <div class="hideDivContributions">
+    <li class="comment">
+      <a href="#" title="View this user profile" class="photo"><%= image_tag "#{contribution.user.photo_url}", class: "user-avatar-extra-small" %></a>
+      <div class="meta">
+        <%= contribution.user.username %> | <%= contribution.created_at.strftime("%d.%m.%Y") %>
+        <a class="reply">Reply</a>
       </div>
-      <div class="contribution-voting text-center">
-          <%= link_to contribution_upvote_path(contribution) do %>
-            <i class="fas fa-sort-up voting-item"></i>
-          <% end %>
-          <p class="voting-item"><%= contribution.vote_sum %></p>
-          <%= link_to contribution_downvote_path(contribution) do %>
-            <i class="fas fa-sort-down voting-item"></i>
-          <% end %>
-      </div>
-    </div>
-  </li>
-
-  <% contribution.comments.each do |comment|%>
-    <li class="comment level-2">
-      <a href="#" title="View this user profile" class="photo"><%= image_tag "#{comment.user.photo_url}", class: "user-avatar-extra-small" %></a>
-      <div class="meta"><%= comment.user.username %> | <%= comment.created_at.strftime("%d.%m.%Y") %></div>
       <div class="body-and-voting">
-        <div class="body">
-          Do you see any Teletubbies in here? Do you see a slender plastic tag clipped to my shirt with my name printed on it?
+        <div class="body padding-l5 padding-r10 text-justify">
+          The path of the righteous man is beset on all sides by the iniquities of the selfish and the tyranny of evil men. Blessed is he who, in the name of charity and good will, shepherds the weak through the valley of darkness, for he is truly his brother's keeper and the finder of lost children. And I will strike down upon thee with great vengeance and furious anger those who would attempt to poison and destroy My brothers. And you will know My name is the Lord when I lay My vengeance upon thee
         </div>
         <div class="contribution-voting text-center">
-          <%= link_to comment_upvote_path(comment) do %>
-        <!-- not sur if I need voting-item but leaving it for now -->
-            <i class="fas fa-sort-up voting-item"></i>
-          <% end %>
-          <p class="voting-item"><%= comment.vote_sum %></p>
-          <%= link_to comment_downvote_path(comment) do %>
-            <i class="fas fa-sort-down voting-item"></i>
-          <% end %>
+            <%= link_to contribution_upvote_path(contribution) do %>
+              <i class="fas fa-sort-up voting-item"></i>
+            <% end %>
+            <p class="voting-item"><%= contribution.vote_sum %></p>
+            <%= link_to contribution_downvote_path(contribution) do %>
+              <i class="fas fa-sort-down voting-item"></i>
+            <% end %>
         </div>
       </div>
+      <div class="btn btn-ghost btn-show">Comments <i class="far fa-arrow-alt-circle-down"></i></div>
     </li>
-  <% end %>
-  <% if current_user %>
-    <li class="comment level-2">
-      <a href="#" title="View this user profile" class="photo"><%= image_tag "#{current_user.photo_url}", class: "user-avatar-extra-small" %></a>
-      <div class="meta"><%= current_user.username %></div>
-      <div class="body-and-voting">
-        <div class="body">
-          <% comment = Comment.new %>
-          <%= form_for comment, url: contribution_comments_path(contribution), method: :post do |f| %>
-            <%= f.text_area :content, class: "body-comment border-r3" %>
-            <div class="submit-form">
-              <%= f.submit 'Submit', style: "border: none" %>
-            </div>
-          <% end %>
+  </div>
+  <div class="hideDivComments">
+    <% contribution.comments.each do |comment|%>
+      <li class="comment level-2">
+        <a href="#" title="View this user profile" class="photo"><%= image_tag "#{comment.user.photo_url}", class: "user-avatar-extra-small" %></a>
+        <div class="meta"><%= comment.user.username %> | <%= comment.created_at.strftime("%d.%m.%Y") %></div>
+        <div class="body-and-voting">
+          <div class="body">
+            Do you see any Teletubbies in here? Do you see a slender plastic tag clipped to my shirt with my name printed on it?
+          </div>
+          <div class="contribution-voting text-center">
+            <%= link_to comment_upvote_path(comment) do %>
+          <!-- not sur if I need voting-item but leaving it for now -->
+              <i class="fas fa-sort-up voting-item"></i>
+            <% end %>
+            <p class="voting-item"><%= comment.vote_sum %></p>
+            <%= link_to comment_downvote_path(comment) do %>
+              <i class="fas fa-sort-down voting-item"></i>
+            <% end %>
+          </div>
         </div>
-      </div>
-    </li>
-  <% end %>
+      </li>
+    <% end %>
+    <% if current_user %>
+      <li class="comment level-2">
+        <a href="#" title="View this user profile" class="photo"><%= image_tag "#{current_user.photo_url}", class: "user-avatar-extra-small" %></a>
+        <div class="meta"><%= current_user.username %></div>
+        <div class="body-and-voting">
+          <div class="body">
+            <% comment = Comment.new %>
+            <%= form_for comment, url: contribution_comments_path(contribution), method: :post do |f| %>
+              <%= f.text_area :content, class: "body-comment border-r3" %>
+              <div class="submit-form">
+                <%= f.submit 'Submit', style: "border: none" %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </li>
+    <% end %>
+  </div>
 </ul>
 
 <br>

@@ -1,4 +1,7 @@
 import "bootstrap";
-import { initHighlighter } from '../components/highlight';
 
+import { initThreads } from '../components/thread';
+initThreads();
+
+import { initHighlighter } from '../components/highlight';
 initHighlighter();
