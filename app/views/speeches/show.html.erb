@@ -3,27 +3,27 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-xs-12">
-      <div class="speaker-speech-banner margin-t-20 margin-b-20">
+    <div class="col-xs-12 margin-t-20">
+      <p><%= @speech.category.name.upcase %></p>
+    </div>
+    <div class="col-xs-12">  
+      <div class="speaker-speech-banner margin-b-20">
         <div class="speaker-photo" style="background-image: url(<%= cl_image_path @speech.speaker.photo %>)"></div>
         <div class="speaker-info">
           <h1 class="kill-margin"><%= @speech.speaker.full_name %></h1>
           <h1 class="kill-margin"><%= @speech.title %></h1>
-          <% if @speech.speaker.date_of_birth && @speech.speaker.date_of_death %>
-            <p><%= "#{@speech.speaker.date_of_birth.strftime("%d.%m.%Y")} - #{@speech.speaker.date_of_death.strftime("%d.%m.%Y")}" %></p>
-          <% elsif @speech.speaker.date_of_birth %>
-            <p>born <%= @speech.speaker.date_of_birth.strftime("%d.%m.%Y") %></p>
-          <% elsif @speech.speaker.date_of_death %>
-            <p>died <%= @speech.speaker.date_of_death.strftime("%d.%m.%Y") %></p>
-          <% end %>
+            <p>
+              <%= "#{@speech.date.strftime("%d.%m.%Y")}" if @speech.date %>
+              <%= "#{(@speech.date ? " " : "")}#{@speech.location if @speech.location}" if @speech.location %>
+            </p>
           <% if @info_summary %>
             <p><%= @info_summary.html_safe %></p>
           <% end %>
         </div>
         <div class="speeches-count">
-          <% speeches_count = @speech.speaker.speeches.count %>
+          <% highlights_count = 'XY' %>
           <p>
-            <%= speeches_count %> speech<%= "es" unless speeches_count == 1 %> on speechless
+            <%= highlights_count %> highlight<%= "s" unless highlights_count == 1 %>
           </p>
         </div>
         <div class="stats">
