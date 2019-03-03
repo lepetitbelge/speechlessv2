@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  namespace :admin do
+    get 'contributions/delete'
+  end
   devise_for :users
   root to: 'pages#home'
 
@@ -27,6 +30,9 @@ Rails.application.routes.draw do
     namespace :admin do
       resources :speeches
       resources :speakers
+      resources :categories
+      resources :contributions, only: :destroy
+      resources :comments, only: :destroy
     end
   end
 end

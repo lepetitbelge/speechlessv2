@@ -8,8 +8,8 @@
       <%= simple_form_for @speaker, url: admin_speaker_path(@speaker), method: :patch do |f| %>
         <%= f.input :first_name %>
         <%= f.input :last_name %>
-        <%= f.input :date_of_birth %>
-        <%= f.input :date_of_death %>
+        <%= f.input :date_of_birth, as: :date, html5: true %>
+        <%= f.input :date_of_death, as: :date, html5: true %>
         <%= f.input :bio %>
         <%= f.input :photo %>
 		<%= f.input :photo_cache, as: :hidden %>
