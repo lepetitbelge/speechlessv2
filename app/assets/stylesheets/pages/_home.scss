@@ -1,7 +1,14 @@
 .video_banner {
-  height: calc(100vh - 570px);
+  height: calc(100vh - 600px);
   min-height: 250px;
   width: 100%;
   background-color: $green;
   border-radius: 3px;
+}
+
+.see-more {
+  text-align: right;
+  a {
+    text-decoration: none;
+  }
 }

@@ -27,7 +27,10 @@
         </div>
         <% @trending_speeches.each do |speech| %>
           <%= render "components/speech_card", speech: speech %>
-        <% end %>   
+        <% end %>
+        <h5 class="see-more">
+          <%= link_to "See all speeches >", speeches_path %>
+        </h5>
       </div>
     </div>
   </div>
