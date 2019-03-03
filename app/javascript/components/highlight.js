@@ -31,7 +31,7 @@ const createTooltip = (range) => {
   div.classList.add('highlightMenu');
   div.style.position = 'fixed';
   div.style.top = (rectList[0].top - 54) + 'px';
-  div.style.left = (rectList[0].right - 30) + 'px';
+  div.style.left = ((rectList[0].left - 20) + (rectList[0].width / 2)) + 'px';
   document.body.appendChild(div);
 };
 
