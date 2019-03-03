@@ -29,7 +29,7 @@ a {
   }
   .description {
     background: $color_white;
-    padding: 7px;
+    padding: 10px;
     h1 {
       margin: 0;
       font-size: 16px;
@@ -53,8 +53,8 @@ a {
 }
 .read-more {
   position: absolute;
-  left: 7px;
-  bottom: 7px;
+  left: 10px;
+  bottom: 10px;
   a {
     color: $color_prime;
     display: inline-block;
@@ -82,6 +82,6 @@ a {
   justify-content: space-between;
   vertical-align: bottom;
   position: absolute;
-  right: 7px;
-  bottom: 0px;
+  right: 10px;
+  bottom: 3px;
 }
