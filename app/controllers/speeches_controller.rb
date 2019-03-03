@@ -14,5 +14,6 @@ class SpeechesController < ApplicationController
 
   def show
     @speech = Speech.find(params[:id])
+    @contribution = Contribution.new
   end
 end
