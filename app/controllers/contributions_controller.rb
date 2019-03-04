@@ -34,7 +34,7 @@ class ContributionsController < ApplicationController
   private
 
   def contribution_params
-    params.require(:contribution).permit(:content, :start_position, :end_position)
+    params.require(:contribution).permit(:content, :selection_uui)
   end
 
   def contribution_update_params
