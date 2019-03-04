@@ -26,13 +26,15 @@ User.where(admin: false).destroy_all
 if Rails.env.development?
   puts '~~~creating random users~~~'
   20.times do
-    user = User.create(
+    user = User.new(
     username: Faker::FunnyName.name,
     email: Faker::Internet.email,
     password: '123456',
     admin: false,
     photo_url: UiFaces.face
     )
+    User.photo_url.gsub!(/^http[^s]/,'https')
+    User.save
   end
 end
 
