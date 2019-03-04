@@ -150,7 +150,7 @@ Speech.all.each do |speech|
         vote.user = User.all.sample
         vote.save
         speech.vote_sum += vote.value
-        speech.update
+        speech.save
       end
       [rand(0..3), rand(0..20)].sample.times do
         comment = Comment.create(
@@ -165,7 +165,7 @@ Speech.all.each do |speech|
             vote.user = User.all.sample
             vote.save
             speech.vote_sum += vote.value
-            speech.update
+            speech.save
           end
         end
       end
