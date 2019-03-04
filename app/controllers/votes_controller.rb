@@ -3,21 +3,11 @@ class VotesController < ApplicationController
   def upvote
     @new_value = 1
     save_vote
-    if @vote.votable_type == "Contribution"
-      redirect_to speech_path(@vote.votable.speech)
-    else
-      redirect_to speech_path(@vote.votable.contribution.speech)
-    end
   end
 
   def downvote
     @new_value = -1
     save_vote
-    if @vote.votable_type == "Contribution"
-      redirect_to speech_path(@vote.votable.speech)
-    else
-      redirect_to speech_path(@vote.votable.contribution.speech)
-    end
   end
 
   private
@@ -26,14 +16,13 @@ class VotesController < ApplicationController
     votable = params[:contribution_id] ? Contribution.find(params[:contribution_id]) : Comment.find(params[:comment_id])
     @vote = Vote.where(user_id: current_user.id, votable_id: votable.id, votable_type: votable.class.to_s).first_or_initialize
     @vote.value += @new_value
+    @speech = @vote.votable.speech
     if @vote.save
-      @vote.votable.speech.vote_sum += @vote.value
-      if @vote.votable.speech.save
-        puts "Vote sum of speech updated"
-      else
-        puts "Vote sum of speech didn't get updated"
-      end
-      puts "Save went well, we might render with AJAX"
+      @speech.vote_sum += @vote.value
+      puts "````````Vote sum of speech didn't get updated" unless @speech.save
+      respond_to do |format|
+        format.html { redirect_to speech_path(@speech) }
+        format.js
     else
       puts "Save went wrong, maybe bacause the user alreade upvoted or downvoted and thus cannot upvote or downvote again (updating is possible though)"
     end
