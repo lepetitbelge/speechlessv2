@@ -3,25 +3,25 @@ puts '~~~destroying database~~~'
 puts '~~~destroying users (except admin users)~~~'
 User.where(admin: false).destroy_all
 
-puts '~~~creating admin users~~~'
-User.create({
-  username: 'Alfonso',
-  email: 'alfons@speechless.com',
-  password: '123456',
-  admin: true
-})
-User.create({
-  username: 'Lepetitbelge',
-  email: 'chris@speechless.com',
-  password: '123456',
-  admin: true
-})
-User.create({
-  username: 'Davidof',
-  email: 'david@speechless.com',
-  password: '123456',
-  admin: true
-})
+# puts '~~~creating admin users~~~'
+# User.create({
+#   username: 'Alfonso',
+#   email: 'alfons@speechless.com',
+#   password: '123456',
+#   admin: true
+# })
+# User.create({
+#   username: 'Lepetitbelge',
+#   email: 'chris@speechless.com',
+#   password: '123456',
+#   admin: true
+# })
+# User.create({
+#   username: 'Davidof',
+#   email: 'david@speechless.com',
+#   password: '123456',
+#   admin: true
+# })
 
 User.where(username: 'Alfonso').update(photo_url: 'https://res.cloudinary.com/lepetitbelge/image/upload/v1551686339/beer.jpg')
 User.where(username: 'Lepetitbelge').update(photo_url: 'https://res.cloudinary.com/lepetitbelge/image/upload/v1551686342/mannekenpis.jpg')
@@ -43,81 +43,81 @@ if Rails.env.development?
 end
 
 puts '~~~creating categories~~~'
-%w[Politics Sports History Antiquity Fiction Economics Celebrities].each { |category| Category.create(name: category) }
+# %w[Politics Sports History Antiquity Fiction Economics Celebrities].each { |category| Category.create(name: category) }
 %w[Activism Technology Education].each do |category|
   Category.create(name: category)
 end
 
-puts '~~~creating speakers~~~'
-Speaker.create(
-  first_name: 'Socrates',
-  date_of_birth: Time.new(-470),
-  date_of_death: Time.new(-399)
-  )
-Speaker.create(
-  first_name: 'Mahatma',
-  last_name: 'Gandhi',
-  date_of_birth: Date.parse('2-10-1869'),
-  date_of_death: Date.parse('30-1-1948')
-  )
-Speaker.create(
-  first_name: 'David',
-  last_name: 'Ben-Gurion',
-  date_of_birth: Date.parse('16-10-1886'),
-  date_of_death: Date.parse('1-12-1973')
-  )
-Speaker.create(
-  first_name: 'Martin Luther',
-  last_name: 'King Jr.',
-  date_of_birth: Date.parse('15-1-1929'),
-  date_of_death: Date.parse('4-4-1968')
-  )
-Speaker.create(
-  first_name: 'Alex',
-  last_name: 'Ferguson',
-  date_of_birth: Date.parse('31-12-1941')
-  )
-Speaker.create(
-  first_name: 'Donald',
-  last_name: 'Trump',
-  date_of_birth: Date.parse('14-6-1946')
-  )
-Speaker.create(
-  first_name: 'Benjamin',
-  last_name: 'Netanyahu',
-  date_of_birth: Date.parse('21.10.1949')
-  )
-Speaker.create(
-  first_name: 'Angela',
-  last_name: 'Merkel',
-  date_of_birth: Date.parse('17-7-1954')
-  )
-Speaker.create(
-  first_name: 'Steve',
-  last_name: 'Jobs',
-  date_of_birth: Date.parse('24-5-1955'),
-  date_of_death: Date.parse('5-10-2011')
-  )
-Speaker.create(
-  first_name: 'Barack',
-  last_name: 'Obama',
-  date_of_birth: Date.parse('4-8-1961')
-  )
-Speaker.create(
-  first_name: 'Sundar',
-  last_name: 'Pichai',
-  date_of_birth: Date.parse('1-1-1972')
-  )
-Speaker.create(
-  first_name: 'Leonardo',
-  last_name: 'DiCaprio',
-  date_of_birth: Date.parse('11-11-1974')
-  )
-Speaker.create(
-  first_name: 'Greta',
-  last_name: 'Thunberg',
-  date_of_birth: Date.parse('3-1-2003')
-  )
+# puts '~~~creating speakers~~~'
+# Speaker.create(
+#   first_name: 'Socrates',
+#   date_of_birth: Time.new(-470),
+#   date_of_death: Time.new(-399)
+#   )
+# Speaker.create(
+#   first_name: 'Mahatma',
+#   last_name: 'Gandhi',
+#   date_of_birth: Date.parse('2-10-1869'),
+#   date_of_death: Date.parse('30-1-1948')
+#   )
+# Speaker.create(
+#   first_name: 'David',
+#   last_name: 'Ben-Gurion',
+#   date_of_birth: Date.parse('16-10-1886'),
+#   date_of_death: Date.parse('1-12-1973')
+#   )
+# Speaker.create(
+#   first_name: 'Martin Luther',
+#   last_name: 'King Jr.',
+#   date_of_birth: Date.parse('15-1-1929'),
+#   date_of_death: Date.parse('4-4-1968')
+#   )
+# Speaker.create(
+#   first_name: 'Alex',
+#   last_name: 'Ferguson',
+#   date_of_birth: Date.parse('31-12-1941')
+#   )
+# Speaker.create(
+#   first_name: 'Donald',
+#   last_name: 'Trump',
+#   date_of_birth: Date.parse('14-6-1946')
+#   )
+# Speaker.create(
+#   first_name: 'Benjamin',
+#   last_name: 'Netanyahu',
+#   date_of_birth: Date.parse('21.10.1949')
+#   )
+# Speaker.create(
+#   first_name: 'Angela',
+#   last_name: 'Merkel',
+#   date_of_birth: Date.parse('17-7-1954')
+#   )
+# Speaker.create(
+#   first_name: 'Steve',
+#   last_name: 'Jobs',
+#   date_of_birth: Date.parse('24-5-1955'),
+#   date_of_death: Date.parse('5-10-2011')
+#   )
+# Speaker.create(
+#   first_name: 'Barack',
+#   last_name: 'Obama',
+#   date_of_birth: Date.parse('4-8-1961')
+#   )
+# Speaker.create(
+#   first_name: 'Sundar',
+#   last_name: 'Pichai',
+#   date_of_birth: Date.parse('1-1-1972')
+#   )
+# Speaker.create(
+#   first_name: 'Leonardo',
+#   last_name: 'DiCaprio',
+#   date_of_birth: Date.parse('11-11-1974')
+#   )
+# Speaker.create(
+#   first_name: 'Greta',
+#   last_name: 'Thunberg',
+#   date_of_birth: Date.parse('3-1-2003')
+#   )
 
 if Rails.env.development?
   puts '~~~creating random speeches~~~'
