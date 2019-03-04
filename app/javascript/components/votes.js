@@ -1,0 +1,4 @@
+const initVotes = () => {
+};
+
+export { initVotes };

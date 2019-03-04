@@ -32,8 +32,4 @@ function initThreads () {
   }
 };
 
-const saveContributionVote = (event) => {
-  fetch("/contribution")
-}
-
 export { initThreads };
