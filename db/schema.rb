@@ -10,9 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_03_133237) do
+ActiveRecord::Schema.define(version: 2019_03_03_163400) do
 
   # These are extensions that must be enabled in order to support this database
+  enable_extension "pg_trgm"
   enable_extension "plpgsql"
 
   create_table "categories", force: :cascade do |t|
@@ -59,7 +60,6 @@ ActiveRecord::Schema.define(version: 2019_03_03_133237) do
     t.date "date_of_death"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "bio"
     t.string "photo", default: "image/upload/v1551351244/standard_avatar.png"
   end
 

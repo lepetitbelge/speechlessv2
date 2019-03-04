@@ -1,12 +1,42 @@
 <%= render 'shared/navbar' %>
-<%= render 'components/show_page_banner' %>
 
 <div class="container">
   <div class="row">
+    <div class="col-xs-12 margin-t-20">
+      <p class="kill-margin"><%= @speech.category.name.upcase %></p>
+    </div>
+    <div class="col-xs-12">  
+      <div class="speaker-speech-banner margin-b-20">
+        <div class="speaker-photo" style="background-image: url(<%= cl_image_path @speech.speaker.photo %>)"></div>
+        <div class="speaker-info">
+          <h2 class="kill-margin"><%= link_to @speech.speaker.full_name, speaker_path(@speech.speaker) %></h1>
+          <h1 class="kill-margin margin-b-20"><%= @speech.title %></h1>
+            <p class="margin-t-20">
+              <%= "#{@speech.date.strftime("%d.%m.%Y")}" if @speech.date %>
+              <%= "#{(@speech.date ? ' ' : '')}#{@speech.location if @speech.location}" if @speech.location %>
+            </p>
+          <% if @info_summary %>
+            <p><%= @info_summary.html_safe %></p>
+          <% end %>
+        </div>
+        <div class="speeches-count">
+          <% highlights_count = 'XY' %>
+          <p>
+            <%= highlights_count %> highlight<%= "s" unless highlights_count == 1 %>
+          </p>
+        </div>
+        <div class="stats">
+          <p><i class="far fa-comment-alt"></i> <%= @speech.speaker.total_stats[:contributions] %></p>
+          <p><i class="far fa-comment"></i> <%= @speech.speaker.total_stats[:comments] %></p>
+          <p><i class="fas fa-sort voting-item"></i> <%= @speech.speaker.total_stats[:votes] %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
     <div class="col-xs-12">
-      <h2 class="show-page-title">
-        <%= @speech.title %>
-      </h2>
       <div class="speech-and-contributions">
         <div class="speech-background speech-text text-justify">
           <p><%= @speech.content.html_safe %></p>

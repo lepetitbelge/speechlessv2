@@ -1,16 +1,21 @@
 <%= render 'shared/navbar' %>
-<%= render 'components/search_page_banner' %>
 
 <div class="container">
   <div class="row">
     <div class="col-xs-8 col-md-6 col-md-offset-1">
+      <div class="card-header">
+        <h4>Speech Results</h4>
+      </div>
       <div>
         <% @speeches.each do |speech| %>
           <%= render "components/speech_card", speech: speech %>
-        <% end %>
+        <% end %>   
       </div>
     </div>
     <div class="col-xs-4 col-md-3 col-md-offset-1">
+      <div class="card-header speaker-header">
+        <h4>Speaker Results</h4>
+      </div>
       <div class="speaker-cards-container">
         <% @speakers.each do |speaker| %>
           <%= render "components/speaker_card", speaker: speaker %>

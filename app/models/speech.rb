@@ -22,6 +22,11 @@ class Speech < ApplicationRecord
     return stats
   end
 
+  def location
+    loc = self.city + ", " || ""
+    loc += self.country
+  end
+
   private
 
   def format_content
