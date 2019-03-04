@@ -14,7 +14,7 @@ const popOver = () => {
     `<div class="highlightMenu-inner">
       <div class="highlight-tools" >
       <a href="" id="modal-button" data-toggle="modal" data-target="#modalContactForm">
-        <i class="fas fa-comment-alt"></i>
+        <i class="fas fa-comment-alt" id="contribution-tag"></i>
       </a>
       </div>
     </div>
@@ -43,6 +43,7 @@ const displayForm = () => {
 
 const highlightSelection = (range, start, end) => {
   const token = generateRandomToken();
+  console.log("we got a highlight token")
   const span = document.createElement('span');
   span.classList.add('highlightedSelection');
   span.dataset.uui = token;
@@ -59,8 +60,8 @@ const highlightSelection = (range, start, end) => {
 
 const bindTooltipEvents = (range, start, end) => {
   // const highlight = document.querySelector('.fa-highlighter');
-  const comment = document.querySelector('.fa-comment-alt');
-
+  const comment = document.querySelector('#contribution-tag');
+  console.log(comment)
 
   comment.addEventListener('click', () => {
     displayForm();
@@ -72,14 +73,14 @@ const bindTooltipEvents = (range, start, end) => {
 
 const setHighlightPosition = (range, token) => {
   const paragraphIndex = range.startContainer.dataset.index;
-  // console.log(paragraphIndex)
+  console.log(paragraphIndex)
   const paragraphInput = document.getElementById('contribution_paragraph');
-  // console.log(paragraphInput)
+  console.log(paragraphInput)
   paragraphInput.value = paragraphIndex;
 
   const uuiInput = document.getElementById('contribution_selection_uui');
   uuiInput.value = token;
-  // console.log(uuiInput)
+  console.log(uuiInput)
 
   const speechHtmlInput = document.getElementById('speech_html');
   speechHtmlInput.value = speech.innerHTML;
