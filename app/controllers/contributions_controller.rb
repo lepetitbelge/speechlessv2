@@ -2,15 +2,16 @@ class ContributionsController < ApplicationController
   before_action :find_contribution, only: %i[update destroy]
 
   def create
-    # maybe need to make a speech here, can't test this fully until we have a speech view
-    contribution = Contribution.new(contribution_params)
-    contribution.user = current_user
-    contribution.speech = Speech.find(params[:speech_id])
-    if contribution.save
-      puts "Save went well, we might render with AJAX"
-      # speech.update(content: params[:speech_html]) -> do this when working on contribution
+    @contribution = Contribution.new(contribution_params)
+    @contribution.user = current_user
+    @contribution.speech = Speech.find(params[:speech_id])
+    @speech = @contribution.speech
+    if @contribution.save
+      @contribution.speech.update(content: params[:speech_html])
+
+      redirect_to @speech
     else
-      puts "Save went awfully wrong"
+      render 'speeches/show'
     end
   end
 

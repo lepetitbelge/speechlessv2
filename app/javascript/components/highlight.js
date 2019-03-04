@@ -12,9 +12,10 @@ const removeTooltips = () => {
 const popOver = () => {
   return (
     `<div class="highlightMenu-inner">
-      <div class="highlight-tools">
-        <i class="fas fa-highlighter"></i>
-        <i class="fas fa-comment"></i>
+      <div class="highlight-tools" >
+      <a href="" id="modal-button" data-toggle="modal" data-target="#modalContactForm">
+        <i class="fas fa-comment-alt"></i>
+      </a>
       </div>
     </div>
     <div class="highlightMenu-arrowClip">
@@ -36,17 +37,12 @@ const createTooltip = (range) => {
 };
 
 const displayForm = () => {
-  const form = document.getElementById('new_contribution');
-  const textInput = form.querySelector('textarea');
-  form.classList.add('is-visible');
-
-  textInput.setSelectionRange(0, 0);
-  textInput.focus();
+  const modal = document.querySelector('#modal-button');
+  const textInput = document.querySelector('.modal textarea');
 };
 
 const highlightSelection = (range, start, end) => {
   const token = generateRandomToken();
-  console.log(token)
   const span = document.createElement('span');
   span.classList.add('highlightedSelection');
   span.dataset.uui = token;
@@ -62,8 +58,8 @@ const highlightSelection = (range, start, end) => {
 };
 
 const bindTooltipEvents = (range, start, end) => {
-  const highlight = document.querySelector('.fa-highlighter');
-  const comment = document.querySelector('.fa-comment');
+  // const highlight = document.querySelector('.fa-highlighter');
+  const comment = document.querySelector('.fa-comment-alt');
 
 
   comment.addEventListener('click', () => {
@@ -71,16 +67,19 @@ const bindTooltipEvents = (range, start, end) => {
     highlightSelection(range, start, end);
     }
   );
-  highlight.addEventListener('click', () => highlightSelection(range, start, end));
+  // highlight.addEventListener('click', () => highlightSelection(range, start, end));
 };
 
 const setHighlightPosition = (range, token) => {
   const paragraphIndex = range.startContainer.dataset.index;
+  // console.log(paragraphIndex)
   const paragraphInput = document.getElementById('contribution_paragraph');
+  // console.log(paragraphInput)
   paragraphInput.value = paragraphIndex;
 
   const uuiInput = document.getElementById('contribution_selection_uui');
   uuiInput.value = token;
+  // console.log(uuiInput)
 
   const speechHtmlInput = document.getElementById('speech_html');
   speechHtmlInput.value = speech.innerHTML;
