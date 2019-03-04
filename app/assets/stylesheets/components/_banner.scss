@@ -1,9 +1,8 @@
-.speaker-banner {
+.speaker-speech-banner {
   height: auto;
   width: 100%;
   border-bottom: 2px solid $color_grey;
   display: flex;
-  align-items: center;
   margin-bottom: 30px;
   .stats {
     right: 20px;
@@ -25,4 +24,10 @@
 }
 .speaker-info {
   margin-bottom: 30px;
+  h2 {
+    a {
+      color: $color_grey;
+      text-decoration: none;
+    }
+  }
 }
