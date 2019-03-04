@@ -38,7 +38,7 @@ class Admin::SpeakersController < ApplicationController
 
   def destroy
     if @speaker.destroy
-      redirect_to admin_speakeres_path
+      redirect_to admin_speakers_path
       flash[:notice] = 'Nice! Speaker successfully deleted!'
     else
       flash[:alert] = 'Oops! Something went wrong, speaker could not be deleted!'
