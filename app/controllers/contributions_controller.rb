@@ -2,8 +2,6 @@ class ContributionsController < ApplicationController
   before_action :find_contribution, only: %i[update destroy]
 
   def create
-    @contribution = Contribution.new
-    # maybe need to make a speech here, can't test this fully until we have a speech view
     @contribution = Contribution.new(contribution_params)
     @contribution.user = current_user
     @contribution.speech = Speech.find(params[:speech_id])
