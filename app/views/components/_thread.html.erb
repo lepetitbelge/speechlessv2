@@ -13,11 +13,11 @@
           <%= contribution.content %>
         </div>
         <div class="contribution-voting text-center">
-            <%= link_to contribution_upvote_path(contribution) do %>
+            <%= link_to contribution_upvote_path(contribution), remote: true do %>
               <i class="fas fa-sort-up voting-item"></i>
             <% end %>
             <p class="voting-item"><%= contribution.vote_sum %></p>
-            <%= link_to contribution_downvote_path(contribution) do %>
+            <%= link_to contribution_downvote_path(contribution), remote: true do %>
               <i class="fas fa-sort-down voting-item"></i>
             <% end %>
         </div>
@@ -35,12 +35,12 @@
             <%= comment.content %>
           </div>
           <div class="contribution-voting text-center">
-            <%= link_to comment_upvote_path(comment) do %>
+            <%= link_to comment_upvote_path(comment), remote: true do %>
           <!-- not sur if I need voting-item but leaving it for now -->
               <i class="fas fa-sort-up voting-item"></i>
             <% end %>
             <p class="voting-item"><%= comment.vote_sum %></p>
-            <%= link_to comment_downvote_path(comment) do %>
+            <%= link_to comment_downvote_path(comment), remote: true do %>
               <i class="fas fa-sort-down voting-item"></i>
             <% end %>
           </div>
