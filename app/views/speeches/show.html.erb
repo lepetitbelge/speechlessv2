@@ -43,7 +43,6 @@
         </div>
         <div class="thread">
           <% if @speech.contributions %>
-            <%= byebug %>
             <% @speech.contributions.reverse.sort_by(&:paragraph).each do |contribution| %>
               <%= render "components/thread", contribution: contribution %>
             <% end %>

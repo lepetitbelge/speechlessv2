@@ -3,7 +3,6 @@ class ContributionsController < ApplicationController
 
   def create
     @contribution = Contribution.new(contribution_params)
-    byebug
     @contribution.user = current_user
     @contribution.speech = Speech.find(params[:speech_id])
     @speech = @contribution.speech
