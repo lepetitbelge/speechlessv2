@@ -16,7 +16,7 @@ class ContributionsController < ApplicationController
   end
 
   def update
-    if @contribution.update(contribution_update_params)
+    if @contribution.update(contribution_params)
       puts "Update went well, we might render with AJAX"
     else
       puts "Update went awfully wrong"
@@ -34,10 +34,6 @@ class ContributionsController < ApplicationController
   private
 
   def contribution_params
-    params.require(:contribution).permit(:content, :start_position, :end_position)
-  end
-
-  def contribution_update_params
     params.require(:contribution).permit(:content)
   end
 
