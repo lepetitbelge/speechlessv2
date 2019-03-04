@@ -1,7 +1,7 @@
 <br>
 <ul class="comments">
   <div class="btn btn-ghost btn-show-c"><%= contribution.user.username %>'s contribution <i class="far fa-arrow-alt-circle-down"></i></div>
-  <div class="hideDivContributions">
+  <div class="hideDivContributions" id="uui-<%= contribution.selection_uui %>">
     <li class="comment">
       <a href="#" title="View this user profile" class="photo"><%= image_tag "#{contribution.user.photo_url}", class: "user-avatar-extra-small" %></a>
       <div class="meta">
