@@ -23,6 +23,10 @@ User.where(admin: false).destroy_all
 #   admin: true
 # })
 
+User.where(username: 'Alfonso').update(photo_url: 'https://res.cloudinary.com/lepetitbelge/image/upload/v1551686339/beer.jpg')
+User.where(username: 'Lepetitbelge').update(photo_url: 'https://res.cloudinary.com/lepetitbelge/image/upload/v1551686342/mannekenpis.jpg')
+User.where(username: 'Davidof').update(photo_url: 'https://res.cloudinary.com/lepetitbelge/image/upload/v1551686336/david.jpg')
+
 if Rails.env.development?
   puts '~~~creating random users~~~'
   20.times do
@@ -33,8 +37,8 @@ if Rails.env.development?
     admin: false,
     photo_url: UiFaces.face
     )
-    User.photo_url.gsub!(/^http[^s]/,'https')
-    User.save
+    user.photo_url.gsub!(/^http[^s]/,'https')
+    user.save
   end
 end
 
@@ -149,6 +153,8 @@ Speech.all.each do |speech|
         vote.votable = contribution
         vote.user = User.all.sample
         vote.save
+        speech.vote_sum += vote.value
+        speech.save
       end
       [rand(0..3), rand(0..20)].sample.times do
         comment = Comment.create(
@@ -162,6 +168,8 @@ Speech.all.each do |speech|
             vote.votable = comment
             vote.user = User.all.sample
             vote.save
+            speech.vote_sum += vote.value
+            speech.save
           end
         end
       end
