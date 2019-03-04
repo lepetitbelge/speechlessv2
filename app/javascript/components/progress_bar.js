@@ -29,7 +29,7 @@ function createProgressBar() {
 
     var adjustedHeight = container.clientHeight - pageHeight;
 
-    var progress = ((window.pageYOffset / adjustedHeight) * 100);
+    var progress = ((window.pageYOffset / adjustedHeight) * 85);
 
     progressBarElement.style.width = progress + "%";
   }
