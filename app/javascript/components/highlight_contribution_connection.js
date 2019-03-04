@@ -1,14 +1,46 @@
-const connectHighlightContribution = () => {
+const toggleSelection = (selection, contributionBox) => {
+  if (contributionBox.classList.contains('is-visible')) {
+    contributionBox.classList.remove('is-visible');
+    selection.classList.remove('currentSelection');
+  } else {
+    document.querySelectorAll('.is-visible').forEach(old_selection => {
+      old_selection.classList.remove('is-visible');
+    });
+    document.querySelectorAll('.currentSelection').forEach(old_selection => {
+      old_selection.classList.remove('currentSelection');
+    });
+    contributionBox.classList.add('is-visible');
+    selection.classList.add('currentSelection');
+  };
+};
+
+const clickOnSelection = () => {
   document.querySelectorAll('.highlightedSelection').forEach(selection => {
-    let identity = selection.getAttribute('data-uui');
     selection.addEventListener('click', () => {
-      document.getElementById(`uui-${identity}`).classList.toggle('is-visible');
+      const identity = selection.getAttribute('data-uui');
+      const contributionBox = document.getElementById(`uui-${identity}`);
+      toggleSelection(selection, contributionBox);
       }
     );
-    // console.log(selection.getAttribute('data-uui'));
   });
 };
 
-export { connectHighlightContribution };
+const clickOnContribution = () => {
+  document.querySelectorAll('.btn-show-c').forEach(contribution => {
+    contribution.addEventListener('click', () => {
+      const contributionBox = contribution.nextSibling.nextSibling
+      const identity = contributionBox.id.substring(4);
+      const selection = document.querySelector(`[data-uui="${identity}"]`);
+      toggleSelection(selection, contributionBox);
+      }
+    );
+  });
+}
 
-const ide = 'uui-lzo0ce0vun4tdxyu4ko5p';
+
+const connectHighlightContribution = () => {
+  clickOnSelection();
+  clickOnContribution();
+};
+
+export { connectHighlightContribution };
