@@ -1,6 +1,6 @@
 <%= render 'shared/navbar' %>
 
-<div class="container">
+<div class="container" >
   <div class="row">
     <div class="col-xs-12 margin-t-20">
       <p class="kill-margin"><%= @speech.category.name.upcase %></p>
@@ -34,11 +34,11 @@
     </div>
   </div>
 </div>
-<div class="container">
+<div class="container" id="container-progressbar">
   <div class="row">
     <div class="col-xs-12">
       <div class="speech-and-contributions">
-        <div class="speech-background speech-text text-justify">
+        <div class="speech-text text-justify" id="speech-background">
           <p><%= @speech.content.html_safe %></p>
         </div>
         <div class="thread">
@@ -52,20 +52,19 @@
     </div>
   </div>
 </div>
-  <div class="modal fade" id="modalContactForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-body mx-3">
-          <div class="md-form">
-            <%= simple_form_for [@speech, @contribution], class: "new_contribution" do |f| %>
-              <%= f.input :selection_uui, as: :hidden %>
-              <%= f.input :paragraph, as: :hidden %>
-              <%= hidden_field_tag :speech_html %>
-              <%= f.input :content, input_html: { rows: 5 } %>
+<div class="modal fade" id="modalContactForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body mx-3">
+        <div class="md-form">
+          <%= simple_form_for [@speech, @contribution], class: "new_contribution" do |f| %>
+            <%= f.input :selection_uui, as: :hidden %>
+            <%= f.input :paragraph, as: :hidden %>
+            <%= hidden_field_tag :speech_html %>
+            <%= f.input :content, input_html: { rows: 5 } %>
 
-              <%= f.submit class: 'submit-button' %>
-            <% end %>
-          </div>
+            <%= f.submit class: 'submit-button' %>
+          <% end %>
         </div>
       </div>
     </div>

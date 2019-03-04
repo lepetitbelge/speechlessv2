@@ -8,3 +8,6 @@ initHighlighter();
 
 import { navbarSticky } from '../components/navbar';
 // window.onscroll = function() {navbarSticky()};
+
+import { createProgressBar } from '../components/progress_bar';
+createProgressBar();
