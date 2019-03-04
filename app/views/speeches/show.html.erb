@@ -1,6 +1,6 @@
 <%= render 'shared/navbar' %>
 
-<div class="container">
+<div class="container" >
   <div class="row">
     <div class="col-xs-12 margin-t-20">
       <p class="kill-margin"><%= @speech.category.name.upcase %></p>
@@ -34,11 +34,11 @@
     </div>
   </div>
 </div>
-<div class="container">
+<div class="container" id="container-progressbar">
   <div class="row">
     <div class="col-xs-12">
       <div class="speech-and-contributions">
-        <div class="speech-background speech-text text-justify">
+        <div class="speech-text text-justify" id="speech-background">
           <p><%= @speech.content.html_safe %></p>
         </div>
         <div class="thread">
@@ -70,7 +70,5 @@
     </div>
   </div>
 </div>
-<div id="myProgress">
-  <div id="myBar"></div>
+<div id="progressbar">
 </div>
-<div>
