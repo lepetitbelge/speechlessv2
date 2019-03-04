@@ -1,2 +1,2 @@
-document.getElementById('contr-vote-count-<%= @contribution.id %>').innerHTML = '<%= @contribution.vote_sum %>';
-
+const vote_sum = document.getElementById('<%= @vote.votable_type.downcase %>-vote-count-<%= @vote.votable_id %>')
+vote_sum.innerHTML = '<%= @vote.votable.vote_sum %>';
