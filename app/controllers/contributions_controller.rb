@@ -3,6 +3,7 @@ class ContributionsController < ApplicationController
 
   def create
     @contribution = Contribution.new(contribution_params)
+    byebug
     @contribution.user = current_user
     @contribution.speech = Speech.find(params[:speech_id])
     @speech = @contribution.speech
@@ -34,7 +35,7 @@ class ContributionsController < ApplicationController
   private
 
   def contribution_params
-    params.require(:contribution).permit(:content, :selection_uui)
+    params.require(:contribution).permit(:content, :selection_uui, :paragraph)
   end
 
   def contribution_update_params

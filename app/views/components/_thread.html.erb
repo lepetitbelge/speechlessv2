@@ -36,7 +36,6 @@
           </div>
           <div class="contribution-voting text-center">
             <%= link_to comment_upvote_path(comment), method: :post, remote: true do %>
-          <!-- not sur if I need voting-item but leaving it for now -->
               <i class="fas fa-sort-up voting-item"></i>
             <% end %>
             <p id="comment-vote-count-<%= comment.id %>"><%= comment.vote_sum %></p>
