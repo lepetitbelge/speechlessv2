@@ -26,7 +26,7 @@
     </li>
   </div>
   <div class="hideDivComments">
-    <% contribution.comments.each do |comment|%>
+    <% contribution.comments.reverse.each do |comment|%>
       <li class="comment level-2">
         <a href="#" title="View this user profile" class="photo"><%= image_tag "#{comment.user.photo_url}", class: "user-avatar-extra-small" %></a>
         <div class="meta"><%= comment.user.username %> | <%= comment.created_at.strftime("%d.%m.%Y") %></div>

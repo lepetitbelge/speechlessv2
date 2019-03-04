@@ -43,7 +43,8 @@
         </div>
         <div class="thread">
           <% if @speech.contributions %>
-            <% @speech.contributions.each do |contribution| %>
+            <%= byebug %>
+            <% @speech.contributions.reverse.each do |contribution| %>
               <%= render "components/thread", contribution: contribution %>
             <% end %>
           <% end %>
