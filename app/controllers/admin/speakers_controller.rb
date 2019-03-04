@@ -53,6 +53,6 @@ class Admin::SpeakersController < ApplicationController
   end
 
   def speaker_params
-    params.require(:speaker).permit(:first_name, :last_name, :date_of_birth, :date_of_death, :bio, :photo)
+    params.require(:speaker).permit(:first_name, :last_name, :date_of_birth, :date_of_death, :photo)
   end
 end
