@@ -1,1 +1,2 @@
-document.querySelectorAll('.voting-count').forEach()
+document.getElementById('contr-vote-count-<%= @contribution.id %>').innerHTML = '<%= @contribution.vote_sum %>';
+

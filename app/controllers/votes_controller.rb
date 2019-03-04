@@ -4,8 +4,9 @@ class VotesController < ApplicationController
   def upvote
     @new_value = 1
     save_vote
+    @contribution = @vote.votable
     if @vote.save
-      @speech.vote_sum += @vote.value
+      @speech.vote_sum += @new_value
       puts "````````Vote sum of speech didn't get updated" unless @speech.save
       respond_to do |format|
         format.html { redirect_to speech_path(@speech) }

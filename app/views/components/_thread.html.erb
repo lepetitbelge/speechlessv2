@@ -16,7 +16,7 @@
             <%= link_to contribution_upvote_path(contribution), method: :post, remote: true do %>
               <i class="fas fa-sort-up voting-item"></i>
             <% end %>
-            <p class="voting-count"><%= contribution.vote_sum %></p>
+            <p id="contr-vote-count-<%= contribution.id %>"><%= contribution.vote_sum %></p>
             <%= link_to contribution_downvote_path(contribution), method: :post, remote: true do %>
               <i class="fas fa-sort-down voting-item"></i>
             <% end %>
