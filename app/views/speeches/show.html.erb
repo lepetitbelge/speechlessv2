@@ -5,7 +5,7 @@
     <div class="col-xs-12 margin-t-20">
       <p class="kill-margin"><%= @speech.category.name.upcase %></p>
     </div>
-    <div class="col-xs-12">  
+    <div class="col-xs-12">
       <div class="speaker-speech-banner margin-b-20">
         <div class="speaker-photo" style="background-image: url(<%= cl_image_path @speech.speaker.photo %>)"></div>
         <div class="speaker-info">
@@ -70,7 +70,3 @@
       </div>
     </div>
   </div>
-<div>
-  <%= link_to 'index', speeches_path, class: 'btn btn-primary' %>
-</div>
-

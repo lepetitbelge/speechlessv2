@@ -1,5 +1,8 @@
 <div class="tryout" style="height: 50px;width: 100%;background-color: white;"></div>
 <div class="navbar-lewagon">
+  <div class="">
+    <%= link_to 'Speechless', root_path, class: 'logo' %>
+  </div>
   <div class="nav-search">
     <%= form_tag speeches_path, method: :get do %>
       <%= text_field_tag :query,
@@ -8,9 +11,6 @@
         placeholder: "Search"
       %>
     <% end %>
-  </div>
-  <div class="">
-    <%= link_to 'Speechless', root_path, class: 'logo' %>
   </div>
   <div class="navbar-lewagon-actions d-none d-sm-flex">
     |
