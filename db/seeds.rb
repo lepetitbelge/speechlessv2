@@ -33,8 +33,8 @@ if Rails.env.development?
     admin: false,
     photo_url: UiFaces.face
     )
-    User.photo_url.gsub!(/^http[^s]/,'https')
-    User.save
+    user.photo_url.gsub!(/^http[^s]/,'https')
+    user.save
   end
 end
 
@@ -149,6 +149,8 @@ Speech.all.each do |speech|
         vote.votable = contribution
         vote.user = User.all.sample
         vote.save
+        speech.vote_sum += vote.value
+        speech.update
       end
       [rand(0..3), rand(0..20)].sample.times do
         comment = Comment.create(
@@ -162,6 +164,8 @@ Speech.all.each do |speech|
             vote.votable = comment
             vote.user = User.all.sample
             vote.save
+            speech.vote_sum += vote.value
+            speech.update
           end
         end
       end
