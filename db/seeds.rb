@@ -23,6 +23,10 @@ User.where(admin: false).destroy_all
 #   admin: true
 # })
 
+User.where(username: 'Alfonso').update(photo_url: 'https://res.cloudinary.com/lepetitbelge/image/upload/v1551686339/beer.jpg')
+User.where(username: 'Lepetitbelge').update(photo_url: 'https://res.cloudinary.com/lepetitbelge/image/upload/v1551686342/mannekenpis.jpg')
+User.where(username: 'Davidof').update(photo_url: 'https://res.cloudinary.com/lepetitbelge/image/upload/v1551686336/david.jpg')
+
 if Rails.env.development?
   puts '~~~creating random users~~~'
   20.times do
