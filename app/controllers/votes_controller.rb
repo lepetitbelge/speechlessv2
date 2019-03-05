@@ -15,11 +15,12 @@ class VotesController < ApplicationController
     votable = params[:contribution_id] ? Contribution.find(params[:contribution_id]) : Comment.find(params[:comment_id])
     @vote = Vote.where(user_id: current_user.id, votable_id: votable.id, votable_type: votable.class.to_s).first_or_initialize
     @vote.value += @new_value
+    @speech = @vote.votable.speech
     if @vote.save
       @speech.vote_sum += @new_value
       puts "````````Vote sum of speech didn't get updated" unless @speech.save
       respond_to do |format|
-        format.html { redirect_to speech_path(@vote.votable.speech) }
+        format.html { redirect_to speech_path(@speech) }
         format.js
       end
     else
