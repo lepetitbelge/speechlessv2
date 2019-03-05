@@ -1,10 +1,18 @@
+const removeComments = () => {
+  document.querySelectorAll('.hideDivComments').forEach(comments => {
+    comments.classList.remove('is-visible');
+  });
+};
+
 const toggleSelection = (selection, contributionBox) => {
   if (contributionBox.classList.contains('is-visible')) {
     contributionBox.classList.remove('is-visible');
+    removeComments();
     selection.classList.remove('currentSelection');
   } else {
     document.querySelectorAll('.is-visible').forEach(old_selection => {
       old_selection.classList.remove('is-visible');
+      removeComments();
     });
     document.querySelectorAll('.currentSelection').forEach(old_selection => {
       old_selection.classList.remove('currentSelection');
