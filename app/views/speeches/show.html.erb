@@ -12,7 +12,7 @@
           <h2 class="kill-margin-top"><%= @speech.title %></h1>
           <h1 class="kill-margin-top"><%= link_to @speech.speaker.full_name, speaker_path(@speech.speaker) %></h1>
             <p id="speech-show-data-place">
-              In <%= "#{(@speech.date ? ' ' : '')}#{@speech.location if @speech.location}" if @speech.location %> on <%= "#{@speech.date.strftime("%d.%m.%Y")}" if @speech.date %>
+              In <%= "#{(@speech.date ? ' ' : '')}#{@speech.location if @speech.location}" if @speech.location %> on <%= "#{@speech.date.strftime("%B %d, %Y")}" if @speech.date %>
             </p>
           <% if @info_summary %>
             <p><%= @info_summary.html_safe %></p>
