@@ -26,7 +26,7 @@ class Speech < ApplicationRecord
   end
 
   def location
-    loc = self.city + ", " || ""
+    loc = (self.city && self.city != "") ? (self.city + ", ") : ""
     loc += self.country
   end
 

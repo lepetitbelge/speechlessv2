@@ -1,3 +1,6 @@
+<% content_for :meta_title, "Speechless - #{@speaker.full_name}" %>
+<% content_for :meta_description, @speaker.full_name %>
+<% content_for :meta_image, cl_image_path(@speaker.photo) %>
 <%= render 'shared/navbar' %>
 <div class="container">
   <div class="row">

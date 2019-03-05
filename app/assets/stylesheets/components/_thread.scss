@@ -1,4 +1,10 @@
-.thread-contribution{
+
+.thread-sticky {
+  position: fixed !important;
+  top: 75px;
+  left: 57.7%;
+}
+.thread-contribution {
   width: 400px;
 }
 .contribution-contributor {

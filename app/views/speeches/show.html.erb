@@ -1,3 +1,5 @@
+<% content_for :meta_title, "Speechless - #{@speech.title}" %>
+<% content_for :meta_description, @speech.title %>
 <%= render 'shared/navbar' %>
 
 <div class="container" >
@@ -9,7 +11,8 @@
       <div class="speaker-speech-banner margin-b-20">
         <div class="speaker-photo" style="background-image: url(<%= cl_image_path @speech.speaker.photo %>)"></div>
         <div class="speaker-info">
-          <h2 class="kill-margin-top"><%= @speech.title %></h1>
+
+          <h2 class="kill-margin-top"><%= @speech.title %></h2>
           <h1 class="kill-margin-top"><%= link_to @speech.speaker.full_name, speaker_path(@speech.speaker) %></h1>
             <p id="speech-show-data-place">
               In <%= "#{(@speech.date ? ' ' : '')}#{@speech.location if @speech.location}" if @speech.location %> on <%= "#{@speech.date.strftime("%B %d, %Y")}" if @speech.date %>
