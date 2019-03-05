@@ -51,7 +51,7 @@
         <div class="body-and-voting">
           <div class="body">
             <% comment = Comment.new %>
-            <%= form_for comment, url: contribution_comments_path(contribution), method: :post do |f| %>
+            <%= form_for comment, url: contribution_comments_path(contribution), method: :post, remote: true do |f| %>
               <%= f.text_area :content, class: "body-comment border-r3" %>
               <div class="submit-form">
                 <%= f.submit 'Submit', style: "border: none" %>

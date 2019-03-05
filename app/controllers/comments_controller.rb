@@ -6,9 +6,16 @@ class CommentsController < ApplicationController
     comment.user = current_user
     comment.contribution = Contribution.find(params[:contribution_id])
     if comment.save
-      puts "Save went well, we might render with AJAX"
+      @speech = comment.speech
+      respond_to do |format|
+        format.html { redirect_to speech_path(@speech) }
+        format.js
+      end
     else
-      puts "Save went awfully wrong"
+      respont_to do |format|
+        format.html { render 'speeches/show' }
+        format.js
+      end
     end
     redirect_to speech_path(comment.contribution.speech)
   end
