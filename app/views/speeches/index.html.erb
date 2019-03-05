@@ -49,8 +49,12 @@
         <h4>Speech Results</h4>
       </div>
       <div>
-        <% @speeches.each do |speech| %>
-          <%= render "components/speech_card", speech: speech %>
+        <% if @speeches.any? %>
+          <% @speeches.each do |speech| %>
+            <%= render "components/speech_card", speech: speech %>
+          <% end %>
+        <% else %>
+          No results found, did you mean <em>'Sambusak'</em> ?
         <% end %>
       </div>
     </div>
@@ -59,8 +63,12 @@
         <h4>Speaker Results</h4>
       </div>
       <div class="speaker-cards-container">
-        <% @speakers.each do |speaker| %>
-          <%= render "components/speaker_card", speaker: speaker %>
+        <% if @speakers.any? %>
+          <% @speakers.each do |speaker| %>
+            <%= render "components/speaker_card", speaker: speaker %>
+          <% end %>
+        <% else %>
+          No results found, did you mean <em>'Dimitri'</em> ?
         <% end %>
       </div>
     </div>
