@@ -1,11 +1,10 @@
 <ul class="comments">
-  <div class="btn btn-ghost btn-show-c"><%= contribution.user.username %>'s contribution <i class="far fa-arrow-alt-circle-down"></i></div>
+  <div class="btn btn-ghost btn-show-c"><%= render "components/contributionIndicator", contribution: contribution %></i></div>
   <div class="hideDivContributions" id="uui-<%= contribution.selection_uui %>">
     <li class="comment">
       <a href="#" title="View this user profile" class="photo"><%= image_tag "#{contribution.user.photo_url}", class: "user-avatar-extra-small" %></a>
       <div class="meta">
-        <%= contribution.user.username %> | <%= contribution.created_at.strftime("%d.%m.%Y") %>
-        <a class="reply">Reply</a>
+        <%= contribution.user.username %> | <%= contribution.created_at.strftime("%d.%m.%Y - %H:%M") %>
       </div>
       <div class="body-and-voting">
         <div class="body padding-l5 padding-r10 text-justify">
@@ -28,7 +27,7 @@
     <% contribution.comments.reverse.each do |comment|%>
       <li class="comment level-2">
         <a href="#" title="View this user profile" class="photo"><%= image_tag "#{comment.user.photo_url}", class: "user-avatar-extra-small" %></a>
-        <div class="meta"><%= comment.user.username %> | <%= comment.created_at.strftime("%d.%m.%Y") %></div>
+        <div class="meta"><%= comment.user.username %> | <%= comment.created_at.strftime("%d.%m.%Y - %H:%M") %></div>
         <div class="body-and-voting">
           <div class="body">
             <%= comment.content %>
@@ -64,5 +63,3 @@
     <% end %>
   </div>
 </ul>
-
-<br>
