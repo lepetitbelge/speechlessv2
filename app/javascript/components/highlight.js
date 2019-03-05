@@ -9,6 +9,15 @@ const removeTooltips = () => {
   toolTips.forEach(toolTip => toolTip.remove());
 };
 
+const removeOnScroll = (div) => {
+  const selection = window.getSelection();
+  window.addEventListener("scroll", function _func () {
+    div.remove();
+    selection.removeAllRanges();
+    window.removeEventListener("scroll", _func);
+  });
+};
+
 const popOver = () => {
   return (
     `<div class="highlightMenu-inner">
@@ -34,6 +43,8 @@ const createTooltip = (range) => {
   div.style.top = (rectList[0].top - 54) + 'px';
   div.style.left = ((rectList[0].left - 20) + (rectList[0].width / 2)) + 'px';
   document.body.appendChild(div);
+
+  removeOnScroll(div);
 };
 
 const displayForm = () => {
