@@ -190,6 +190,13 @@ width: 20px;
   }
 }
 
+.comments {
+  display: none;
+}
+.comments.is-visible {
+  display: block;
+}
+
 .hideDivContributions {
   display: none;
 }
