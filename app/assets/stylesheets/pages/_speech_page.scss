@@ -19,3 +19,13 @@
 // #new_contribution.is-visible {
 //   opacity: 1;
 // }
+.modal-dialog-centered {
+  margin-top: 25vh;
+}
+.form-control-label {
+ color: $color_prime;
+ abbr {
+  font-size: 12px;
+  font-weight: light;
+ }
+}

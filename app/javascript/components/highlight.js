@@ -38,6 +38,8 @@ const createTooltip = (range) => {
 
 const displayForm = () => {
   const modal = document.querySelector('#modal-button');
+  const title = document.querySelector('.form-control-label');
+  title.innerHTML = 'Your contribution';
   const textInput = document.querySelector('.modal textarea');
 };
 
