@@ -45,7 +45,7 @@
         </div>
         <div class="thread">
           <% if @speech.contributions %>
-            <% @speech.contributions.reverse.sort_by(&:paragraph).each do |contribution| %>
+            <% @speech.contributions.reverse.sort_by(&:paragraph).sort_by(&:vote_sum).reverse.each do |contribution| %>
               <%= render "components/thread", contribution: contribution %>
             <% end %>
           <% end %>
