@@ -24,10 +24,23 @@
 }
 .speaker-info {
   margin-bottom: 30px;
-  h2 {
-    a {
-      color: $color_grey;
-      text-decoration: none;
-    }
+  h1 {
+    color: $color_grey_dark;
+    font-size: 24px;
   }
+  a {
+    text-decoration: none;
+    color: $color_grey_dark;
+  }
+  h2 {
+    color: $color_black;
+    font-size: 24px;
+    font-weight: lighter;
+  }
+}
+#speech-show-data-place {
+  font-size: 14px;
+}
+.speaker-bio {
+  font-size: 14px;
 }

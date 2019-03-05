@@ -4,7 +4,8 @@ class Speech < ApplicationRecord
 
   has_many :contributions, dependent: :nullify
 
-  before_create :format_content
+  before_create :format_content, :format_country
+  before_update :format_country
 
   validates_presence_of :title, :date, :content, :category, :country, :vote_sum
   validates :title, length: { maximum: 44, too_long: "can't have more than %{count} characters" }
@@ -33,6 +34,10 @@ class Speech < ApplicationRecord
 
   def format_content
     self.content = SpeechContentToHtml.new(content).perform
+  end
+
+  def format_country
+    self.country = CountryFormatted.new(country).perform
   end
 
   def date_cannot_be_in_future

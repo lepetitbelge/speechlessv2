@@ -8,16 +8,16 @@
       <div class="speaker-speech-banner margin-t-20 margin-b-20">
         <div class="speaker-photo" style="background-image: url(<%= cl_image_path @speaker.photo %>)"></div>
         <div class="speaker-info">
-          <h1 class="kill-margin"><%= @speaker.full_name %></h1>
+          <h1 class="kill-margin-top"><%= @speaker.full_name %></h1>
           <% if @speaker.date_of_birth && @speaker.date_of_death %>
-            <p><%= "#{@speaker.date_of_birth.strftime("%d.%m.%Y")} - #{@speaker.date_of_death.strftime("%d.%m.%Y")}" %></p>
+            <p class="speaker-bio"><%= "#{@speaker.date_of_birth.strftime("%d.%m.%Y")} - #{@speaker.date_of_death.strftime("%d.%m.%Y")}" %></p>
           <% elsif @speaker.date_of_birth %>
-            <p>born <%= @speaker.date_of_birth.strftime("%d.%m.%Y") %></p>
+            <p class="speaker-bio">born <%= @speaker.date_of_birth.strftime("%d.%m.%Y") %></p>
           <% elsif @speaker.date_of_death %>
-            <p>died <%= @speaker.date_of_death.strftime("%d.%m.%Y") %></p>
+            <p class="speaker-bio">died <%= @speaker.date_of_death.strftime("%d.%m.%Y") %></p>
           <% end %>
           <% if @info_summary %>
-            <p><%= @info_summary.html_safe %></p>
+            <p class="speaker-bio"><%= @info_summary.html_safe %></p>
           <% end %>
         </div>
         <div class="speeches-count">
@@ -39,7 +39,7 @@
   <div class="row">
     <div class="col-xs-6 col-md-5 col-md-offset-1">
       <div class="speaker-show-cards">
-        <div class="card_header">
+        <div class="card-header">
           <h4>Most Popular Speeches</h4>
         </div>
         <% @all_time_speeches.each do |speech| %>
@@ -49,7 +49,7 @@
     </div>
     <div class="col-xs-6 col-md-5">
       <div class="speaker-show-cards">
-        <div class="card_header">
+        <div class="card-header">
           <h4>Latest Speeches</h4>
         </div>
         <% @latest_speeches.each do |speech| %>

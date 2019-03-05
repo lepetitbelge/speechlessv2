@@ -14,5 +14,11 @@
   text-align: right;
   a {
     text-decoration: none;
+    color: $color_prime;
+    opacity: 0.7;
+    &:hover {
+      color: $color_prime;
+      opacity: 1;
+    }
   }
 }
