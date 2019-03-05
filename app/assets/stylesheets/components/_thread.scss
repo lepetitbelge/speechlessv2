@@ -183,8 +183,12 @@ flex-grow: 1;
 }
 
 .contribution-indicator {
+  color: $color_prime;
   font-size: 25px;
   position: relative;
+  &:hover {
+    color: white;
+  }
 }
 .vote-counter {
   position: absolute;
