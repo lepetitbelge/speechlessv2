@@ -160,25 +160,8 @@ width: 20px;
   left: -58px;
   top: 2px;
 }
-.comments .photo img {
-  border: 1px solid #fff;
-  border-radius: 32px;
-  overflow: hidden;
-}
+
 .comments .meta { margin-bottom: 5px; }
-.comments .meta .reply { float: right; }
-.comments .comment:hover .reply { display: block; }
-.comments [class*="level-"] .photo:before {
-  display: block;
-  content: '';
-  position: absolute;
-  margin-top: -2px;
-  height: 4px;
-  width: 20px;
-  left: -10px;
-  top: 50%;
-  z-index: -1;
-}
 .comments .level-2 { margin-left: 30px; }
 
 .btn-ghost {
