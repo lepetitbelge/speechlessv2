@@ -14,3 +14,5 @@ createProgressBar();
 
 import { connectHighlightContribution } from '../components/highlight_contribution_connection';
 connectHighlightContribution();
+
+import { updateCurrentContributions } from '../components/show_current_contributions';

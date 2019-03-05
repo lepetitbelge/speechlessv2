@@ -11,10 +11,14 @@
         <div class="speaker-info">
           <h2 class="kill-margin"><%= link_to @speech.speaker.full_name, speaker_path(@speech.speaker) %></h1>
           <h1 class="kill-margin margin-b-20"><%= @speech.title %></h1>
-            <p class="margin-t-20">
-              <%= "#{@speech.date.strftime("%d.%m.%Y")}" if @speech.date %>
-              <%= "#{(@speech.date ? ' ' : '')}#{@speech.location if @speech.location}" if @speech.location %>
-            </p>
+            <div class="margin-t-20">
+              <% if @speech.date %>
+                <p><%= "#{@speech.date.strftime("%d.%m.%Y")}" %></p>
+              <% end %>
+              <% if @speech.location %>
+                <p><%= "#{(@speech.date ? ' ' : '')}#{@speech.location if @speech.location}" %></p>
+              <% end %>
+            </div>
           <% if @info_summary %>
             <p><%= @info_summary.html_safe %></p>
           <% end %>
