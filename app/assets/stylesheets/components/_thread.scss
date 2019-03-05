@@ -156,8 +156,8 @@ flex-grow: 1;
 }
 
 .btn-ghost {
+  margin: 0px;
   font-size: 10px;
-  padding-top: 5px;
   &:hover {
     background-color: rgba(200, 200, 200, 0.6);
     color: white;
@@ -182,3 +182,13 @@ flex-grow: 1;
   display: block;
 }
 
+.contribution-indicator {
+  font-size: 25px;
+  position: relative;
+}
+.vote-counter {
+  position: absolute;
+  top: 8px;
+  left: 4px;
+  font-size: 10px;
+}
