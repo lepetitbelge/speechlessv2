@@ -24,6 +24,9 @@ class VotesController < ApplicationController
       end
     else
       puts "Save went wrong, maybe bacause the user alreade upvoted or downvoted and thus cannot upvote or downvote again (updating is possible though)"
+      respond_to do |format|
+        format.html { render 'speeches/show' }
+      end
     end
   end
 end
