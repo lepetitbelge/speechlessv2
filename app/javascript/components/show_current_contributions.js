@@ -34,9 +34,6 @@ const updateCurrentContributions = () => {
       }
     });
   }
-  // } else {
-  //   thread.classListremove("thread-sticky");
-  // };
 };
 
 export { updateCurrentContributions };
