@@ -9,11 +9,10 @@
       <div class="speaker-speech-banner margin-b-20">
         <div class="speaker-photo" style="background-image: url(<%= cl_image_path @speech.speaker.photo %>)"></div>
         <div class="speaker-info">
-          <h2 class="kill-margin"><%= link_to @speech.speaker.full_name, speaker_path(@speech.speaker) %></h1>
-          <h1 class="kill-margin margin-b-20"><%= @speech.title %></h1>
-            <p class="margin-t-20">
-              <%= "#{@speech.date.strftime("%d.%m.%Y")}" if @speech.date %>
-              <%= "#{(@speech.date ? ' ' : '')}#{@speech.location if @speech.location}" if @speech.location %>
+          <h2 class="kill-margin-top"><%= @speech.title %></h1>
+          <h1 class="kill-margin-top"><%= link_to @speech.speaker.full_name, speaker_path(@speech.speaker) %></h1>
+            <p id="speech-show-data-place">
+              In <%= "#{(@speech.date ? ' ' : '')}#{@speech.location if @speech.location}" if @speech.location %> on <%= "#{@speech.date.strftime("%d.%m.%Y")}" if @speech.date %>
             </p>
           <% if @info_summary %>
             <p><%= @info_summary.html_safe %></p>

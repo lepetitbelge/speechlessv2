@@ -20,7 +20,7 @@
 }
 .contribution-content p {
   font-size: 14px;
-  color: rgb(50,50,50);
+  color: $color_black;
 }
 .contribution-details {
   display: flex;
@@ -39,7 +39,7 @@ width: 20px;
   display:flex;
 }
 .voting-item {
-  color: rgb(120,120,120);
+  color: $color_grey_dark;
 }
 .thread-comments {
   width: 400px;

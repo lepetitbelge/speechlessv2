@@ -1,9 +1,15 @@
+h4 {
+  margin-bottom: 5px;
+}
 .card-title {
   font-size: 18px;
   font-family: 'PT Sans', sans-serif;
 }
 .kill-margin {
-  margin: 0px;
+  margin: 0;
+}
+.kill-margin-top {
+  margin-top: 0;
 }
 .margin-t-5 {
   margin-top: 5px;
@@ -14,7 +20,7 @@
 .margin-t-20 {
   margin-top: 20px;
 }
-margin-b-20 {
+.margin-b-20 {
   margin-bottom: 20px;
 }
 .padding-5 {
