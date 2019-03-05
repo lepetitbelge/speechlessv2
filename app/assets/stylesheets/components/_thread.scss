@@ -190,11 +190,8 @@ width: 20px;
   }
 }
 
-.comments {
+.comments.invisible {
   display: none;
-}
-.comments.is-visible {
-  display: block;
 }
 
 .hideDivContributions {
