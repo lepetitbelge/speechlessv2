@@ -25,11 +25,18 @@ const sticky = speechText.offsetTop;
 const thread = document.querySelector(".thread");
 
 const updateCurrentContributions = () => {
-  if(window.pageYOffset >= sticky) {
-    thread.classList.add("thread-sticky");
-  } else {
-    thread.classListremove("thread-sticky");
+  if (thread) {
+    window.addEventListener('scroll', () => {
+      if (window.scrollY >= 308) {
+        thread.classList.add('thread-sticky');
+      } else {
+        thread.classList.remove('thread-sticky');
+      }
+    });
   }
+  // } else {
+  //   thread.classListremove("thread-sticky");
+  // };
 };
 
 export { updateCurrentContributions };
