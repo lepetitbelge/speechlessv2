@@ -11,6 +11,10 @@ class CountryFormatted
 
   def change_to_full_country_name
     iso_country = ISO3166::Country[@country]
-    iso_country.translations[I18n.locale.to_s] || iso_country.name
+    if iso_country
+      iso_country.translations[I18n.locale.to_s] || iso_country.name
+    else
+      @country
+    end
   end
 end

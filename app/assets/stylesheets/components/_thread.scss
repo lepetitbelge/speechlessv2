@@ -159,7 +159,7 @@ flex-grow: 1;
   margin: 0px;
   font-size: 10px;
   &:hover {
-    background-color: rgba(200, 200, 200, 0.6);
+    background-color: $color_prime;
     color: white;
   }
 }

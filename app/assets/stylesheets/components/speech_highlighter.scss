@@ -1,14 +1,18 @@
 .highlightedSelection {
-  background-color: transparent;
+  // background-color: transparent;
+  border-bottom: 2px solid rgba(141, 33, 43, 0.8);
   // border-bottom: 2mm ridge rgba(141,33,43,0.6);
-  background-image: linear-gradient(to bottom,rgba(141,33,43,0.4),rgba(141,33,43,0.5));
+  // background-image: linear-gradient(to bottom,rgba(141,33,43,0.4),rgba(141,33,43,0.5));
   // border-bottom: 1px dashed rgba(180,180,180, 1);
   // color: rgba(180,180,180, 1);
   cursor: pointer;
+  &:hover {
+    background-color: rgba(141, 33, 43, 0.2);
+  }
 }
 
 .currentSelection {
-  border: 2px solid orange;
+  background-color: rgba(141, 33, 43, 0.4);
 }
 
 .highlightMenu {
