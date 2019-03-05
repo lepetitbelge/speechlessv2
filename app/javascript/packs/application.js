@@ -11,3 +11,6 @@ import { navbarSticky } from '../components/navbar';
 
 import { createProgressBar } from '../components/progress_bar';
 createProgressBar();
+
+import { connectHighlightContribution } from '../components/highlight_contribution_connection';
+connectHighlightContribution();

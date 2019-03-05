@@ -1,7 +1,7 @@
 <br>
 <ul class="comments">
   <div class="btn btn-ghost btn-show-c"><%= contribution.user.username %>'s contribution <i class="far fa-arrow-alt-circle-down"></i></div>
-  <div class="hideDivContributions">
+  <div class="hideDivContributions" id="uui-<%= contribution.selection_uui %>">
     <li class="comment">
       <a href="#" title="View this user profile" class="photo"><%= image_tag "#{contribution.user.photo_url}", class: "user-avatar-extra-small" %></a>
       <div class="meta">
@@ -26,7 +26,7 @@
     </li>
   </div>
   <div class="hideDivComments">
-    <% contribution.comments.each do |comment|%>
+    <% contribution.comments.reverse.each do |comment|%>
       <li class="comment level-2">
         <a href="#" title="View this user profile" class="photo"><%= image_tag "#{comment.user.photo_url}", class: "user-avatar-extra-small" %></a>
         <div class="meta"><%= comment.user.username %> | <%= comment.created_at.strftime("%d.%m.%Y") %></div>
@@ -36,7 +36,6 @@
           </div>
           <div class="contribution-voting text-center">
             <%= link_to comment_upvote_path(comment), method: :post, remote: true do %>
-          <!-- not sur if I need voting-item but leaving it for now -->
               <i class="fas fa-sort-up voting-item"></i>
             <% end %>
             <p id="comment-vote-count-<%= comment.id %>"><%= comment.vote_sum %></p>
