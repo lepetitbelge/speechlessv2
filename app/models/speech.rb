@@ -37,7 +37,7 @@ class Speech < ApplicationRecord
   end
 
   def format_country
-    self.country
+    self.country = CountryFormatted.new(country).perform
   end
 
   def date_cannot_be_in_future
