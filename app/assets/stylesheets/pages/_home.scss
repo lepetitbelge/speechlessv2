@@ -1,14 +1,4 @@
-.video_banner {
-  height: calc(100vh - 600px);
-  min-height: 250px;
-  width: 100%;
 
-  border-radius: 3px;
-  video {
-    height: 100%;
-    width: 100%;
-  }
-}
 
 .see-more {
   text-align: right;
@@ -20,5 +10,44 @@
       color: $color_prime;
       opacity: 1;
     }
+  }
+}
+
+.banner-wrapper {
+  height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.video_banner {
+  height: 100%;
+  width: 100%;
+  border-radius: 3px;
+  transform: scale(1.2);
+  video {
+    height: 100%;
+    width: 100%;
+  }
+}
+#photo_banner {
+background-image: url("https://res.cloudinary.com/lepetitbelge/image/upload/v1551806401/speechless-final-final-v4.png");
+background-position: center;
+animation: fade_in 3s;
+background-size: 208%;
+margin-top: 2px;
+height: 70%;
+width: 100%;
+border-radius: 3px;
+}
+
+@keyframes fade_in {
+  /* You could think of as "step 1" */
+  0% {
+    opacity: 0;
+    animation-timing-function: ease-in;
+  }
+  /* You could think of as "step 2" */
+  100% {
+    opacity: 1;
   }
 }

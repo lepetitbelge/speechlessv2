@@ -2,8 +2,10 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-md-10 col-md-offset-1">
-      <h2>Learn from the great, one speech at a time!</h2>
-      <div class="video_banner margin-t-20">
+      <div class="banner-wrapper">
+        <div class="video_banner margin-t-20">
+          <%= video_tag("https://res.cloudinary.com/lepetitbelge/video/upload/v1551798807/Speechless.mp4", autoplay: true) %>
+        </div>
       </div>
     </div>
   </div>
@@ -36,3 +38,20 @@
   </div>
 </div>
 <%= render 'shared/footer' %>
+
+<script>
+
+const transitionToWordcloud = () => {
+  const videoPlayer = document.querySelector("video");
+  const homePageBanner = document.querySelector(".video_banner");
+
+  videoPlayer.addEventListener("ended", (event) => {
+    homePageBanner.setAttribute("id", "photo_banner");
+    homePageBanner.removeChild(videoPlayer);
+    homePageBanner.classList.remove("video_banner", "margin-t-20")
+  });
+};
+
+transitionToWordcloud()
+
+</script>
