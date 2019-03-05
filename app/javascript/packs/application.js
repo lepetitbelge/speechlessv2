@@ -15,5 +15,8 @@ connectHighlightContribution();
 import { updateCurrentContributions } from '../components/show_current_contributions';
 updateCurrentContributions();
 
+
 import { transitionToWordcloud } from '../components/home_page_banner';
 transitionToWordcloud();
+
+console.log('hello');
