@@ -8,8 +8,8 @@ class PagesController < ApplicationController
 
   def speech_suggestions
     speeches = Speech.all
-    @all_time_speeches = speeches.sort_by(&:vote_sum).first(3)
-    @trending_speeches = speeches.sort_by(&:date).first(3)
+    @all_time_speeches = speeches.sort_by(&:vote_sum).reverse.first(3)
+    @trending_speeches = speeches.sort_by(&:date).reverse.first(3)
   end
 
 end
