@@ -1,9 +1,11 @@
 
+.thread {
+  overflow: scroll;
+}
 .thread-sticky {
   position: fixed !important;
   top: 75px;
   left: 57.7%;
-  overflow: scroll;
   max-height: calc(100vh - 90px);
 }
 .thread-contribution {
