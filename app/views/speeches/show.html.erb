@@ -21,12 +21,6 @@
             <p><%= @info_summary.html_safe %></p>
           <% end %>
         </div>
-        <div class="speeches-count">
-          <% highlights_count = 'XY' %>
-          <p>
-            <%= highlights_count %> highlight<%= "s" unless highlights_count == 1 %>
-          </p>
-        </div>
         <div class="stats">
           <p><i class="far fa-comment-alt"></i> <%= @speech.total_stats[:contributions] %></p>
           <p><i class="far fa-comment"></i> <%= @speech.total_stats[:comments] %></p>

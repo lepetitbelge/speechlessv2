@@ -168,9 +168,8 @@ flex-grow: 1;
 .btn-ghost {
   margin: 0px;
   font-size: 10px;
-  &:hover {
-    background-color: $color_prime;
-    color: white;
+  &:active {
+    box-shadow: none;
   }
 }
 
@@ -197,7 +196,7 @@ flex-grow: 1;
   font-size: 25px;
   position: relative;
   &:hover {
-    color: white;
+    transform: scale(1.5);
   }
 }
 .vote-counter {
@@ -208,4 +207,10 @@ flex-grow: 1;
   font-size: 10px;
   font-weight: bold;
   text-align: center;
+}
+
+.btn-clicked {
+  &:hover {
+    transform: scale(1.5);
+  }
 }
