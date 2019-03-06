@@ -42,7 +42,7 @@ if Rails.env.development?
 end
 
 puts '~~~creating categories~~~'
-%w[Activism Antiquity Celebrities Economics Education Fiction Politics Sports Technology].each do |category|
+%w[Activism Antiquity Business Celebrities Economics Education Fiction Politics Sports Technology].each do |category|
   Category.create(name: category)
 end
 
