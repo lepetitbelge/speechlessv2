@@ -1,0 +1,17 @@
+<% if current_user %>
+  <li class="comment level-2">
+    <a href="#" title="View this user profile" class="photo"><%= image_tag "#{current_user.photo_url}", class: "user-avatar-extra-small" %></a>
+    <div class="meta"><%= current_user.username %></div>
+    <div class="body-and-voting">
+      <div class="body">
+        <% comment = Comment.new %>
+        <%= form_for comment, url: contribution_comments_path(contribution), remote: true do |f| %>
+          <%= f.text_area :content, class: "body-comment border-r3" %>
+          <div class="submit-form">
+            <%= f.submit 'Submit', style: "border: none" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </li>
+<% end %>

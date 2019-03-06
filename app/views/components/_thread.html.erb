@@ -25,41 +25,8 @@
   </div>
   <div class="hideDivComments">
     <% contribution.comments.reverse.each do |comment|%>
-      <li class="comment level-2">
-        <a href="#" title="View this user profile" class="photo"><%= image_tag "#{comment.user.photo_url}", class: "user-avatar-extra-small" %></a>
-        <div class="meta"><%= comment.user.username %> | <%= comment.created_at.strftime("%d.%m.%Y - %H:%M") %></div>
-        <div class="body-and-voting">
-          <div class="body">
-            <%= comment.content %>
-          </div>
-          <div class="contribution-voting text-center">
-            <%= link_to comment_upvote_path(comment), method: :post, remote: true do %>
-              <i class="fas fa-sort-up voting-item"></i>
-            <% end %>
-            <p id="comment-vote-count-<%= comment.id %>"><%= comment.vote_sum %></p>
-            <%= link_to comment_downvote_path(comment), method: :post, remote: true do %>
-              <i class="fas fa-sort-down voting-item"></i>
-            <% end %>
-          </div>
-        </div>
-      </li>
+      <%= render "components/comment", comment: comment %>
     <% end %>
-    <% if current_user %>
-      <li class="comment level-2">
-        <a href="#" title="View this user profile" class="photo"><%= image_tag "#{current_user.photo_url}", class: "user-avatar-extra-small" %></a>
-        <div class="meta"><%= current_user.username %></div>
-        <div class="body-and-voting">
-          <div class="body">
-            <% comment = Comment.new %>
-            <%= form_for comment, url: contribution_comments_path(contribution), method: :post do |f| %>
-              <%= f.text_area :content, class: "body-comment border-r3" %>
-              <div class="submit-form">
-                <%= f.submit 'Submit', style: "border: none" %>
-              </div>
-            <% end %>
-          </div>
-        </div>
-      </li>
-    <% end %>
+    <%= render "components/comment_form", contribution: contribution %>
   </div>
 </ul>
