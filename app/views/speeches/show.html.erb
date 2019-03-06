@@ -28,9 +28,9 @@
           </p>
         </div>
         <div class="stats">
-          <p><i class="far fa-comment-alt"></i> <%= @speech.speaker.total_stats[:contributions] %></p>
-          <p><i class="far fa-comment"></i> <%= @speech.speaker.total_stats[:comments] %></p>
-          <p><i class="fas fa-sort voting-item"></i> <%= @speech.speaker.total_stats[:votes] %></p>
+          <p><i class="far fa-comment-alt"></i> <%= @speech.total_stats[:contributions] %></p>
+          <p><i class="far fa-comment"></i> <%= @speech.total_stats[:comments] %></p>
+          <p><i class="fas fa-sort voting-item"></i> <%= @speech.vote_sum %></p>
         </div>
       </div>
     </div>
@@ -64,7 +64,6 @@
             <%= f.input :paragraph, as: :hidden %>
             <%= hidden_field_tag :speech_html %>
             <%= f.input :content, input_html: { rows: 5, placeholder: 'Share your knowledge here...' } %>
-
             <%= f.submit class: 'submit-button' %>
           <% end %>
         </div>
