@@ -7,11 +7,9 @@ class PagesController < ApplicationController
   private
 
   def speech_suggestions
-    # TODO: Algorithm to make suggestions
-    # For now:
-    @all_time_speeches = Speech.all.sample(3)
-    @trending_speeches = Speech.all.sample(3)
-    # CHANGE LATER
+    speeches = Speech.all
+    @all_time_speeches = speeches.sort_by(&:vote_sum).first(3)
+    @trending_speeches = speeches.sample(3)
   end
 
 end
