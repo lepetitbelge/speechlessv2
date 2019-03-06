@@ -6,7 +6,7 @@ class Contribution < ApplicationRecord
   has_many :votes, as: :votable, dependent: :nullify
 
   # question: If we add :user to line 9. What happens when we delete a user (it has no dependent destroy)?
-  validates_presence_of :content, :speech
+  validates_presence_of :content, :speech, :selection_uui, :paragraph
   validates :content, length: { maximum: 1000, too_long: "can't have more than %{count} characters" }
 
   def vote_sum

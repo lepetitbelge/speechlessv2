@@ -14,11 +14,8 @@ class SpeakersController < ApplicationController
 
   def speech_suggestions
     speeches = Speech.where(speaker: @speaker)
-    # TODO: ake suggestions (order, latest, all time)
-    # For now:
-    @all_time_speeches = speeches
-    @latest_speeches = speeches
-    # CHANGE LATER
+    @all_time_speeches = speeches.sort_by(&:vote_sum).reverse
+    @latest_speeches = speeches.sort_by(&:date).reverse
   end
 
   def get_info_summary
