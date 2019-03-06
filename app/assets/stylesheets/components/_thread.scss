@@ -3,6 +3,8 @@
   position: fixed !important;
   top: 75px;
   left: 57.7%;
+  overflow: scroll;
+  max-height: calc(100vh - 90px);
 }
 .thread-contribution {
   width: 400px;
@@ -112,6 +114,8 @@ flex-grow: 1;
 .body {
   flex-grow: 1;
   position: relative;
+  overflow: scroll;
+  max-height: 200px;
 }
 .body-comment {
   width: 100%;
