@@ -16,7 +16,6 @@ import { updateCurrentContributions } from '../components/show_current_contribut
 updateCurrentContributions();
 
 
-import { transitionToWordcloud } from '../components/home_page_banner';
-transitionToWordcloud();
+// import { transitionToWordcloud } from '../components/home_page_banner';
+// transitionToWordcloud();
 
-console.log('hello');

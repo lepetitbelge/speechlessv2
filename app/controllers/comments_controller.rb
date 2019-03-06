@@ -5,6 +5,7 @@ class CommentsController < ApplicationController
     comment = Comment.new(comment_params)
     comment.user = current_user
     comment.contribution = Contribution.find(params[:contribution_id])
+    @contribution = comment.contribution
     if comment.save
       @speech = comment.speech
       respond_to do |format|
@@ -12,12 +13,11 @@ class CommentsController < ApplicationController
         format.js
       end
     else
-      respont_to do |format|
+      respond_to do |format|
         format.html { render 'speeches/show' }
         format.js
       end
     end
-    redirect_to speech_path(comment.contribution.speech)
   end
 
   def update

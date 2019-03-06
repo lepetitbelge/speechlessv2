@@ -7,11 +7,16 @@ class ContributionsController < ApplicationController
     @contribution.speech = Speech.find(params[:speech_id])
     @speech = @contribution.speech
     if @contribution.save
-      @contribution.speech.update(content: params[:speech_html])
-
-      redirect_to @speech
+      @speech.update(content: params[:speech_html])
+      respond_to do |format|
+        format.html { redirect_to speech_path(@speech) }
+        format.js
+      end
     else
-      render 'speeches/show'
+      respond_to do |format|
+        format.html { render 'speeches/show' }
+        format.js
+      end
     end
   end
 
