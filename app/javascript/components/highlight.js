@@ -72,7 +72,7 @@ const highlightSelection = (range, start, end) => {
 
 const bindTooltipEvents = (range, start, end) => {
   // const highlight = document.querySelector('.fa-highlighter');
-  const comment = document.querySelector('#contribution-tag');
+  const comment = document.querySelector('#modal-button');
   comment.addEventListener('click', () => {
     displayForm();
     highlightSelection(range, start, end);
