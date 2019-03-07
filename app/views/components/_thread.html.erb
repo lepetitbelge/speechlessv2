@@ -24,7 +24,7 @@
     </li>
   </div>
   <div class="hideDivComments">
-    <% contribution.comments.reverse.each do |comment|%>
+    <% contribution.comments.each do |comment|%>
       <%= render "components/comment", comment: comment %>
     <% end %>
     <%= render "components/comment_form", contribution: contribution %>
