@@ -1,2 +1,2 @@
 document.getElementById('<%= @vote.votable_type.downcase %>-vote-count-<%= @vote.votable_id %>').innerHTML = '<%= @vote.votable.vote_sum %>';
-document.getElementById('<%= @vote.votable_type.downcase %>-vote-count-<%= @vote.votable_id %>').parentElement.parentElement.parentElement.parentElement.previousElementSibling.firstElementChild.lastElementChild.innerHTML = '<%= @vote.votable.vote_sum %>';
+
