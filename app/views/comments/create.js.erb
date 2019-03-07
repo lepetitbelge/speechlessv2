@@ -1,5 +1,5 @@
 document.querySelectorAll('.hideDivComments.is-visible').forEach(commentSection => {
-  commentSection.innerHTML = `<% @contribution.comments.reverse.each do |comment|%>
+  commentSection.innerHTML = `<% @contribution.comments.each do |comment|%>
     <%= render "components/comment", comment: comment %>
   <% end %>
   <%= render "components/comment_form", contribution: @contribution %>`;
